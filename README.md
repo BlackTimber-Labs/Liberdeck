@@ -2,8 +2,8 @@
 <a href="https://blacktimberlabs.xyz">
 	<img src="https://user-images.githubusercontent.com/64047505/131963549-c128736a-ffa0-4f26-91bc-a5ddcff7f4af.png" alt="BlackTimber Labs"/>
 </a>
-	<h2 align="center"> < Insert Project Title Here > </h2>
-	<h4 align="center"> < Insert Project Description Here > <h4>
+	<h2 align="center"> Bookify </h2>
+	<h4 align="center"> Bookify <h4>
 </p>
 
 ---
