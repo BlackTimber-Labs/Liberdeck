@@ -46,11 +46,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/course/top_left.png
-    - assets/images/course/top_right.png
-    - assets/images/course_chp/center_top.png
-    - assets/images/course_chp/top_left.png
-    - assets/images/course_chp/top_right.png
+    - assets/images/sub/top_left.png
+    - assets/images/sub/top_right.png
+    - assets/images/sub_chp/center_top.png
+    - assets/images/sub_chp/top_left.png
+    - assets/images/sub_chp/top_right.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
