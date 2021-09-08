@@ -1,35 +1,38 @@
 import 'package:flutter/material.dart';
 
-class SubChpHeader extends StatelessWidget {
-  const SubChpHeader({
-    Key? key,
-  }) : super(key: key);
+//Header Containing the Image at the top_center.
 
+class ImageHeader extends StatelessWidget {
+  const ImageHeader({
+    Key? key,
+    required this.topRight,
+    required this.topLeft,
+    required this.topCenter,
+  }) : super(key: key);
+  final String topRight;
+  final String topLeft;
+  final String topCenter;
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
+      children: <Widget>[
         Positioned(
-          child: Container(
-            child: Image(
-              image: AssetImage(
-                "assets/images/sub_chp/top_right.png",
-              ),
-            ),
-          ),
           top: 0,
           right: 0,
-        ),
-        Positioned(
-          child: Container(
-            child: Image(
-              image: AssetImage(
-                "assets/images/sub_chp/top_left.png",
-              ),
+          child: Image(
+            image: AssetImage(
+              topRight,
             ),
           ),
+        ),
+        Positioned(
           top: 0,
           left: 0,
+          child: Image(
+            image: AssetImage(
+              topLeft,
+            ),
+          ),
         ),
         Positioned(
           child: Container(
@@ -37,7 +40,7 @@ class SubChpHeader extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  "assets/images/sub_chp/top_center.png",
+                  topCenter,
                 ),
                 alignment: Alignment.bottomCenter,
               ),

@@ -13,10 +13,10 @@ class SubMainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new StaggeredGridView.countBuilder(
+    return StaggeredGridView.countBuilder(
       crossAxisCount: 4,
       itemCount: 16,
-      itemBuilder: (BuildContext context, int index) => new Material(
+      itemBuilder: (BuildContext context, int index) => Material(
         color: Colors.transparent,
         shadowColor: Colors.transparent,
         elevation: 1,
@@ -26,7 +26,7 @@ class SubMainView extends StatelessWidget {
             height: height * 0.1,
             width: width * 0.2,
             decoration: BoxDecoration(
-              color: Theme.of(context).buttonColor,
+              color: Theme.of(context).buttonTheme.colorScheme!.background,
               borderRadius: BorderRadius.circular(10),
             ),
             padding: EdgeInsets.symmetric(
@@ -34,7 +34,7 @@ class SubMainView extends StatelessWidget {
               vertical: height * 0.03,
             ),
             child: Text(
-              "Subject Code",
+              'Subject Code',
               softWrap: true,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.button,
@@ -44,10 +44,9 @@ class SubMainView extends StatelessWidget {
         ),
       ),
       staggeredTileBuilder: (int index) =>
-          new StaggeredTile.count(2, index.isEven ? 1 : 1),
+          StaggeredTile.count(2, index.isEven ? 1 : 1),
       mainAxisSpacing: height * 0.02,
       crossAxisSpacing: width * 0.04,
     );
   }
 }
-

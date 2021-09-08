@@ -1,49 +1,54 @@
 import 'package:flutter/material.dart';
 
-class SubHeader extends StatelessWidget {
-  const SubHeader({
+// Header Containing Text at the Center Bottom.
+class TextHeader extends StatelessWidget {
+  const TextHeader({
     Key? key,
     required this.width,
     required this.height,
+    required this.topright,
+    required this.topleft,
+    required this.title,
+    required this.subtitle,
   }) : super(key: key);
 
   final double width;
   final double height;
-
+  final String topright;
+  final String topleft;
+  final String title;
+  final String subtitle;
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
+      children: <Widget>[
         Positioned(
-          child: Container(
-            child: Image(
-              image: AssetImage(
-                "assets/images/sub/top_right.png",
-              ),
-            ),
-          ),
           top: 0,
           right: 0,
-        ),
-        Positioned(
-          child: Container(
-            child: Image(
-              image: AssetImage(
-                "assets/images/sub/top_left.png",
-              ),
+          child: Image(
+            image: AssetImage(
+              topright,
             ),
           ),
-          top: 0,
-          left: 0,
         ),
         Positioned(
+          top: 0,
+          left: 0,
+          child: Image(
+            image: AssetImage(
+              topleft,
+            ),
+          ),
+        ),
+        Positioned(
+          top: 100,
           child: Container(
             padding: EdgeInsets.all(width * 0.03),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Text(
-                  "Hey ABC!",
+                  title,
                   style: Theme.of(context).textTheme.headline6,
                   textAlign: TextAlign.start,
                 ),
@@ -51,7 +56,7 @@ class SubHeader extends StatelessWidget {
                   height: height * 0.015,
                 ),
                 Text(
-                  "What Subject do you \n want to see?",
+                  subtitle,
                   softWrap: true,
                   maxLines: 2,
                   style: Theme.of(context).textTheme.headline5,
@@ -59,7 +64,6 @@ class SubHeader extends StatelessWidget {
               ],
             ),
           ),
-          top: 100,
         ),
       ],
     );

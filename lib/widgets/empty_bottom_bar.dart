@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BottomBar extends StatelessWidget {
-  const BottomBar({
+class EmptyBottomBar extends StatelessWidget {
+  const EmptyBottomBar({
     Key? key,
     required this.height,
   }) : super(key: key);
