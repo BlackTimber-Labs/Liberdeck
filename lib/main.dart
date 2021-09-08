@@ -1,7 +1,7 @@
-import 'package:bookify/screens/sub_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/sub_chp_screen.dart';
+import './screens/sub_screen.dart';
+import './screens/sub_chp_screen.dart';
 
 void main() {
   runApp(MyApp());

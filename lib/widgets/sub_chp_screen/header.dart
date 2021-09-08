@@ -37,7 +37,7 @@ class Header extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  "assets/images/sub_chp/center_top.png",
+                  "assets/images/sub_chp/top_center.png",
                 ),
                 alignment: Alignment.bottomCenter,
               ),
