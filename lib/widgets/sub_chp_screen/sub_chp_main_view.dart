@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MainView extends StatelessWidget {
-  const MainView({
+class SubChpMainView extends StatelessWidget {
+  const SubChpMainView({
     Key? key,
     required this.height,
     required this.width,

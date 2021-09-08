@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Header extends StatelessWidget {
-  const Header({
+class SubHeader extends StatelessWidget {
+  const SubHeader({
     Key? key,
     required this.width,
     required this.height,

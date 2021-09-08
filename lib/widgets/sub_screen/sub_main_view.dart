@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class MainView extends StatelessWidget {
-  const MainView({
+class SubMainView extends StatelessWidget {
+  const SubMainView({
     Key? key,
     required this.height,
     required this.width,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/bottom_bar.dart';
-import '../widgets/sub_chp_screen/header.dart';
-import '../widgets/sub_chp_screen/main_view.dart';
+import '../widgets/sub_chp_screen/sub_chp_header.dart';
+import '../widgets/sub_chp_screen/sub_chp_main_view.dart';
 
 
 class SubChpScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class _SubChpScreenState extends State<SubChpScreen> {
             height: height * 0.3,
             width: width,
             //color: Colors.amber,
-            child: Header(),
+            child: SubChpHeader(),
           ),
           Container(
             height: height * 0.65,
@@ -32,7 +32,7 @@ class _SubChpScreenState extends State<SubChpScreen> {
               horizontal: width * 0.08,
             ),
             //color: Colors.amber,
-            child: MainView(height: height, width: width),
+            child: SubChpMainView(height: height, width: width),
           ),
           SizedBox(
             height: height * 0.01,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/bottom_bar.dart';
-import '../widgets/sub_screen/header.dart';
-import '../widgets/sub_screen/main_view.dart';
+import '../widgets/sub_screen/sub_header.dart';
+import '../widgets/sub_screen/sub_main_view.dart';
 
 class SubScreen extends StatefulWidget {
   const SubScreen({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _SubScreenState extends State<SubScreen> {
             height: height * 0.3,
             width: width,
             //color: Colors.amber,
-            child: Header(width: width, height: height),
+            child: SubHeader(width: width, height: height),
           ),
           Container(
             height: height * 0.62,
@@ -31,7 +31,7 @@ class _SubScreenState extends State<SubScreen> {
             padding: EdgeInsets.symmetric(
               horizontal: width * 0.04,
             ),
-            child: MainView(height: height, width: width),
+            child: SubMainView(height: height, width: width),
           ),
           SizedBox(
             height: height * 0.04,

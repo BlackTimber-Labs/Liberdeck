@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Header extends StatelessWidget {
-  const Header({
+class SubChpHeader extends StatelessWidget {
+  const SubChpHeader({
     Key? key,
   }) : super(key: key);
 
