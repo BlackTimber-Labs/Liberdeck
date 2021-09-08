@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class SubChpMainView extends StatelessWidget {
   const SubChpMainView({
     Key? key,
@@ -77,18 +79,17 @@ class SubChpMainView extends StatelessWidget {
           ),
         ),
         Container(
-          height: height * 0.04,
+          height: height * 0.05,
           decoration: BoxDecoration(
             color: Colors.brown,
           ),
           width: width,
           child: IconButton(
-            icon: Icon(Icons.arrow_downward_rounded),
-            onPressed: null,
+            icon: FaIcon(FontAwesomeIcons.chevronDown),
+            onPressed: (){},
           ),
         )
       ],
     );
   }
 }
-
