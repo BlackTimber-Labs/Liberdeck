@@ -24,14 +24,14 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/sub/top_left.png
-    - assets/images/sub/top_right.png
-    - assets/images/sub_chp/top_center.png
-    - assets/images/sub_chp/top_left.png
-    - assets/images/sub_chp/top_right.png
-    - assets/images/settings/top_center.png
-    - assets/images/settings/top_left.png
-    - assets/images/settings/top_right.png
+    - assets/images/sub_screen/top_left.png
+    - assets/images/sub_screen/top_right.png
+    - assets/images/sub_chp_screen/top_center.png
+    - assets/images/sub_chp_screen/top_left.png
+    - assets/images/sub_chp_screen/top_right.png
+    - assets/images/settings_screen/top_center.png
+    - assets/images/settings_screen/top_left.png
+    - assets/images/settings_screen/top_right.png
 
   fonts:
     - family: Montserrat
