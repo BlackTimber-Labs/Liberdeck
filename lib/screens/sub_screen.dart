@@ -1,12 +1,17 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import '../widgets/empty_bottom_bar.dart';
-import '../widgets/sub_screen/sub_main_view.dart';
-import '../widgets/text_header.dart';
+import "../widgets/empty_bottom_bar.dart";
+import "../widgets/sub_screen/sub_main_view.dart";
+import "../widgets/text_header.dart";
 
+/// Root Widget of the Subject Screen
 class SubScreen extends StatefulWidget {
+  ///
   const SubScreen({Key? key}) : super(key: key);
-  static const String routename = '/sub';
+
+  /// Route Name of the Subject Screen
+  static const String routename = "/sub";
+
   @override
   _SubScreenState createState() => _SubScreenState();
 }
@@ -26,10 +31,10 @@ class _SubScreenState extends State<SubScreen> {
             child: TextHeader(
               width: width,
               height: height,
-              topright: 'assets/images/sub/top_right.png',
-              topleft: 'assets/images/sub/top_left.png',
-              subtitle: 'What Subject do you \n want to see?',
-              title: 'Hey ABC!',
+              topright: "assets/images/sub_screen/top_right.png",
+              topleft: "assets/images/sub_screen/top_left.png",
+              subtitle: "What Subject do you \n want to see?",
+              title: "Hey ABC!",
             ),
           ),
           Container(

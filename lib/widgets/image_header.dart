@@ -1,17 +1,24 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-//Header Containing the Image at the top_center.
-
+/// Header Containing the Image at the top_center.
 class ImageHeader extends StatelessWidget {
+  /// Constructor of the Class
   const ImageHeader({
     Key? key,
     required this.topRight,
     required this.topLeft,
     required this.topCenter,
   }) : super(key: key);
+
+  /// Image on Top Right Corner
   final String topRight;
+
+  /// Image on Top Left Corner
   final String topLeft;
+
+  /// Image on Top Center
   final String topCenter;
+
   @override
   Widget build(BuildContext context) {
     return Stack(

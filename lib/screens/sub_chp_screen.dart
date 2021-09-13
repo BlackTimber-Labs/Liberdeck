@@ -1,12 +1,16 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import '../widgets/empty_bottom_bar.dart';
-import '../widgets/image_header.dart';
-import '../widgets/sub_chp_screen/sub_chp_main_view.dart';
+import "../widgets/empty_bottom_bar.dart";
+import "../widgets/image_header.dart";
+import "../widgets/sub_chp_screen/sub_chp_main_view.dart";
 
+/// Root Widget of the Subject's Chapters Screen
 class SubChpScreen extends StatefulWidget {
+  ///
   const SubChpScreen({Key? key}) : super(key: key);
-  static const String routename = '/sub_chp';
+
+  /// Route Name of the Screen
+  static const String routename = "/sub_chp";
   @override
   _SubChpScreenState createState() => _SubChpScreenState();
 }
@@ -24,9 +28,9 @@ class _SubChpScreenState extends State<SubChpScreen> {
             width: width,
             //color: Colors.amber,
             child: const ImageHeader(
-              topCenter: 'assets/images/sub_chp/top_center.png',
-              topLeft: 'assets/images/sub_chp/top_left.png',
-              topRight: 'assets/images/sub_chp/top_right.png',
+              topCenter: "assets/images/sub_chp_screen/top_center.png",
+              topLeft: "assets/images/sub_chp_screen/top_left.png",
+              topRight: "assets/images/sub_chp_screen/top_right.png",
             ),
           ),
           Container(
