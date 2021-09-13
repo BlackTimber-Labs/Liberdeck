@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-// Header Containing Text at the Center Bottom.
+/// Header Widget Containing Text at the Center Bottom.
 class TextHeader extends StatelessWidget {
+  ///
   const TextHeader({
     Key? key,
     required this.width,
@@ -12,11 +13,22 @@ class TextHeader extends StatelessWidget {
     required this.subtitle,
   }) : super(key: key);
 
+  /// Width of the Screen in which this widget is used.
   final double width;
+
+  /// Height of the Screen in which this widget is used.
   final double height;
+
+  /// Image on Top Right Corner
   final String topright;
+
+  /// Image on Top Left Corner
   final String topleft;
+
+  /// Heading of the Screen
   final String title;
+
+  /// Sub Heading of the Screen
   final String subtitle;
   @override
   Widget build(BuildContext context) {
@@ -41,7 +53,7 @@ class TextHeader extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 100,
+          top: height*0.13, //responsive
           child: Container(
             padding: EdgeInsets.all(width * 0.03),
             child: Column(
