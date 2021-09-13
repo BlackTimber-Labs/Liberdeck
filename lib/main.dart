@@ -1,19 +1,22 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import './screens/sub_screen.dart';
-import './screens/sub_chp_screen.dart';
+import "./screens/settings_screen.dart";
+import "./screens/sub_chp_screen.dart";
+import "./screens/sub_screen.dart";
 
 void main() {
   runApp(MyApp());
 }
 
+/// Root Widget of the App
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: "Bookify",
       theme: ThemeData(
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           headline6: TextStyle(
             fontFamily: "Montserrat",
             fontWeight: FontWeight.w700,
@@ -29,19 +32,27 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w500,
             fontSize: 22.5,
           ),
+          bodyText1: TextStyle(
+            fontFamily: "Montserrat",
+            fontWeight: FontWeight.w500,
+            fontSize: 19.5,
+          ),
         ),
         primarySwatch: Colors.orange,
       ),
-      home: MyHomePage(),
-      routes: {
-        SubScreen.routename: (ctx) => SubScreen(),
-        SubChpScreen.routename: (ctx) => SubChpScreen(),
+      home: const MyHomePage(),
+      routes: <String, WidgetBuilder>{
+        SubScreen.routename: (BuildContext ctx) => const SubScreen(),
+        SubChpScreen.routename: (BuildContext ctx) => const SubChpScreen(),
+        SettingsScreen.routename: (BuildContext ctx) => SettingsScreen(),
       },
     );
   }
 }
 
+///
 class MyHomePage extends StatefulWidget {
+  ///
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -51,6 +62,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return SubScreen();
+    return const SubScreen();
   }
 }
