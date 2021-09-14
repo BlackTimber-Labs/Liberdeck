@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-import "./screens/settings_screen.dart";
+//import "./screens/settings_screen.dart";
 import "./screens/sub_chp_screen.dart";
 import "./screens/sub_screen.dart";
 
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         SubScreen.routename: (BuildContext ctx) => const SubScreen(),
         SubChpScreen.routename: (BuildContext ctx) => const SubChpScreen(),
-        SettingsScreen.routename: (BuildContext ctx) => SettingsScreen(),
+        // SettingsScreen.routename: (BuildContext ctx) => SettingsScreen(),
       },
     );
   }
