@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 /// Header Widget Containing Text at the Center Bottom.
 class TextHeader extends StatelessWidget {

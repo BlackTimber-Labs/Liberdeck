@@ -1,8 +1,8 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 //import "./screens/settings_screen.dart";
-import "./screens/sub_chp_screen.dart";
-import "./screens/sub_screen.dart";
+import './screens/sub_chp_screen.dart';
+import './screens/sub_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,26 +14,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Liberdeck",
+      title: 'Liberdeck',
       theme: ThemeData(
         textTheme: const TextTheme(
           headline6: TextStyle(
-            fontFamily: "Montserrat",
+            fontFamily: 'Montserrat',
             fontWeight: FontWeight.w700,
             fontSize: 40,
           ),
           headline5: TextStyle(
-            fontFamily: "Montserrat",
+            fontFamily: 'Montserrat',
             fontWeight: FontWeight.w600,
             fontSize: 22.5,
           ),
           button: TextStyle(
-            fontFamily: "SF UI Display",
+            fontFamily: 'SF UI Display',
             fontWeight: FontWeight.w500,
             fontSize: 22.5,
           ),
           bodyText1: TextStyle(
-            fontFamily: "Montserrat",
+            fontFamily: 'Montserrat',
             fontWeight: FontWeight.w500,
             fontSize: 19.5,
           ),
