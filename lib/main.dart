@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Bookify",
+      title: "Liberdeck",
       theme: ThemeData(
         textTheme: const TextTheme(
           headline6: TextStyle(

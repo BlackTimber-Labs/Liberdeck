@@ -1,6 +1,6 @@
 {
-    "name": "bookify",
-    "short_name": "bookify",
+    "name": "Liberdeck",
+    "short_name": "Liberdeck",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

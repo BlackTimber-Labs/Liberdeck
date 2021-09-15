@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bookify">
+    package="com.blacktimberlabs.liberdeck">
    <application
-        android:label="bookify"
+        android:label="LiberDeck"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

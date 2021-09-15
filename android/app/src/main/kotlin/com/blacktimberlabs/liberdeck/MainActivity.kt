@@ -1,4 +1,4 @@
-package com.example.bookify
+package com.blacktimberlabs.liberdeck
 
 import io.flutter.embedding.android.FlutterActivity
 

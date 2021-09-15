@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "777422278587",
+    "project_id": "bookify-7e610",
+    "storage_bucket": "bookify-7e610.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777422278587:android:ee30c7ca3661c8c3877e9e",
+        "android_client_info": {
+          "package_name": "com.blacktimberlabs.liberdeck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777422278587-d7t7v9mtllt3g9kl6t6282ehldhgbu71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blacktimberlabs.liberdeck",
+            "certificate_hash": "b89369803a1141e72170d055700e6fdd79e50658"
+          }
+        },
+        {
+          "client_id": "777422278587-m4snriibgsnf8emqcedmgrf2er0c9cl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLlB8yrSQAkiRw2QTmif0d6kwZQBiKBzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777422278587-m4snriibgsnf8emqcedmgrf2er0c9cl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
