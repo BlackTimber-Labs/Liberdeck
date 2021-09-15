@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "777422278587",
-    "project_id": "bookify-7e610",
-    "storage_bucket": "bookify-7e610.appspot.com"
+    "project_number": "361406377677",
+    "project_id": "liberdeck-f3f07",
+    "storage_bucket": "liberdeck-f3f07.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:777422278587:android:ee30c7ca3661c8c3877e9e",
+        "mobilesdk_app_id": "1:361406377677:android:5733fb33ed58828cce8384",
         "android_client_info": {
           "package_name": "com.blacktimberlabs.liberdeck"
         }
       },
       "oauth_client": [
         {
-          "client_id": "777422278587-d7t7v9mtllt3g9kl6t6282ehldhgbu71.apps.googleusercontent.com",
+          "client_id": "361406377677-k6qa9h636sfsvefpi60l382pivkumuf7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.blacktimberlabs.liberdeck",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "777422278587-m4snriibgsnf8emqcedmgrf2er0c9cl0.apps.googleusercontent.com",
+          "client_id": "361406377677-vjitbsbv37u6rphb74ou29rnm79313g6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDLlB8yrSQAkiRw2QTmif0d6kwZQBiKBzc"
+          "current_key": "AIzaSyAeKEdT0wn7Arf01se0U-DDoJjUg3Jtln4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "777422278587-m4snriibgsnf8emqcedmgrf2er0c9cl0.apps.googleusercontent.com",
+              "client_id": "361406377677-vjitbsbv37u6rphb74ou29rnm79313g6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
