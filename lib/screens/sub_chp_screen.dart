@@ -28,9 +28,12 @@ class _SubChpScreenState extends State<SubChpScreen> {
             width: width,
             //color: Colors.amber,
             child: const ImageHeader(
+
+
               topCenter: 'assets/images/sub_chp_TopCenter.png',
               topLeft: 'assets/images/sub_chp_TopLeft.png',
               topRight: 'assets/images/sub_chp_TopRight.png',
+
             ),
           ),
           Container(

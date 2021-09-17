@@ -31,8 +31,10 @@ class _SubScreenState extends State<SubScreen> {
             child: TextHeader(
               width: width,
               height: height,
+
               topright: 'assets/images/sub_chp_TopRight.png',
               topleft: 'assets/images/sub_chp_TopLeft.png',
+
               subtitle: 'What Subject do you \n want to see?',
               title: 'Hey ABC!',
             ),
