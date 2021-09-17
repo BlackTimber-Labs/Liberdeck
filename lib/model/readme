@@ -1,11 +1,15 @@
-====================MODEL EXPLAINATION====================
+==========================MODEL EXPLAINATION==========================
 
-=================================PATH===============================
+The User will Select 
 
-Course Selection => Department Selection => Semester Selection => Subject Selection => Book Selection 
+(1) The Course, 
+then the Departments will be sorted on the basis of the Course.
 
-EX=>
+(2) The Department,
+then the Semesters will be sorted on the basis of the Course & Department.
 
-B.Tech => Information Technology => 3rd Semester => MA2101 => The Book
+(3) The Semesters,
+then the Subjects will be sorted on the basis of the Course, Department and Semester.
 
-=======================================================================
+(4) The Subjects,
+then the books will be sorted on the basis of the Course, Department, Semester, and Subject.
