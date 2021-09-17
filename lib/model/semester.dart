@@ -1,13 +1,22 @@
-import './subject.dart';
-///These are the details each semester contain. 
+///These are the details each semester contain.
 class Semester {
   ///Constructor
   Semester({
+    required this.sem,
     required this.title,
-    required this.subjects,
+    required this.courseName,
+    required this.departmentName,
   });
-  /// Title of the semester (Ex=> 1)
+
+  /// No. of the semester (Ex=>1)
+  int sem;
+
+  /// Title of the semester (Ex=> 1st Semester)
   String title;
-  /// This the list of subjects in each semester.
-  List<Subject> subjects;
+
+  /// Name of the Cousre
+  String courseName;
+
+  /// Name of the Department
+  String departmentName;
 }
