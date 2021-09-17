@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -8,10 +9,20 @@ import './provider/department_provider.dart';
 import './provider/semester_provider.dart';
 import './provider/subject_provider.dart';
 
+import 'package:liberdeck/provider/google_sign_in.dart';
+import 'package:liberdeck/screens/login_page.dart';
+import 'package:liberdeck/screens/profile_page.dart';
+import 'package:liberdeck/screens/books_page.dart';
+
 import './screens/sub_chp_screen.dart';
 import './screens/sub_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -19,8 +30,10 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return MultiProvider(
         providers: <SingleChildWidget>[
+          ChangeNotifierProvider(create: (_)=>GoogleSignInProvider()),
           ChangeNotifierProvider<CourseProvider>(
               create: (_) => CourseProvider()),
           ChangeNotifierProvider<DepartmentProvider>(
@@ -59,12 +72,23 @@ class MyApp extends StatelessWidget {
             ),
             primarySwatch: Colors.orange,
           ),
-          home: const MyHomePage(),
-          routes: <String, WidgetBuilder>{
-            SubScreen.routename: (BuildContext ctx) => const SubScreen(),
-            SubChpScreen.routename: (BuildContext ctx) => const SubChpScreen(),
-          },
-        ));
+          
+        home: LoginPage(),
+        routes: <String, WidgetBuilder>{
+          SubScreen.routename: (BuildContext ctx) => const SubScreen(),
+          SubChpScreen.routename: (BuildContext ctx) => const SubChpScreen(),
+          // SettingsScreen.routename: (BuildContext ctx) => SettingsScreen(),
+          // LoginPage.routename: (BuildContext ctx) => const LoginPage(),
+        },
+        // initialRoute: LoginPage.id,
+        // routes: {
+        //   LoginPage.id: (context) => LoginPage(),
+        //   SubScreen.id: (context) => SubScreen(),
+        //   ProfilePage.id: (context) => ProfilePage(),
+        //   ViewBooks.id: (context) => ViewBooks(),
+        // },
+      ),
+    );
   }
 }
 
@@ -80,6 +104,26 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const SubScreen();
+    return Scaffold(
+      body: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return Center(child: CircularProgressIndicator(),);
+          } else if(snapshot.hasError){
+            return Center(child: Text('Something Went Wrong!'),);
+          } else if(snapshot.hasData){
+            return SubScreen();
+          }
+          else{
+            return LoginPage();
+          }
+
+
+        },
+      ),
+    );
   }
 }
+
+
