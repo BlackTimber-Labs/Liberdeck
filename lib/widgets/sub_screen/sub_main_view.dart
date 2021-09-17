@@ -1,7 +1,7 @@
-import "package:flutter/material.dart";
-import "package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import "../../screens/sub_chp_screen.dart";
+import '../../screens/sub_chp_screen.dart';
 
 /// Root Widegt of the Subject Screen's Main Component
 class SubMainView extends StatelessWidget {
@@ -40,7 +40,7 @@ class SubMainView extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                "Subject Code",
+                'Subject Code',
                 softWrap: true,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.button,
