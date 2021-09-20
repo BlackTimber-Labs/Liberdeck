@@ -17,24 +17,26 @@ class _ViewBooksState extends State<ViewBooks> {
         backgroundColor: Colors.white,
         body: Column(
           children: <Widget>[
-            Container(
-              height: height* 0.2,
-              width: width,
-              child: BookHeader(),
+            Expanded(
+              child: Container(
+                child: BookHeader(),
+              ),
             ),
             Subject(),
-            SizedBox(height: 25),
-            Container(
-              height: height* 0.6,
-              child: ListView(
-                children: [
-                  Books(),
-                  Books(),
-                  Books(),
-                  Books(),
-                  Books(),
-                  Books(),
-                ],
+            const SizedBox(height: 25),
+            Expanded(
+              child: Container(
+                height: height* 0.6,
+                child: ListView(
+                  children: [
+                    Books(),
+                    Books(),
+                    Books(),
+                    Books(),
+                    Books(),
+                    Books(),
+                  ],
+                ),
               ),
             )
           ],
@@ -78,8 +80,12 @@ class _SubjectState extends State<Subject> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('MA2101', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0),),
-        Text('ENGG MATHS', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 35.0),),
+        const Text('MA2101',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 40.0),),
+        const Text('ENGG MATHS',
+          style: TextStyle(
+              fontWeight: FontWeight.w600, fontSize: 35.0),),
       ],
     );
   }
@@ -100,7 +106,7 @@ class _BooksState extends State<Books> {
     return Padding(
       padding: EdgeInsets.only(left: 20, top: 30, right: 20),
       child: Container(
-        height: height* 0.3,
+        height: height* 0.4,
         width: width,
         child: Column(
           children: <Widget>[
@@ -117,13 +123,13 @@ class _BooksState extends State<Books> {
                   padding: EdgeInsets.only(top: 25),
                   child: Column(
                     children: [
-                      Text('Becoming',
+                      const Text('Becoming',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 30
                         ),
                       ),
-                      Text('Michelle Obama',
+                      const Text('Michelle Obama',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 25,
@@ -131,29 +137,29 @@ class _BooksState extends State<Books> {
                       ),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon: Icon(Icons.bookmark),
-                        label: Text('     Save     '),
+                        icon: const Icon(Icons.bookmark),
+                        label: const Text('     Save     '),
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
-                                Color(0xFF904A38))
+                                const Color(0xFF904A38))
                         ),
                       ),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon: Icon(Icons.visibility),
-                        label: Text('     View     '),
+                        icon: const Icon(Icons.visibility),
+                        label: const Text('     View     '),
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
-                                Color(0xFF904A38))
+                                const Color(0xFF904A38))
                         ),
                       ),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon: Icon(Icons.download_for_offline),
-                        label: Text('Download'),
+                        icon: const Icon(Icons.download_for_offline),
+                        label: const Text('Download'),
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
-                                Color(0xFF904A38))
+                                const Color(0xFF904A38))
                         ),
                       ),
                     ],
