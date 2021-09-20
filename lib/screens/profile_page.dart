@@ -2,7 +2,9 @@ import 'package:liberdeck/screens/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'department_screen.dart';
+import 'books_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class ProfilePage extends StatefulWidget {
 
   @override
@@ -10,33 +12,84 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  int _currentIndex=0;
+  final tabs =[
+    Cont(),
+    BodyS(),
+    //todo change this as per your need.
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          selectedFontSize: 15,
+          selectedIconTheme: IconThemeData(size: 30),
+          unselectedIconTheme: IconThemeData(size: 23.5),
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Color(0xFF843622),
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.home,color: Color(0xFFF8F8F8),),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.solidBookmark,color: Color(0xFFF8F8F8)),
+                label: 'Bookmark'
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.solidUserCircle,color: Color(0xFFF8F8F8)),
+                label: 'Profile'
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.signOutAlt,color: Color(0xFFF8F8F8),),
+                label: 'Log Out'
+            ),
+          ],
+        ),
+        backgroundColor: Color(0xFFFFFFFF),
+        body: BodyS()
+    );
+  }
+}
+
+class BodyS extends StatefulWidget {
+  @override
+  _BodySState createState() => _BodySState();
+}
+
+class _BodySState extends State<BodyS> {
   @override
   Widget build(BuildContext context) {
     final height= MediaQuery.of(context).size.height;
     final width= MediaQuery.of(context).size.width;
-
-    return Scaffold(
-        backgroundColor: Color(0xFFFFFFFF),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget> [
-              Container(
-                height: height* 0.26,
-                width: width,
-                child: ProfileHeader(),
-              ),
-              Column(
-                children:<Widget> [
-                  Center(child: Text('My Profile',style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, letterSpacing: 2.0),)),
-                  ProfileInfo(),
-                ],
-              ),
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget> [
+          Container(
+            height: height* 0.26,
+            width: width,
+            child: ProfileHeader(),
+          ),
+          Column(
+            children:<Widget> [
+              Center(child: Text('My Profile',style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, letterSpacing: 2.0),)),
+              ProfileInfo(),
             ],
           ),
-        )
+        ],
+      ),
     );
   }
 }
+
 
 class ProfileHeader extends StatelessWidget {
 
@@ -78,9 +131,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
 
-    return Padding(
-      padding: EdgeInsets.only(left: 30, top: 20,right: 30),
-      child: Column(
+    return  Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children:<Widget> [
@@ -161,8 +212,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
             ),
           ),
         ],
-      ),
-    );
+      );
   }
 }
 

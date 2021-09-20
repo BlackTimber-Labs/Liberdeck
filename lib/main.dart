@@ -11,7 +11,17 @@ import './provider/google_sign_in.dart';
 import './provider/semester_provider.dart';
 import './provider/subject_provider.dart';
 
+
 import './screens/login_page.dart';
+
+import 'package:liberdeck/provider/google_sign_in.dart';
+import 'package:liberdeck/screens/login_page.dart';
+import 'package:liberdeck/screens/profile_page.dart';
+import 'package:liberdeck/screens/books_page.dart';
+import 'screens/department_screen.dart';
+import 'screens/about_screen.dart';
+import 'screens/semester_screen.dart';
+
 import './screens/sub_chp_screen.dart';
 import './screens/sub_screen.dart';
 
@@ -64,10 +74,12 @@ class MyApp extends StatelessWidget {
               fontSize: 19.5,
             ),
           ),
+
           primarySwatch: Colors.orange,
         ),
 
         home: LoginPage(),
+
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
           SubChpScreen.routename: (BuildContext ctx) => const SubChpScreen(),

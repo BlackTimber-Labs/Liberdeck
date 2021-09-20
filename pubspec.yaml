@@ -18,7 +18,8 @@ dependencies:
     sdk: flutter
   flutter_staggered_grid_view: ^0.4.0
   font_awesome_flutter: ^9.1.0
-  
+
+  url_launcher:
 
 dev_dependencies:
   flutter_test:

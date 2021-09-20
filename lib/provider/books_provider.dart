@@ -4,7 +4,21 @@ import '../model/book.dart';
 /// Book Data Provider containing the list of the books and all the
 /// functions requires
 class BooksProvider with ChangeNotifier {
-  final List<Book> _bookList = [];
+  final List<Book> _bookList = [
+    Book(
+      author: "",
+      courseID: "",
+      departmentID: "",
+      downloadUrl: "",
+      id: "",
+      imgUrl: "",
+      sem: 1,
+      subID: "",
+      title: "",
+      viewUrl: "",
+      saveStatus: false,
+    ),
+  ];
 
   /// Getter to make a copy of the List.
   List<Book> get bookList {
