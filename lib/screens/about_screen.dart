@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'books_sceen.dart';
-import 'profile_screen.dart';
+import './books_view_sceen.dart';
+import './profile_screen.dart';
 
 class AboutScreen extends StatefulWidget {
   static const String routename = '/about_screen';

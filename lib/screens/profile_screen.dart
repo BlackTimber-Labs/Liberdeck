@@ -14,7 +14,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   int _currentIndex = 0;
   final tabs = [
-    Cont(),
+    DepartmentScreen(),
     BodyS(),
     //todo change this as per your need.
   ];
