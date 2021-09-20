@@ -13,7 +13,8 @@ import './provider/semester_provider.dart';
 import './provider/subject_provider.dart';
 
 import './screens/about_screen.dart';
-import './screens/books_sceen.dart';
+import './screens/books_view_sceen.dart';
+import './screens/bottom_navigation_screen.dart';
 import './screens/department_screen.dart';
 import './screens/login_screen.dart';
 import './screens/profile_screen.dart';
@@ -76,7 +77,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange,
         ),
 
-        home: BooksViewScreen(),
+        home: BottomNavigationScreen(),
         // home: SavedBookScreen(),
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
@@ -88,6 +89,8 @@ class MyApp extends StatelessWidget {
           AboutScreen.routename: (BuildContext ctx) => AboutScreen(),
           LoginScreen.routename: (BuildContext ctx) => LoginScreen(),
           ProfileScreen.routename: (BuildContext ctx) => ProfileScreen(),
+          BottomNavigationScreen.routename: (BuildContext ctx) =>
+              BottomNavigationScreen(),
         },
       ),
     );
