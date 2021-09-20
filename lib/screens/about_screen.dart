@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'semester_screen.dart';
-import 'department_screen.dart';
-import 'books_page.dart';
-import 'profile_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class About extends StatefulWidget {
+import 'books_sceen.dart';
+import 'profile_screen.dart';
+
+class AboutScreen extends StatefulWidget {
+  static const String routename = '/about_screen';
   @override
-  _AboutState createState() => _AboutState();
+  _AboutScreenState createState() => _AboutScreenState();
 }
 int _currentIndex=0;
 final tabs =[
   Developer(),
-  ViewBooks(),
+  BooksViewScreen(),
   BodyS(),
   //todo change this as per your need.
 ];
-class _AboutState extends State<About> {
+class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

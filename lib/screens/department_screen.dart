@@ -1,21 +1,22 @@
-import 'about_screen.dart';
 import 'package:flutter/material.dart';
-import 'semester_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'books_page.dart';
-import 'profile_page.dart';
 
-class Department extends StatefulWidget {
+import './books_sceen.dart';
+import './profile_screen.dart';
+import './semester_screen.dart';
+
+class DepartmentScreen extends StatefulWidget {
+  static const String routename = '/department_screen';
   @override
-  _DepartmentState createState() => _DepartmentState();
+  _DepartmentScreenState createState() => _DepartmentScreenState();
 }
 
-class _DepartmentState extends State<Department> {
+class _DepartmentScreenState extends State<DepartmentScreen> {
   int _currentIndex=0;
 
   final tabs =[
     Cont(),
-    ViewBooks(),
+    BooksViewScreen(),
     BodyS(),
     //todo change this as per your need.
   ];
@@ -186,7 +187,7 @@ class _BNState extends State<BN> {
           onPressed: () {
             setState(() {
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return Scaffo();
+                return SemesterScreen();
               }
               ));
             });

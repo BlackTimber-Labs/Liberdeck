@@ -8,20 +8,17 @@ import './provider/books_provider.dart';
 import './provider/course_provider.dart';
 import './provider/department_provider.dart';
 import './provider/google_sign_in.dart';
+import './provider/saved_book_provider.dart';
 import './provider/semester_provider.dart';
 import './provider/subject_provider.dart';
 
-
-import './screens/login_page.dart';
-
-import 'package:liberdeck/provider/google_sign_in.dart';
-import 'package:liberdeck/screens/login_page.dart';
-import 'package:liberdeck/screens/profile_page.dart';
-import 'package:liberdeck/screens/books_page.dart';
-import 'screens/department_screen.dart';
-import 'screens/about_screen.dart';
-import 'screens/semester_screen.dart';
-
+import './screens/about_screen.dart';
+import './screens/books_sceen.dart';
+import './screens/department_screen.dart';
+import './screens/login_screen.dart';
+import './screens/profile_screen.dart';
+import './screens/saved_book_screen.dart';
+import './screens/semester_screen.dart';
 import './screens/sub_chp_screen.dart';
 import './screens/sub_screen.dart';
 
@@ -47,6 +44,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<SubjectProvider>(
             create: (_) => SubjectProvider()),
         ChangeNotifierProvider<BooksProvider>(create: (_) => BooksProvider()),
+        ChangeNotifierProvider<SavedBooksProvider>(
+            create: (_) => SavedBooksProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -74,25 +73,22 @@ class MyApp extends StatelessWidget {
               fontSize: 19.5,
             ),
           ),
-
           primarySwatch: Colors.orange,
         ),
 
-        home: LoginPage(),
-
+        home: BooksViewScreen(),
+        // home: SavedBookScreen(),
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
           SubChpScreen.routename: (BuildContext ctx) => const SubChpScreen(),
-          // SettingsScreen.routename: (BuildContext ctx) => SettingsScreen(),
-          // LoginPage.routename: (BuildContext ctx) => const LoginPage(),
+          BooksViewScreen.routename: (BuildContext ctx) => BooksViewScreen(),
+          SavedBooksScreen.routename: (BuildContext ctx) => SavedBooksScreen(),
+          SemesterScreen.routename: (BuildContext ctx) => SemesterScreen(),
+          DepartmentScreen.routename: (BuildContext ctx) => DepartmentScreen(),
+          AboutScreen.routename: (BuildContext ctx) => AboutScreen(),
+          LoginScreen.routename: (BuildContext ctx) => LoginScreen(),
+          ProfileScreen.routename: (BuildContext ctx) => ProfileScreen(),
         },
-        // initialRoute: LoginPage.id,
-        // routes: {
-        //   LoginPage.id: (context) => LoginPage(),
-        //   SubScreen.id: (context) => SubScreen(),
-        //   ProfilePage.id: (context) => ProfilePage(),
-        //   ViewBooks.id: (context) => ViewBooks(),
-        // },
       ),
     );
   }
@@ -125,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
           } else if (snapshot.hasData) {
             return const SubScreen();
           } else {
-            return LoginPage();
+            return LoginScreen();
           }
         },
       ),

@@ -1,55 +1,45 @@
 import 'package:flutter/material.dart';
 import 'about_screen.dart';
 
-class Scaffo extends StatefulWidget {
+
+class SemesterScreen extends StatefulWidget {
+  static const String routename = '/semester_screen';
   @override
-  _ScaffoState createState() => _ScaffoState();
+  _SemesterScreenState createState() => _SemesterScreenState();
 }
 
-class _ScaffoState extends State<Scaffo> {
+class _SemesterScreenState extends State<SemesterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Sem(),
-    );
-  }
-}
-
-class Sem extends StatefulWidget {
-  @override
-  _SemState createState() => _SemState();
-}
-
-class _SemState extends State<Sem> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Container(
-          height: 120,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/semester_screen_top_right.png'),
-              alignment: Alignment.topRight,
-            )
+      body: ListView(
+        children: [
+          Container(
+            height: 120,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/semester_screen_top_right.png'),
+                alignment: Alignment.topRight,
+              )
+            ),
           ),
-        ),
-        Center(child: Text('Select your Semester',style: TextStyle(fontSize: 29,fontWeight: FontWeight.w600),)),
-        SizedBox2(),
-        Contain('1st', '2nd'),
-        SizedBox2(),
-        Contain('3rd', '4th'),
-        SizedBox2(),
-        Contain('5th', '6th'),
-        SizedBox2(),
-        Contain('7th', '8th'),
-        SizedBox2(),
-        Contain('9th', '10th'),
-        SizedBox2(),
-        BN(),
-        SizedBox(height: 30,)
-      ],
+          Center(child: Text('Select your Semester',style: TextStyle(fontSize: 29,fontWeight: FontWeight.w600),)),
+          SizedBox2(),
+          Contain('1st', '2nd'),
+          SizedBox2(),
+          Contain('3rd', '4th'),
+          SizedBox2(),
+          Contain('5th', '6th'),
+          SizedBox2(),
+          Contain('7th', '8th'),
+          SizedBox2(),
+          Contain('9th', '10th'),
+          SizedBox2(),
+          BN(),
+          SizedBox(height: 30,)
+        ],
+      ),
     );
   }
 }
@@ -146,7 +136,7 @@ class _BNState extends State<BN> {
           onPressed: (){
             setState(() {
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return About();
+                return AboutScreen();
               }
               ));
             });
