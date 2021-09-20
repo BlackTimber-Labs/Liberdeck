@@ -3,12 +3,16 @@ class Department {
   ///Constructor
   Department({
     required this.title,
-    required this.courseName,
+    required this.courseID,
+    required this.id,
   });
 
   /// Title of the Department (Ex=> Information Technology)
   String title;
 
-  /// Name of the Cousre
-  String courseName;
+  /// ID of the Cousre
+  String courseID;
+
+  /// ID of the Department (Ex=> it)
+  String id;
 }

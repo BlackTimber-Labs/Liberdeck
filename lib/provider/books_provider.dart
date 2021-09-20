@@ -4,20 +4,7 @@ import '../model/book.dart';
 /// Book Data Provider containing the list of the books and all the
 /// functions requires
 class BooksProvider with ChangeNotifier {
-  final List<Book> _bookList = <Book>[
-    Book(
-      id: '1',
-      title: 'MATHS',
-      author: 'ME',
-      imgUrl: 'imgUrl',
-      viewUrl: 'viewUrl',
-      downloadUrl: 'downloadUrl',
-      courseName: 'B.Tech',
-      departmentName: 'IT',
-      sem: 1,
-      subName: 'MA2101',
-    ),
-  ];
+  final List<Book> _bookList = [];
 
   /// Getter to make a copy of the List.
   List<Book> get bookList {
@@ -32,21 +19,21 @@ class BooksProvider with ChangeNotifier {
 
   /// Function to showcase the final list of the book semester wise.
   List<Book> findBook(
-    String courseName,
-    String departmentName,
+    String courseID,
+    String departmentID,
     int sem,
-    String subName,
+    String subID,
   ) {
     final List<Book> finalbookList = bookList
         .where(
           (Book element) =>
-              (element.courseName
+              (element.courseID
                   .toLowerCase()
-                  .contains(courseName.toLowerCase())) &&
-              (element.departmentName
+                  .contains(courseID.toLowerCase())) &&
+              (element.departmentID
                   .toLowerCase()
-                  .contains(departmentName.toLowerCase())) &&
-              (element.subName.toLowerCase().contains(subName.toLowerCase())) &&
+                  .contains(departmentID.toLowerCase())) &&
+              (element.subID.toLowerCase().contains(subID.toLowerCase())) &&
               element.sem == sem,
         )
         .toList();

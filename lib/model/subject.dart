@@ -4,16 +4,23 @@ class Subject {
   Subject({
     required this.title,
     required this.sem,
-    required this.departmentName,
-    required this.courseName,
+    required this.departmentID,
+    required this.courseID,
+    required this.id,
   });
 
   /// Subject title (Ex=> MA2101)
   String title;
+
   /// The no. of Semester
   int sem;
-  /// Name of the Department
-  String departmentName;
-  /// Name of the Course
-  String courseName;
+
+  /// ID of the Department
+  String departmentID;
+
+  /// ID of the Course
+  String courseID;
+
+  /// ID of the Subject (Ex=> ma2101)
+  String id;
 }

@@ -8,9 +8,9 @@ class SemesterProvider with ChangeNotifier {
   final List<Semester> _semesterList = <Semester>[
     Semester(
       title: '1st Semester',
-      courseName: 'B.tech',
+      courseID: 'btech',
       sem: 1,
-      departmentName: 'Information Technology',
+      departmentID: 'it',
     ),
   ];
 
@@ -19,18 +19,18 @@ class SemesterProvider with ChangeNotifier {
 
   /// Function to showcase the final list of Semester department wise.
   List<Semester> findSemester(
-    String courseName,
-    String departmentName,
+    String courseID,
+    String departmentID,
   ) {
     final List<Semester> finalSemesterList = semesterList
         .where(
           (Semester element) =>
-              element.courseName
+              element.courseID
                   .toLowerCase()
-                  .contains(courseName.toLowerCase()) &&
-              element.departmentName
+                  .contains(courseID.toLowerCase()) &&
+              element.departmentID
                   .toLowerCase()
-                  .contains(departmentName.toLowerCase()),
+                  .contains(departmentID.toLowerCase()),
         )
         .toList();
     return finalSemesterList;

@@ -7,9 +7,10 @@ class SubjectProvider with ChangeNotifier {
   final List<Subject> _subjectList = <Subject>[
     Subject(
       sem: 1,
-      courseName: 'B.tech',
-      departmentName: 'Information Technology',
+      courseID: 'btech',
+      departmentID: 'it',
       title: 'MA2101',
+      id:'ma2101'
     ),
   ];
 
@@ -18,19 +19,19 @@ class SubjectProvider with ChangeNotifier {
 
 /// Function to get final list of the subject department wise.
   List<Subject> findSubject(
-    String courseName,
-    String departmentName,
+    String courseID,
+    String departmentID,
     int sem,
   ) {
     final List<Subject> finalSubjectList = subjectList
         .where(
           (Subject element) =>
-              element.courseName
+              element.courseID
                   .toLowerCase()
-                  .contains(courseName.toLowerCase()) &&
-              element.departmentName
+                  .contains(courseID.toLowerCase()) &&
+              element.departmentID
                   .toLowerCase()
-                  .contains(departmentName.toLowerCase()) &&
+                  .contains(departmentID.toLowerCase()) &&
               element.sem == sem,
         )
         .toList();

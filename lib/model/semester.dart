@@ -4,8 +4,8 @@ class Semester {
   Semester({
     required this.sem,
     required this.title,
-    required this.courseName,
-    required this.departmentName,
+    required this.courseID,
+    required this.departmentID,
   });
 
   /// No. of the semester (Ex=>1)
@@ -14,9 +14,9 @@ class Semester {
   /// Title of the semester (Ex=> 1st Semester)
   String title;
 
-  /// Name of the Cousre
-  String courseName;
+  /// ID of the Course
+  String courseID;
 
-  /// Name of the Department
-  String departmentName;
+  /// ID of the Department
+  String departmentID;
 }
