@@ -1,14 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:liberdeck/provider/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
 
-class LoginPage extends StatelessWidget {
-
+class LoginScreen extends StatelessWidget {
+static const String routename = '/login_screen';
   @override
   Widget build(BuildContext context) {
     final height= MediaQuery.of(context).size.height;

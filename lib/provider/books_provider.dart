@@ -4,7 +4,86 @@ import '../model/book.dart';
 /// Book Data Provider containing the list of the books and all the
 /// functions requires
 class BooksProvider with ChangeNotifier {
-  final List<Book> _bookList = [];
+  final List<Book> _bookList = [
+    Book(
+      author: 'Michelle Obama',
+      courseID: 'Biography',
+      departmentID: '',
+      downloadUrl: '',
+      id: '1',
+      imgUrl: 'assets/images/bookCover.png',
+      sem: 1,
+      subID: '',
+      title: 'Becoming',
+      viewUrl: '',
+      saveStatus: false,
+    ),
+    Book(
+      author: 'Michelle Obama',
+      courseID: 'Biography',
+      departmentID: '',
+      downloadUrl: '',
+      id: '2',
+      imgUrl: 'assets/images/bookCover.png',
+      sem: 1,
+      subID: '',
+      title: 'Becoming',
+      viewUrl: '',
+      saveStatus: false,
+    ),
+    Book(
+      author: 'Michelle Obama',
+      courseID: 'Biography',
+      departmentID: '',
+      downloadUrl: '',
+      id: '3',
+      imgUrl: 'assets/images/bookCover.png',
+      sem: 1,
+      subID: '',
+      title: 'Becoming',
+      viewUrl: '',
+      saveStatus: false,
+    ),
+    Book(
+      author: 'Michelle Obama',
+      courseID: 'Biography',
+      departmentID: '',
+      downloadUrl: '',
+      id: '4',
+      imgUrl: 'assets/images/bookCover.png',
+      sem: 1,
+      subID: '',
+      title: 'Becoming',
+      viewUrl: '',
+      saveStatus: false,
+    ),
+    Book(
+      author: 'Michelle Obama',
+      courseID: 'Biography',
+      departmentID: '',
+      downloadUrl: '',
+      id: '5',
+      imgUrl: 'assets/images/bookCover.png',
+      sem: 1,
+      subID: '',
+      title: 'Becoming',
+      viewUrl: '',
+      saveStatus: false,
+    ),
+    Book(
+      author: 'Michelle Obama',
+      courseID: 'Biography',
+      departmentID: '',
+      downloadUrl: '',
+      id: '6',
+      imgUrl: 'assets/images/bookCover.png',
+      sem: 1,
+      subID: '',
+      title: 'Becoming',
+      viewUrl: '',
+      saveStatus: false,
+    ),
+  ];
 
   /// Getter to make a copy of the List.
   List<Book> get bookList {
@@ -14,6 +93,12 @@ class BooksProvider with ChangeNotifier {
   /// Function to add book to the list
   void addBook(Book book) {
     bookList.add(book);
+    notifyListeners();
+  }
+
+  /// Function to change the save status of the book.
+  void changeStatus(Book book) {
+    book.saveStatus = !book.saveStatus;
     notifyListeners();
   }
 

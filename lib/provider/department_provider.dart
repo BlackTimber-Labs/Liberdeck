@@ -21,7 +21,7 @@ class DepartmentProvider with ChangeNotifier {
   List<Department> findDepartment(String courseID) {
     final List<Department> finalDepartmentList = departmentList
         .where(
-            (Department element) => element.id.toLowerCase().contains(
+            (Department element) => element.courseID.toLowerCase().contains(
                   courseID.toLowerCase(),
                 ))
         .toList();
