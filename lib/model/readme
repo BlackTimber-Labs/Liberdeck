@@ -3,13 +3,13 @@
 The User will Select 
 
 (1) The Course, 
-then the Departments will be sorted on the basis of the Course.
+then the Departments will be sorted on the basis of the CourseID.
 
 (2) The Department,
-then the Semesters will be sorted on the basis of the Course & Department.
+then the Semesters will be sorted on the basis of the CourseID & DepartmentID.
 
 (3) The Semesters,
-then the Subjects will be sorted on the basis of the Course, Department and Semester.
+then the Subjects will be sorted on the basis of the CourseID, DepartmentID and Semester No.
 
 (4) The Subjects,
-then the books will be sorted on the basis of the Course, Department, Semester, and Subject.
+then the books will be sorted on the basis of the CourseID, DepartmentID, Semester No., and SubjectID.

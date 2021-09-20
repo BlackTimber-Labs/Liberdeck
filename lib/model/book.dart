@@ -2,10 +2,10 @@
 class Book {
   ///Constructor
   Book({
-    required this.courseName,
-    required this.departmentName,
+    required this.courseID,
+    required this.departmentID,
     required this.sem,
-    required this.subName,
+    required this.subID,
     required this.id,
     required this.title,
     required this.author,
@@ -36,15 +36,15 @@ class Book {
   /// Book Url for viewing in the App
   String viewUrl;
 
-  /// Name of the Subject
-  String subName;
+  /// ID of the Subject
+  String subID;
 
   /// The no. of Semester
   int sem;
 
-  /// Name of the Department
-  String departmentName;
+  /// ID of the Department
+  String departmentID;
 
-  /// Name of the Course
-  String courseName;
+  /// ID of the Course
+  String courseID;
 }

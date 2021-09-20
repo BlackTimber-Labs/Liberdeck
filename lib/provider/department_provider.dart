@@ -8,19 +8,21 @@ class DepartmentProvider with ChangeNotifier {
   final List<Department> _departmentList = <Department>[
     Department(
       title: 'Information Technology',
-      courseName: 'B.Tech',
+      courseID: 'btech',
+      id:'it',
     ),
+
   ];
 
   /// Getter to make a copy of the List.
   List<Department> get departmentList => _departmentList;
 
   /// Function to showcase the final list of Department course wise.
-  List<Department> findDepartment(String course) {
+  List<Department> findDepartment(String courseID) {
     final List<Department> finalDepartmentList = departmentList
         .where(
-            (Department element) => element.courseName.toLowerCase().contains(
-                  course.toLowerCase(),
+            (Department element) => element.id.toLowerCase().contains(
+                  courseID.toLowerCase(),
                 ))
         .toList();
     return finalDepartmentList;
