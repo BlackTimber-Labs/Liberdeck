@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/empty_bottom_bar.dart';
+
 import '../widgets/sub_screen/sub_main_view.dart';
 import '../widgets/text_header.dart';
 
@@ -20,38 +20,58 @@ class _SubScreenState extends State<SubScreen> {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+    final args =
+        ModalRoute.of(context)!.settings.arguments as SubScreenArguments;
+
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Container(
-            height: height * 0.3,
-            width: width,
-            //color: Colors.amber,
-            child: TextHeader(
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: height * 0.3,
               width: width,
-              height: height,
-
-              topright: 'assets/images/sub_chp_TopRight.png',
-              topleft: 'assets/images/sub_chp_TopLeft.png',
-
-              subtitle: 'What Subject do you \n want to see?',
-              title: 'Hey ABC!',
+              //color: Colors.amber,
+              child: TextHeader(
+                width: width,
+                height: height,
+                topright: 'assets/images/sub_chp_TopRight.png',
+                topleft: 'assets/images/sub_chp_TopLeft.png',
+                subtitle: 'What Subject do you \n want to see?',
+                title: 'Hey ABC!',
+              ),
             ),
-          ),
-          Container(
-            height: height * 0.62,
-            width: width,
-            padding: EdgeInsets.symmetric(
-              horizontal: width * 0.04,
+            Container(
+              height: height * 0.62,
+              width: width,
+              padding: EdgeInsets.symmetric(
+                horizontal: width * 0.04,
+              ),
+              child: SubMainView(
+                height: height,
+                width: width,
+                courseID: args.courseID,
+                departmentID: args.departmentID,
+                semID: args.semID,
+              ),
             ),
-            child: SubMainView(height: height, width: width),
-          ),
-          SizedBox(
-            height: height * 0.04,
-          ),
-          EmptyBottomBar(height: height),
-        ],
+            SizedBox(
+              height: height * 0.04,
+            ),
+            
+          ],
+        ),
       ),
     );
   }
+}
+
+class SubScreenArguments {
+  String departmentID;
+  String courseID;
+  int semID;
+  SubScreenArguments(
+    this.courseID,
+    this.departmentID,
+    this.semID,
+  );
 }

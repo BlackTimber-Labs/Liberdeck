@@ -7,11 +7,95 @@ import '../model/department.dart';
 class DepartmentProvider with ChangeNotifier {
   final List<Department> _departmentList = <Department>[
     Department(
+      title: 'First Year',
+      courseID: 'btech',
+      id: 'fy',
+    ),
+    Department(
       title: 'Information Technology',
       courseID: 'btech',
-      id:'it',
+      id: 'it',
     ),
-
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
+    Department(
+      title: 'Information Technology',
+      courseID: 'btech',
+      id: 'it',
+    ),
   ];
 
   /// Getter to make a copy of the List.
@@ -20,10 +104,9 @@ class DepartmentProvider with ChangeNotifier {
   /// Function to showcase the final list of Department course wise.
   List<Department> findDepartment(String courseID) {
     final List<Department> finalDepartmentList = departmentList
-        .where(
-            (Department element) => element.courseID.toLowerCase().contains(
-                  courseID.toLowerCase(),
-                ))
+        .where((Department element) => element.courseID.toLowerCase().contains(
+              courseID.toLowerCase(),
+            ))
         .toList();
     return finalDepartmentList;
   }

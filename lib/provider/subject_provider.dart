@@ -6,11 +6,32 @@ import '../model/subject.dart';
 class SubjectProvider with ChangeNotifier {
   final List<Subject> _subjectList = <Subject>[
     Subject(
-      sem: 1,
+      sem: 3,
       courseID: 'btech',
       departmentID: 'it',
       title: 'MA2101',
       id:'ma2101'
+    ),
+    Subject(
+      sem: 1,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'MA1101',
+      id:'ma1101'
+    ),
+    Subject(
+      sem: 1,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'MA1101',
+      id:'ma1101'
+    ),
+    Subject(
+      sem: 1,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'MA1101',
+      id:'ma1101'
     ),
   ];
 

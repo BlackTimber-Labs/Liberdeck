@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'about_screen.dart';
+import 'package:provider/provider.dart';
 
+import './about_screen.dart';
+
+import '../provider/semester_provider.dart';
+
+import '../widgets/semester_screen/semester.dart';
 
 class SemesterScreen extends StatefulWidget {
   static const String routename = '/semester_screen';
@@ -11,96 +16,61 @@ class SemesterScreen extends StatefulWidget {
 class _SemesterScreenState extends State<SemesterScreen> {
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final Object? departmentId = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
-      body: ListView(
+      body: Column(
         children: [
           Container(
             height: 120,
             width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/semester_screen_top_right.png'),
-                alignment: Alignment.topRight,
-              )
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage('assets/images/semester_screen_top_right.png'),
+              alignment: Alignment.topRight,
+            )),
+          ),
+          const Center(
+            child: Text(
+              'Select your Semester',
+              style: TextStyle(
+                fontSize: 29,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
-          Center(child: Text('Select your Semester',style: TextStyle(fontSize: 29,fontWeight: FontWeight.w600),)),
-          SizedBox2(),
-          Contain('1st', '2nd'),
-          SizedBox2(),
-          Contain('3rd', '4th'),
-          SizedBox2(),
-          Contain('5th', '6th'),
-          SizedBox2(),
-          Contain('7th', '8th'),
-          SizedBox2(),
-          Contain('9th', '10th'),
-          SizedBox2(),
+          Container(
+            height: height * 0.7,
+            child: Consumer<SemesterProvider>(
+              builder: (
+                context,
+                sem,
+                child,
+              ) {
+                var semesterList = sem.findSemester(
+                  "btech",
+                  departmentId.toString(),
+                );
+                return ListView.builder(
+                  itemBuilder: (
+                    BuildContext ctx,
+                    int i,
+                  ) {
+                    return Semester(
+                      sem: semesterList[i].title,
+                      departmentID: semesterList[i].departmentID,
+                      semID: semesterList[i].id,
+                    );
+                  },
+                  itemCount: semesterList.length,
+                );
+              },
+            ),
+          ),
           BN(),
-          SizedBox(height: 30,)
         ],
       ),
     );
-  }
-}
-
-
-class Contain extends StatefulWidget {
-  Contain(this.sem,this.sem2);
-  final String sem;
-  final String sem2;
-
-  @override
-  _ContainState createState() => _ContainState();
-}
-
-class _ContainState extends State<Contain> {
- @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        TextButton(
-          onPressed: (){
-            setState(() {
-
-            });
-          },
-          child: Container(
-            width: 150,
-            height: 71,
-            decoration: BoxDecoration(
-              color: Color(0xFFC45628),
-              borderRadius: BorderRadius.circular(7)
-            ),
-            child: Center(child: Text(widget.sem,style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.w500,letterSpacing: 1))),
-          ),
-        ),
-        TextButton(
-          onPressed: (){
-            setState(() {
-
-            });
-          },
-          child: Container(
-            width: 150,
-            height: 71,
-            decoration: BoxDecoration(
-              color: Color(0xFFEE6830),
-              borderRadius: BorderRadius.circular(7),
-            ),
-            child: Center(child: Text(widget.sem2,style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.w500,letterSpacing: 1))),
-          ),
-        )
-      ],
-    );
-  }
-}
-
-class SizedBox2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(height: 25,);
   }
 }
 
@@ -129,16 +99,22 @@ class _BNState extends State<BN> {
               color: Color(0xFF843622),
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Center(child: Text('Back',style: TextStyle(fontSize: 32,fontWeight: FontWeight.w600,color: Colors.white),)),
+            child: const Center(
+                child: Text(
+              'Back',
+              style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
+            )),
           ),
         ),
         TextButton(
-          onPressed: (){
+          onPressed: () {
             setState(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context){
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return AboutScreen();
-              }
-              ));
+              }));
             });
           },
           child: Container(
@@ -146,13 +122,19 @@ class _BNState extends State<BN> {
             width: 132,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: Color(0xFF843622),
+              color: const Color(0xFF843622),
             ),
-            child: Center(child: Text('Next',style: TextStyle(fontSize: 32,fontWeight: FontWeight.w600,color: Colors.white),)),
+            child: const Center(
+                child: Text(
+              'Next',
+              style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
+            )),
           ),
         ),
       ],
     );
   }
 }
-

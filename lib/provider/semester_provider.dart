@@ -7,10 +7,16 @@ import '../model/semester.dart';
 class SemesterProvider with ChangeNotifier {
   final List<Semester> _semesterList = <Semester>[
     Semester(
-      title: '1st Semester',
+      title: 'Physics Cycle',
       courseID: 'btech',
-      sem: 1,
-      departmentID: 'it',
+      id: 1,
+      departmentID: 'fy',
+    ),
+    Semester(
+      title: 'Chemistry Cycle',
+      courseID: 'btech',
+      id: 2,
+      departmentID: 'fy',
     ),
   ];
 

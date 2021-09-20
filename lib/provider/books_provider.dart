@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../model/book.dart';
 
 /// Book Data Provider containing the list of the books and all the
@@ -11,12 +12,13 @@ class BooksProvider with ChangeNotifier {
       departmentID: '',
       downloadUrl: '',
       id: '1',
-      imgUrl: 'assets/images/bookCover.png',
+      imgUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/IMG_20210917_201016.jpg',
       sem: 1,
       subID: '',
       title: 'Becoming',
-      viewUrl: '',
-      saveStatus: false,
+      viewUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/basic-civil-engineering-s-s-bhavikatti.pdf',
     ),
     Book(
       author: 'Michelle Obama',
@@ -24,12 +26,13 @@ class BooksProvider with ChangeNotifier {
       departmentID: '',
       downloadUrl: '',
       id: '2',
-      imgUrl: 'assets/images/bookCover.png',
+      imgUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/IMG_20210917_201016.jpg',
       sem: 1,
       subID: '',
       title: 'Becoming',
-      viewUrl: '',
-      saveStatus: false,
+      viewUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/basic-civil-engineering-s-s-bhavikatti.pdf',
     ),
     Book(
       author: 'Michelle Obama',
@@ -37,12 +40,13 @@ class BooksProvider with ChangeNotifier {
       departmentID: '',
       downloadUrl: '',
       id: '3',
-      imgUrl: 'assets/images/bookCover.png',
+      imgUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/IMG_20210917_201016.jpg',
       sem: 1,
       subID: '',
       title: 'Becoming',
-      viewUrl: '',
-      saveStatus: false,
+      viewUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/basic-civil-engineering-s-s-bhavikatti.pdf',
     ),
     Book(
       author: 'Michelle Obama',
@@ -50,12 +54,13 @@ class BooksProvider with ChangeNotifier {
       departmentID: '',
       downloadUrl: '',
       id: '4',
-      imgUrl: 'assets/images/bookCover.png',
+      imgUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/IMG_20210917_201016.jpg',
       sem: 1,
       subID: '',
       title: 'Becoming',
-      viewUrl: '',
-      saveStatus: false,
+      viewUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/basic-civil-engineering-s-s-bhavikatti.pdf',
     ),
     Book(
       author: 'Michelle Obama',
@@ -63,12 +68,13 @@ class BooksProvider with ChangeNotifier {
       departmentID: '',
       downloadUrl: '',
       id: '5',
-      imgUrl: 'assets/images/bookCover.png',
+      imgUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/IMG_20210917_201016.jpg',
       sem: 1,
       subID: '',
       title: 'Becoming',
-      viewUrl: '',
-      saveStatus: false,
+      viewUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/basic-civil-engineering-s-s-bhavikatti.pdf',
     ),
     Book(
       author: 'Michelle Obama',
@@ -76,12 +82,13 @@ class BooksProvider with ChangeNotifier {
       departmentID: '',
       downloadUrl: '',
       id: '6',
-      imgUrl: 'assets/images/bookCover.png',
+      imgUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/IMG_20210917_201016.jpg',
       sem: 1,
       subID: '',
       title: 'Becoming',
-      viewUrl: '',
-      saveStatus: false,
+      viewUrl:
+          'https://blacktimber-labs.github.io/LiberDeck-Resources/sem1/civil/basic-civil-engineering-s-s-bhavikatti.pdf',
     ),
   ];
 
