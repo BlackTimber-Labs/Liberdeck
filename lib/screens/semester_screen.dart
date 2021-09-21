@@ -93,7 +93,7 @@ class _BNState extends State<BN> {
             });
           },
           child: Container(
-            height: 65,
+            height: 55,
             width: 132,
             decoration: BoxDecoration(
               color: Color(0xFF843622),
@@ -118,7 +118,7 @@ class _BNState extends State<BN> {
             });
           },
           child: Container(
-            height: 65,
+            height: 55,
             width: 132,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
