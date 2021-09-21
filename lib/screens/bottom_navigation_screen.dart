@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:liberdeck/provider/google_sign_in.dart';
-import './about_screen.dart';
+
 import './department_screen.dart';
 import './profile_screen.dart';
 import './saved_book_screen.dart';
-// import 'package:provider/provider.dart';
-
 
 
 class BottomNavigationScreen extends StatefulWidget {
@@ -17,15 +14,19 @@ class BottomNavigationScreen extends StatefulWidget {
 
 class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   int _currentIndex = 0;
+  List<Map<String, Widget>> tabs = [{}];
 
-  final tabs = [
-    DepartmentScreen(),
-    SavedBooksScreen(),
-    ProfileScreen(),
-    AboutScreen(),
-    //todo change this as per your need.
-    // provider.logout(),
-  ];
+  @override
+  void initState() {
+    tabs = [
+      {'page': DepartmentScreen()},
+      {'page': SavedBooksScreen()},
+      {'page': ProfileScreen()},
+      
+    ];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +44,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         },
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xFF843622),
-        items: const[
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(
               FontAwesomeIcons.home,
@@ -60,14 +61,15 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
                   color: Color(0xFFF8F8F8)),
               label: 'Profile'),
           BottomNavigationBarItem(
-              icon: Icon(
-                FontAwesomeIcons.signOutAlt,
-                color: Color(0xFFF8F8F8),
-              ),
-              label: 'Log Out'),
+            icon: Icon(
+              FontAwesomeIcons.signOutAlt,
+              color: Color(0xFFF8F8F8),
+            ),
+            label: 'Log Out',
+          ),
         ],
       ),
-      body: SafeArea(child: tabs[_currentIndex]),
+      body: tabs[_currentIndex]['page'],
     );
   }
 }

@@ -25,7 +25,7 @@ class _DepartmentState extends State<Department> {
           SemesterScreen.routename,
           arguments: widget.departmentID,
         );
-        setState(() {});
+        
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 27),

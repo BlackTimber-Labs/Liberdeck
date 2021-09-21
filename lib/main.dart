@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange,
         ),
 
-        home:LoginScreen(),
+        home: LoginScreen(),
         // home: SavedBookScreen(),
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
@@ -112,7 +112,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (BuildContext context, snapshot) {
+        builder: (
+          BuildContext context,
+          AsyncSnapshot<Object?> snapshot,
+        ) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),

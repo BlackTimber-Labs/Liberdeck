@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/sub_screen/sub_main_view.dart';
@@ -22,7 +23,7 @@ class _SubScreenState extends State<SubScreen> {
     final double width = MediaQuery.of(context).size.width;
     final args =
         ModalRoute.of(context)!.settings.arguments as SubScreenArguments;
-
+final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -37,7 +38,7 @@ class _SubScreenState extends State<SubScreen> {
                 topright: 'assets/images/sub_TopRight.png',
                 topleft: 'assets/images/sub_TopLeft.png',
                 subtitle: 'What Subject do you \n want to see?',
-                title: 'Hey ABC!',
+                title: 'Hey ${user.displayName}!',
               ),
             ),
             Container(

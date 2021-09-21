@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import './bottom_navigation_screen.dart';
+
 import '../model/book.dart';
 
 import '../provider/books_provider.dart';
@@ -33,44 +35,62 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
               height: height,
               topright: 'assets/images/bookTopRight.png',
               topleft: 'assets/images/bookTopLeft.png',
-              title: 'MA2101',
-              subtitle: 'ENGG MATHS',
+              title: '${args.subID.toUpperCase()}',
+              subtitle: 'Choose Wisely!',
             ),
           ),
-          Expanded(
+          Container(
+            height: height * 0.6,
+            color: Colors.blue,
+            child: Consumer<BooksProvider>(builder: (
+              BuildContext context,
+              BooksProvider booksList,
+              Widget? child,
+            ) {
+              final List<Book> books = booksList.findBook(
+                args.courseID,
+                args.departmentID,
+                args.semID,
+                args.subID,
+              );
+              return ListView.builder(
+                itemBuilder: (
+                  BuildContext ctx,
+                  int i,
+                ) {
+                  return BookTile(
+                    title: books[i].title,
+                    author: books[i].author,
+                    imgUrl: books[i].imgUrl,
+                    saveStatus: books[i].saveStatus,
+                    id: books[i].id,
+                    downloadUrl: books[i].downloadUrl,
+                    viewUrl: books[i].viewUrl,
+                    height:height,
+                    width:width,
+                  );
+                },
+                itemCount: books.length,
+              );
+            }),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  BottomNavigationScreen.routename,
+                  (Route<dynamic> route) => false);
+              
+            },
             child: Container(
-              height: height * 0.6,
-              child: Consumer<BooksProvider>(builder: (
-                BuildContext context,
-                BooksProvider booksList,
-                Widget? child,
-              ) {
-                final List<Book> books = booksList.findBook(
-                  args.courseID,
-                  args.departmentID,
-                  args.semID,
-                  args.subID,
-                );
-                return ListView.builder(
-                  itemBuilder: (
-                    BuildContext ctx,
-                    int i,
-                  ) {
-                    return BookTile(
-                      title: books[i].title,
-                      author: books[i].author,
-                      imgUrl: books[i].imgUrl,
-                      saveStatus: books[i].saveStatus,
-                      id: books[i].id,
-                      downloadUrl: books[i].downloadUrl,
-                      viewUrl: books[i].viewUrl,
-                    );
-                  },
-                  itemCount: books.length,
-                );
-              }),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: const Color(0xFF843622),
+              ),
+              child: const Center(
+                child: Text("DONE"),
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -81,6 +101,7 @@ class BooksArguments {
   String courseID;
   String departmentID;
   String subID;
+
   int semID;
 
   BooksArguments({

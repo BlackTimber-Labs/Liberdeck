@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../model/saved_book.dart';
 
 class SavedBooksProvider with ChangeNotifier {
-  final List<SavedBook> _bookList = [];
+  final List<SavedBook> _bookList = <SavedBook>[];
 
   List<SavedBook> get bookList => _bookList;
 

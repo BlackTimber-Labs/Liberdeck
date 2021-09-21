@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 import './semester_screen.dart';
 
 import '../provider/department_provider.dart';
 
 import '../widgets/department_screen/department.dart';
 
-class DepartmentScreen extends StatelessWidget {
+class DepartmentScreen extends StatefulWidget {
   static const String routename = '/department_screen';
+
+  @override
+  State<DepartmentScreen> createState() => _DepartmentScreenState();
+}
+
+class _DepartmentScreenState extends State<DepartmentScreen> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -115,11 +120,7 @@ class _BNState extends State<BN> {
         ),
         TextButton(
           onPressed: () {
-            setState(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return SemesterScreen();
-              }));
-            });
+            Navigator.pushNamed(context, SemesterScreen.routename);
           },
           child: Container(
             height: 55,
