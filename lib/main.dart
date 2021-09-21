@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange,
         ),
 
-        home: BottomNavigationScreen(),
+        home:LoginScreen(),
         // home: SavedBookScreen(),
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (BuildContext context, AsyncSnapshot<Object?> snapshot) {
+        builder: (BuildContext context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),
@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Something Went Wrong!'),
             );
           } else if (snapshot.hasData) {
-            return const SubScreen();
+            return BottomNavigationScreen();
           } else {
             return LoginScreen();
           }

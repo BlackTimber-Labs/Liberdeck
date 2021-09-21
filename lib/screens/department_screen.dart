@@ -23,6 +23,7 @@ class DepartmentScreen extends StatelessWidget {
               style: TextStyle(fontSize: 29, fontWeight: FontWeight.w600),
             ),
           ),
+          const SizedBox(height: 10),
           Container(
             height: height * 0.6,
             child: Consumer<DepartmentProvider>(
@@ -96,7 +97,7 @@ class _BNState extends State<BN> {
             setState(() {});
           },
           child: Container(
-            height: 65,
+            height: 55,
             width: 132,
             decoration: BoxDecoration(
               color: Color(0xFF843622),
@@ -121,7 +122,7 @@ class _BNState extends State<BN> {
             });
           },
           child: Container(
-            height: 65,
+            height: 55,
             width: 132,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+// import 'package:liberdeck/provider/google_sign_in.dart';
 import './about_screen.dart';
 import './department_screen.dart';
 import './profile_screen.dart';
 import './saved_book_screen.dart';
+// import 'package:provider/provider.dart';
 
 
 
@@ -23,6 +24,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     ProfileScreen(),
     AboutScreen(),
     //todo change this as per your need.
+    // provider.logout(),
   ];
   @override
   Widget build(BuildContext context) {
