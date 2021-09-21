@@ -3,7 +3,7 @@ class Subject {
   ///Constructor
   Subject({
     required this.title,
-    required this.sem,
+    required this.semID,
     required this.departmentID,
     required this.courseID,
     required this.id,
@@ -13,7 +13,7 @@ class Subject {
   String title;
 
   /// The no. of Semester
-  int sem;
+  int semID;
 
   /// ID of the Department
   String departmentID;

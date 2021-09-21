@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import './about_screen.dart';
 import './department_screen.dart';
 import './profile_screen.dart';
-import './sub_screen.dart';
+import './saved_book_screen.dart';
+
 
 
 class BottomNavigationScreen extends StatefulWidget {
@@ -17,8 +19,9 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
 
   final tabs = [
     DepartmentScreen(),
-    SubScreen(),
-    BodyS(),
+    SavedBooksScreen(),
+    ProfileScreen(),
+    AboutScreen(),
     //todo change this as per your need.
   ];
   @override
@@ -38,7 +41,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         },
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xFF843622),
-        items: [
+        items: const[
           BottomNavigationBarItem(
             icon: Icon(
               FontAwesomeIcons.home,
