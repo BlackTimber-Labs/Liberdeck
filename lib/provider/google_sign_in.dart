@@ -1,13 +1,14 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:liberdeck/screens/bottom_navigation_screen.dart';
 
 class GoogleSignInProvider extends ChangeNotifier{
   final googleSignIn = GoogleSignIn();
   GoogleSignInAccount? _user;
   GoogleSignInAccount get user => _user!;
 
-  Future googleLogIn() async {
+  Future googleLogIn(BuildContext context) async {
     try{
     final googleUser = await googleSignIn.signIn();
     
@@ -19,7 +20,12 @@ class GoogleSignInProvider extends ChangeNotifier{
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-    await FirebaseAuth.instance.signInWithCredential(credential);
+    await FirebaseAuth.instance.signInWithCredential(credential)
+        .then(
+          (value) =>
+       Navigator.of(context).
+      pushNamed(BottomNavigationScreen.routename),
+    );
   }
   catch (e){
     print(e.toString());

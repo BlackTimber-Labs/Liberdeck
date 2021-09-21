@@ -20,6 +20,9 @@ class Semester extends StatefulWidget {
 class _SemesterState extends State<Semester> {
   @override
   Widget build(BuildContext context) {
+    final width= MediaQuery.of(context).size.width;
+    final height= MediaQuery.of(context).size.height;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -35,7 +38,7 @@ class _SemesterState extends State<Semester> {
             );
           },
           child: Container(
-            width: 150,
+            width: width * 0.6,
             height: 71,
             decoration: BoxDecoration(
                 color: Color(0xFFC45628),
