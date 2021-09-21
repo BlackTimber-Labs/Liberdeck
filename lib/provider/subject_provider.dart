@@ -6,13 +6,6 @@ import '../model/subject.dart';
 class SubjectProvider with ChangeNotifier {
   final List<Subject> _subjectList = <Subject>[
     Subject(
-      semID: 3,
-      courseID: 'btech',
-      departmentID: 'it',
-      title: 'MA2101',
-      id:'ma2101'
-    ),
-    Subject(
       semID: 1,
       courseID: 'btech',
       departmentID: 'fy',
@@ -23,15 +16,78 @@ class SubjectProvider with ChangeNotifier {
       semID: 1,
       courseID: 'btech',
       departmentID: 'fy',
-      title: 'MA1101',
-      id:'ma1101'
+      title: 'CV1001',
+      id:'cv1001'
     ),
     Subject(
       semID: 1,
       courseID: 'btech',
       departmentID: 'fy',
+      title: 'PY1001',
+      id:'py1001'
+    ),
+    Subject(
+      semID: 1,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'CY1002',
+      id:'cy1002'
+    ),
+    Subject(
+      semID: 1,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'EC1001',
+      id:'ec1001'
+    ),
+    Subject(
+      semID: 1,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'ME1002',
+      id:'me1002'
+    ),
+    Subject(
+      semID: 2,
+      courseID: 'btech',
+      departmentID: 'fy',
       title: 'MA1101',
       id:'ma1101'
+    ),
+    Subject(
+      semID: 2,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'CY1001',
+      id:'cy1001'
+    ),
+    Subject(
+      semID: 2,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'EE1001',
+      id:'ee1001'
+    ),
+    Subject(
+      semID: 2,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'cs1001',
+      id:'cs1001'
+    ),
+    Subject(
+      semID: 2,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'ME1001',
+      id:'me1001'
+    ),
+    Subject(
+      semID: 2,
+      courseID: 'btech',
+      departmentID: 'fy',
+      title: 'LN1001',
+      id:'ln10001'
     ),
   ];
 
