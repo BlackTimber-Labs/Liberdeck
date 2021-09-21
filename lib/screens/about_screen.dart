@@ -2,93 +2,55 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import './books_view_sceen.dart';
-import './profile_screen.dart';
+
 
 class AboutScreen extends StatefulWidget {
   static const String routename = '/about_screen';
   @override
   _AboutScreenState createState() => _AboutScreenState();
 }
-int _currentIndex=0;
-final tabs =[
-  Developer(),
-  BooksViewScreen(),
-  BodyS(),
-  //todo change this as per your need.
-];
+
+
 class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: tabs[_currentIndex]),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        selectedItemColor: Color(0xFFFFE7D5),
-        unselectedItemColor: Colors.white,
-        selectedFontSize: 15,
-        selectedIconTheme: IconThemeData(size: 30),
-        unselectedIconTheme: IconThemeData(size: 23.5),
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFF843622),
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.home,color: Color(0xFFF8F8F8),),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.solidBookmark,color: Color(0xFFF8F8F8)),
-              label: 'Bookmark'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.solidUserCircle,color: Color(0xFFF8F8F8)),
-              label: 'Profile'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.signOutAlt,color: Color(0xFFF8F8F8),),
-              label: 'Log Out'
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Developer extends StatefulWidget {
-  @override
-  _DeveloperState createState() => _DeveloperState();
-}
-
-class _DeveloperState extends State<Developer> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
+        body: ListView(
       children: [
         Background(),
-        Padding(padding: EdgeInsets.only(left: 28),
-          child: Text('BEHIND THE \nSCENES',style: TextStyle(fontSize: 40.0,fontWeight: FontWeight.w700),),
+        Padding(
+          padding: EdgeInsets.only(left: 28),
+          child: Text(
+            'BEHIND THE \nSCENES',
+            style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w700),
+          ),
         ),
-        SizedBox(height: 19,),
-        Padding(padding: EdgeInsets.only(left: 28),
-          child: Text('APP DEVELOPERS',style: TextStyle(fontSize: 24.5,fontWeight: FontWeight.w600),),
+        SizedBox(
+          height: 19,
         ),
-        SizedBox(height: 10,),
+        Padding(
+          padding: EdgeInsets.only(left: 28),
+          child: Text(
+            'APP DEVELOPERS',
+            style: TextStyle(fontSize: 24.5, fontWeight: FontWeight.w600),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
         Harshita(),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Tushar(),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Yash(),
-
       ],
-    );
+    ));
   }
 }
-
 
 class Background extends StatelessWidget {
   @override
@@ -100,10 +62,9 @@ class Background extends StatelessWidget {
             height: 200,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/about_screen_top_left.png'),
-                    alignment: Alignment.topLeft
-                )
-            ),
+                    image:
+                        AssetImage('assets/images/about_screen_top_left.png'),
+                    alignment: Alignment.topLeft)),
           ),
         ),
         Expanded(
@@ -111,17 +72,15 @@ class Background extends StatelessWidget {
             height: 200,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/about_screen_top_right.png'),
-                    alignment: Alignment.topRight
-                )
-            ),
+                    image:
+                        AssetImage('assets/images/about_screen_top_right.png'),
+                    alignment: Alignment.topRight)),
           ),
         ),
       ],
     );
   }
 }
-
 
 class Harshita extends StatefulWidget {
   @override
@@ -135,11 +94,20 @@ class _HarshitaState extends State<Harshita> {
       children: [
         CircleAvatar(
           radius: 100.0,
-          backgroundImage: AssetImage('assets/images/about_screen_Harshita.png'),
+          backgroundImage:
+              AssetImage('assets/images/about_screen_Harshita.png'),
         ),
-        SizedBox(height: 5,),
-        Center(child: Text('Harshita Sadadekar',style: TextStyle(fontSize: 21.5,fontWeight: FontWeight.w600),)),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 5,
+        ),
+        Center(
+            child: Text(
+          'Harshita Sadadekar',
+          style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
+        )),
+        SizedBox(
+          height: 10,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -152,7 +120,8 @@ class _HarshitaState extends State<Harshita> {
             IconButton(
               icon: Icon(FontAwesomeIcons.linkedin),
               onPressed: () {
-                launch('https://www.linkedin.com/in/harshita-sadadekar-94196b1b8/');
+                launch(
+                    'https://www.linkedin.com/in/harshita-sadadekar-94196b1b8/');
               },
             )
           ],
@@ -176,9 +145,17 @@ class _TusharState extends State<Tushar> {
           radius: 100.0,
           backgroundImage: AssetImage('assets/images/about_screen_Tushar.jpg'),
         ),
-        SizedBox(height: 5,),
-        Center(child: Text('Tushar Khurana',style: TextStyle(fontSize: 21.5,fontWeight: FontWeight.w600),)),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 5,
+        ),
+        Center(
+            child: Text(
+          'Tushar Khurana',
+          style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
+        )),
+        SizedBox(
+          height: 10,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -215,9 +192,17 @@ class _YashState extends State<Yash> {
           radius: 100.0,
           backgroundImage: AssetImage('assets/images/about_screen_Yash.jpg'),
         ),
-        SizedBox(height: 5,),
-        Center(child: Text('Yash Garg',style: TextStyle(fontSize: 21.5,fontWeight: FontWeight.w600),)),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 5,
+        ),
+        Center(
+            child: Text(
+          'Yash Garg',
+          style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
+        )),
+        SizedBox(
+          height: 10,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -239,4 +224,3 @@ class _YashState extends State<Yash> {
     );
   }
 }
-
