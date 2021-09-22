@@ -5,7 +5,7 @@ import '../model/book.dart';
 /// Book Data Provider containing the list of the books and all the
 /// functions requires
 class BooksProvider with ChangeNotifier {
-  final List<Book> _bookList = [
+  final List<Book> _bookList = <Book>[
     Book(
       author: 'S S Bhavikatti',
       courseID: 'btech',

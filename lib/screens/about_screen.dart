@@ -16,16 +16,16 @@ class _AboutScreenState extends State<AboutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: ListView(
-      children: [
+      children:<Widget> [
         Background(),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 28),
           child: Text(
             'BEHIND THE \nSCENES',
             style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w700),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 19,
         ),
         Padding(

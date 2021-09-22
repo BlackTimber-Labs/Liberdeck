@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +24,8 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
     final double width = MediaQuery.of(context).size.width;
     final BooksArguments args =
         ModalRoute.of(context)!.settings.arguments as BooksArguments;
+          final User? user = FirebaseAuth.instance.currentUser;
+    final String userID= user!.uid;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -35,7 +38,7 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
               height: height,
               topright: 'assets/images/bookTopRight.png',
               topleft: 'assets/images/bookTopLeft.png',
-              title: '${args.subID.toUpperCase()}',
+              title: args.subID.toUpperCase(),
               subtitle: 'Choose Wisely!',
             ),
           ),
@@ -59,6 +62,7 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
                   int i,
                 ) {
                   return BookTile(
+                    userID: userID,
                     title: books[i].title,
                     author: books[i].author,
                     imgUrl: books[i].imgUrl,
