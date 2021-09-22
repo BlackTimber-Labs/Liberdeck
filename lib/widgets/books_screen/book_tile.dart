@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../provider/saved_book_provider.dart';
 
@@ -16,7 +18,11 @@ class BookTile extends StatefulWidget {
     required this.saveStatus,
     required this.height,
     required this.width,
+    required this.userID,
+    this.bookID = '',
   });
+  String userID;
+  String bookID;
   String id;
   String title;
   String author;
@@ -42,7 +48,7 @@ class _BookTileState extends State<BookTile> {
         horizontal: width * 0.03,
       ),
       height: height * 0.4,
-      color:Colors.amber,
+      color: Colors.amber,
       width: width,
       child: Column(
         children: <Widget>[
@@ -85,9 +91,14 @@ class _BookTileState extends State<BookTile> {
                       ElevatedButton.icon(
                         onPressed: () {
                           if (widget.saveStatus) {
-                            provider.removeBook(widget.id);
+                            provider.removeBook(
+                              widget.id,
+                              widget.userID,
+                              widget.bookID,
+                            );
                           } else {
                             provider.addBook(
+                              widget.userID,
                               widget.id,
                               widget.title,
                               widget.author,
@@ -109,7 +120,9 @@ class _BookTileState extends State<BookTile> {
                                 const Color(0xFF904A38))),
                       ),
                       ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          SfPdfViewer.network(widget.viewUrl);
+                        },
                         icon: const Icon(Icons.visibility),
                         label: const Text('     View     '),
                         style: ButtonStyle(
@@ -117,7 +130,9 @@ class _BookTileState extends State<BookTile> {
                                 const Color(0xFF904A38))),
                       ),
                       ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          launch(widget.downloadUrl);
+                        },
                         icon: const Icon(Icons.download_for_offline),
                         label: const Text('Download'),
                         style: ButtonStyle(
