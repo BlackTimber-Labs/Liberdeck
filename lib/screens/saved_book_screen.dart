@@ -61,7 +61,7 @@ class _SavedBooksScreenState extends State<SavedBooksScreen> {
                   child: CircularProgressIndicator(),
                 );
               } else if (booksSnapshot.data!.docs.isEmpty) {
-                return const Center(child: Text('Save some books BSDK'));
+                return const Center(child: Text('Save some books'));
               } else {
                 return ListView(
                   children: booksSnapshot.data!.docs
