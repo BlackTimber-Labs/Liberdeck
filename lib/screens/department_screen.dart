@@ -97,27 +97,27 @@ class _BNState extends State<BN> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        TextButton(
-          onPressed: () {
-            setState(() {});
-          },
-          child: Container(
-            height: 55,
-            width: 132,
-            decoration: BoxDecoration(
-              color: Color(0xFF843622),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Center(
-                child: Text(
-              'Back',
-              style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white),
-            )),
-          ),
-        ),
+        // TextButton(
+        //   onPressed: () {
+        //     setState(() {});
+        //   },
+        //   child: Container(
+        //     height: 55,
+        //     width: 132,
+        //     decoration: BoxDecoration(
+        //       color: Color(0xFF843622),
+        //       borderRadius: BorderRadius.circular(15),
+        //     ),
+        //     child: Center(
+        //         child: Text(
+        //       'Back',
+        //       style: TextStyle(
+        //           fontSize: 32,
+        //           fontWeight: FontWeight.w600,
+        //           color: Colors.white),
+        //     )),
+        //   ),
+        // ),
         TextButton(
           onPressed: () {
             Navigator.pushNamed(context, SemesterScreen.routename);
@@ -129,7 +129,7 @@ class _BNState extends State<BN> {
               borderRadius: BorderRadius.circular(15),
               color: Color(0xFF843622),
             ),
-            child: Center(
+            child: const Center(
                 child: Text(
               'Next',
               style: TextStyle(
