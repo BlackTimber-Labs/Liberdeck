@@ -17,84 +17,39 @@ class DepartmentProvider with ChangeNotifier {
       id: 'it',
     ),
     Department(
-      title: 'Information Technology',
+      title: 'Computer Science Engineering',
       courseID: 'btech',
-      id: 'it',
+      id: 'cse',
     ),
     Department(
-      title: 'Information Technology',
+      title: 'Mechanical Engineering',
       courseID: 'btech',
-      id: 'it',
+      id: 'me',
     ),
     Department(
-      title: 'Information Technology',
+      title: 'Chemical Engineering',
       courseID: 'btech',
-      id: 'it',
+      id: 'ce',
     ),
     Department(
-      title: 'Information Technology',
+      title: 'Data Science Engineering',
       courseID: 'btech',
-      id: 'it',
+      id: 'dse',
     ),
     Department(
-      title: 'Information Technology',
+      title: 'Computer and Communication Engineering',
       courseID: 'btech',
-      id: 'it',
+      id: 'cce',
     ),
     Department(
-      title: 'Information Technology',
+      title: 'Electrical Engineering',
       courseID: 'btech',
-      id: 'it',
+      id: 'ee',
     ),
     Department(
-      title: 'Information Technology',
+      title: 'Electrical and Electronics Engineering',
       courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
-    ),
-    Department(
-      title: 'Information Technology',
-      courseID: 'btech',
-      id: 'it',
+      id: 'eee',
     ),
   ];
 

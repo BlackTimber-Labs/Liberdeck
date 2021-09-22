@@ -53,7 +53,8 @@ class TextHeader extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: height*0.087,
+          top: height*0.12,
+          left:width*0.05,
           child: Container(
             padding: EdgeInsets.all(width * 0.03),
             child: Column(

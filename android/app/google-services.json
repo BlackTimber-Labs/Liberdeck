@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "361406377677-k6qa9h636sfsvefpi60l382pivkumuf7.apps.googleusercontent.com",
+          "client_id": "361406377677-8393ud0oalmi8gpmdqg5iqj6rgbi8ftt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.blacktimberlabs.liberdeck",
-            "certificate_hash": "b89369803a1141e72170d055700e6fdd79e50658"
+            "certificate_hash": "d76242d91647759bc2f1bc66b24f25f34c49de50"
           }
         },
         {
