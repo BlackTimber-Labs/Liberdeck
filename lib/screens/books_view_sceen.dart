@@ -24,8 +24,9 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
     final double width = MediaQuery.of(context).size.width;
     final BooksArguments args =
         ModalRoute.of(context)!.settings.arguments as BooksArguments;
-          final User? user = FirebaseAuth.instance.currentUser;
-    final String userID= user!.uid;
+    final User? user = FirebaseAuth.instance.currentUser;
+    final String userID = user!.uid;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -36,53 +37,56 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
             child: TextHeader(
               width: width,
               height: height,
-              topright: 'assets/images/bookTopRight.png',
-              topleft: 'assets/images/bookTopLeft.png',
+              topRight: 'assets/images/bookTopRight.png',
+              topLeft: 'assets/images/bookTopLeft.png',
               title: args.subID.toUpperCase(),
-              subtitle: 'Choose Wisely!',
+              subTitle: 'Choose Wisely!',
             ),
           ),
           Container(
             height: height * 0.6,
-            child: Consumer<BooksProvider>(builder: (
-              BuildContext context,
-              BooksProvider booksList,
-              Widget? child,
-            ) {
-              final List<Book> books = booksList.findBook(
-                args.courseID,
-                args.departmentID,
-                args.semID,
-                args.subID,
-              );
-              return ListView.builder(
-                itemBuilder: (
-                  BuildContext ctx,
-                  int i,
-                ) {
-                  return BookTile(
-                    userID: userID,
-                    title: books[i].title,
-                    author: books[i].author,
-                    imgUrl: books[i].imgUrl,
-                    saveStatus: books[i].saveStatus,
-                    id: books[i].id,
-                    downloadUrl: books[i].downloadUrl,
-                    viewUrl: books[i].viewUrl,
-                    height:height,
-                    width:width,
-                  );
-                },
-                itemCount: books.length,
-              );
-            }),
+            child: Consumer<BooksProvider>(
+              builder: (
+                BuildContext context,
+                BooksProvider booksList,
+                Widget? child,
+              ) {
+                final List<Book> books = booksList.findBook(
+                  args.courseID,
+                  args.departmentID,
+                  args.semID,
+                  args.subID,
+                );
+                return ListView.builder(
+                  itemBuilder: (
+                    BuildContext ctx,
+                    int i,
+                  ) {
+                    ;
+                    return BookTile(
+                      userID: userID,
+                      title: books[i].title,
+                      author: books[i].author,
+                      imgUrl: books[i].imgUrl,
+                      saveStatus: books[i].saveStatus,
+                      id: books[i].id,
+                      downloadUrl: books[i].downloadUrl,
+                      viewUrl: books[i].viewUrl,
+                      height: height,
+                      width: width,
+                    );
+                  },
+                  itemCount: books.length,
+                );
+              },
+            ),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                  BottomNavigationScreen.routename,
-                  (Route<dynamic> route) => false);
-              
+                BottomNavigationScreen.routename,
+                (Route<dynamic> route) => false,
+              );
             },
             child: Container(
               height: 50,
@@ -91,7 +95,10 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
                 color: const Color(0xFF843622),
               ),
               child: const Center(
-                child: Text('DONE', style: TextStyle(color: Colors.white),),
+                child: Text(
+                  'DONE',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ),

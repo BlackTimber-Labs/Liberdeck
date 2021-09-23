@@ -79,8 +79,7 @@ class InputFields extends StatefulWidget {
 }
 
 class _InputFieldsState extends State<InputFields> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +97,7 @@ class _InputFieldsState extends State<InputFields> {
           const SizedBox(height: 30),
           ElevatedButton(
             onPressed:() {
-              final provider =
+              final GoogleSignInProvider provider =
               Provider.of<GoogleSignInProvider>(context, listen: false);
               provider.googleLogIn(context);
             },
@@ -156,9 +155,8 @@ class _InputFieldsState extends State<InputFields> {
           //   ),
           // ),
 
-        ]
+        ],
     ),
       );
   }
 }
-

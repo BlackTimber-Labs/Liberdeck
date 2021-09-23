@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:liberdeck/screens/about_screen.dart';
+
+import '../../screens/about_screen.dart';
 
 class ProfileInfo extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class ProfileInfo extends StatefulWidget {
 class _ProfileInfoState extends State<ProfileInfo> {
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser!;
+    final User user = FirebaseAuth.instance.currentUser!;
 
     return Padding(
       padding: const EdgeInsets.only(left: 40, top: 30, right: 40),
@@ -102,9 +103,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                        fontSize: 19.5,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFFC95A2B)),
+                      fontSize: 19.5,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFFC95A2B),
+                    ),
                   ),
                 ),
               ),
@@ -125,9 +127,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   child: Text(
                     user.email!,
                     style: const TextStyle(
-                        fontSize: 19.5,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFFC95A2B)),
+                      fontSize: 19.5,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFFC95A2B),
+                    ),
                   ),
                 ),
               ),
@@ -138,14 +141,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
             child: TextButton(
               child: const Text(
                 'About developers',
-                style: const TextStyle(fontSize: 19.5, color: Color(0xFF000000)),
+                style: TextStyle(fontSize: 19.5, color: Color(0xFF000000)),
               ),
               onPressed: () {
-                setState(() {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return AboutScreen();
-                  }));
-                });
+                Navigator.pushNamed(context, AboutScreen.routename);
               },
             ),
           ),

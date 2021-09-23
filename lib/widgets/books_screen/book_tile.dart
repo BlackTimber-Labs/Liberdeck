@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liberdeck/provider/books_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -41,7 +42,7 @@ class _BookTileState extends State<BookTile> {
     final double width = widget.width;
     final SavedBooksProvider provider =
         Provider.of<SavedBooksProvider>(context);
-
+    final BooksProvider booksProvider = Provider.of<BooksProvider>(context);
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: height * 0.02,
@@ -71,8 +72,8 @@ class _BookTileState extends State<BookTile> {
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
+                      children: <Widget>[
+                        SizedBox(
                           height: height * 0.1,
                           width: width * 0.5,
                           child: Text(
@@ -107,19 +108,22 @@ class _BookTileState extends State<BookTile> {
                                 widget.downloadUrl,
                               );
                             }
-                            setState(() {
-                              widget.saveStatus = !widget.saveStatus;
-                            });
+                            booksProvider.changeStatus(widget.id);
+                            // setState(() {
+                            //   widget.saveStatus = !widget.saveStatus;
+                            // });
                           },
                           icon: !widget.saveStatus
                               ? const Icon(Icons.bookmark_outline)
                               : const Icon(Icons.bookmark),
                           label: const Text('     Save    '),
                           style: ButtonStyle(
-                            foregroundColor:MaterialStateProperty.all(
-                                const Color(0xFFFFFFFF) ),
-                              backgroundColor: MaterialStateProperty.all(
-                                  const Color(0xFF904A38)),
+                            foregroundColor: MaterialStateProperty.all(
+                              const Color(0xFFFFFFFF),
+                            ),
+                            backgroundColor: MaterialStateProperty.all(
+                              const Color(0xFF904A38),
+                            ),
                           ),
                         ),
                         ElevatedButton.icon(
@@ -135,10 +139,13 @@ class _BookTileState extends State<BookTile> {
                           icon: const Icon(Icons.visibility),
                           label: const Text('     View    '),
                           style: ButtonStyle(
-                              foregroundColor:MaterialStateProperty.all(
-                                  const Color(0xFFFFFFFF) ),
-                              backgroundColor: MaterialStateProperty.all(
-                                  const Color(0xFF904A38))),
+                            foregroundColor: MaterialStateProperty.all(
+                              const Color(0xFFFFFFFF),
+                            ),
+                            backgroundColor: MaterialStateProperty.all(
+                              const Color(0xFF904A38),
+                            ),
+                          ),
                         ),
                         ElevatedButton.icon(
                           onPressed: () {
@@ -147,10 +154,13 @@ class _BookTileState extends State<BookTile> {
                           icon: const Icon(Icons.download_for_offline),
                           label: const Text('Download'),
                           style: ButtonStyle(
-                              foregroundColor:MaterialStateProperty.all(
-                                  const Color(0xFFFFFFFF) ),
-                              backgroundColor: MaterialStateProperty.all(
-                                  const Color(0xFF904A38))),
+                            foregroundColor: MaterialStateProperty.all(
+                              const Color(0xFFFFFFFF),
+                            ),
+                            backgroundColor: MaterialStateProperty.all(
+                              const Color(0xFF904A38),
+                            ),
+                          ),
                         ),
                       ],
                     ),

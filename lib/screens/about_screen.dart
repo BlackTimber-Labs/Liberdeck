@@ -1,226 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
+import '../widgets/about_screen/dev_tile.dart';
+import '../widgets/text_header.dart';
 
-
+/// Root widget of the About Screen
 class AboutScreen extends StatefulWidget {
+  /// Route name of the About Screen
   static const String routename = '/about_screen';
   @override
   _AboutScreenState createState() => _AboutScreenState();
 }
 
-
 class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return Scaffold(
-        body: ListView(
-      children:<Widget> [
-        Background(),
-        const Padding(
-          padding: EdgeInsets.only(left: 28),
-          child: Text(
-            'BEHIND THE \nSCENES',
-            style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w700),
-          ),
-        ),
-        const SizedBox(
-          height: 19,
-        ),
-        const Padding(
-          padding: EdgeInsets.only(left: 28),
-          child: Text(
-            'APP DEVELOPERS',
-            style: TextStyle(fontSize: 24.5, fontWeight: FontWeight.w600),
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Harshita(),
-        const SizedBox(
-          height: 10,
-        ),
-        Tushar(),
-        const SizedBox(
-          height: 10,
-        ),
-        Yash(),
-      ],
-    ));
-  }
-}
-
-class Background extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Container(
-            height: 200,
-            decoration:const BoxDecoration(
-                image: DecorationImage(
-                    image:
-                        AssetImage('assets/images/about_screen_top_left.png'),
-                    alignment: Alignment.topLeft)),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            height: 200,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image:
-                        AssetImage('assets/images/about_screen_top_right.png'),
-                    alignment: Alignment.topRight)),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class Harshita extends StatefulWidget {
-  @override
-  _HarshitaState createState() => _HarshitaState();
-}
-
-class _HarshitaState extends State<Harshita> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CircleAvatar(
-          radius: 100.0,
-          backgroundImage:
-              AssetImage('assets/images/about_screen_Harshita.png'),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        const Center(
-            child: Text(
-          'Harshita Sadadekar',
-          style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
-        )),
-        const SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: const Icon(FontAwesomeIcons.github),
-              onPressed: () {
-                launch('https://github.com/HarshitaSadadekar');
-              },
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: height * 0.3,
+              width: width,
+              child: TextHeader(
+                width: width,
+                height: height,
+                topRight: 'assets/images/about_screen_top_right.png',
+                topLeft: 'assets/images/about_screen_top_left.png',
+                title: 'BEHIND THE SCENES',
+                subTitle: 'APP DEVELOPERS',
+              ),
             ),
-            IconButton(
-              icon: const Icon(FontAwesomeIcons.linkedin),
-              onPressed: () {
-                launch(
-                    'https://www.linkedin.com/in/harshita-sadadekar-94196b1b8/');
-              },
-            )
-          ],
-        )
-      ],
-    );
-  }
-}
-
-class Tushar extends StatefulWidget {
-  @override
-  _TusharState createState() => _TusharState();
-}
-
-class _TusharState extends State<Tushar> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CircleAvatar(
-          radius: 100.0,
-          backgroundImage: AssetImage('assets/images/about_screen_Tushar.jpg'),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        const Center(
-            child: Text(
-          'Tushar Khurana',
-          style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
-        )),
-        const SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: const Icon(FontAwesomeIcons.github),
-              onPressed: () {
-                launch('https://github.com/Tusharkhurana70');
-              },
+            const DevTile(
+              name: 'Harshita Sadadekar',
+              img: 'assets/images/about_screen_Harshita.png',
+              gitUrl: 'https://github.com/HarshitaSadadekar',
+              linkedInUrl:
+                  'https://www.linkedin.com/in/harshita-sadadekar-94196b1b8/',
             ),
-            IconButton(
-              icon: const Icon(FontAwesomeIcons.linkedin),
-              onPressed: () {
-                launch('https://www.linkedin.com/in/tushar-khurana-6a282b130/');
-              },
-            )
-          ],
-        )
-      ],
-    );
-  }
-}
-
-class Yash extends StatefulWidget {
-  @override
-  _YashState createState() => _YashState();
-}
-
-class _YashState extends State<Yash> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CircleAvatar(
-          radius: 100.0,
-          backgroundImage: AssetImage('assets/images/about_screen_Yash.jpg'),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        const Center(
-            child: Text(
-          'Yash Garg',
-          style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
-        )),
-        const SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: const Icon(FontAwesomeIcons.github),
-              onPressed: () {
-                launch('https://github.com/Megabyte-143');
-              },
+            const DevTile(
+              name: 'Tushar Khurana',
+              img: 'assets/images/about_screen_Tushar.jpg',
+              gitUrl: 'https://github.com/Tusharkhurana70',
+              linkedInUrl:
+                  'https://www.linkedin.com/in/tushar-khurana-6a282b130/',
             ),
-            IconButton(
-              icon: const Icon(FontAwesomeIcons.linkedin),
-              onPressed: () {
-                launch('https://www.linkedin.com/in/yash-garg-megabyte');
-              },
-            )
+            const DevTile(
+              name: 'Yash Garg',
+              img: 'assets/images/about_screen_Yash.jpg',
+              gitUrl: 'https://github.com/Megabyte-143',
+              linkedInUrl: 'https://www.linkedin.com/in/yash-garg-megabyte',
+            ),
           ],
-        )
-      ],
+        ),
+      ),
     );
   }
 }

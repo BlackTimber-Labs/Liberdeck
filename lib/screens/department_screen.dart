@@ -29,13 +29,13 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
             ),
           ),
           const SizedBox(height: 10),
-          Container(
+          SizedBox(
             height: height * 0.6,
             child: Consumer<DepartmentProvider>(
               builder: (
-                context,
-                departments,
-                child,
+                BuildContext context,
+                DepartmentProvider departments,
+                Widget? child,
               ) {
                 return ListView.builder(
                   itemBuilder: (
@@ -70,28 +70,15 @@ class Circle extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/department_screen_center.png'),
-            alignment: Alignment.topCenter),
+          image: AssetImage('assets/images/department_screen_center.png'),
+          alignment: Alignment.topCenter,
+        ),
       ),
     );
   }
 }
 
-class SizedBox1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox(
-      height: 20,
-    );
-  }
-}
-
-class BN extends StatefulWidget {
-  @override
-  _BNState createState() => _BNState();
-}
-
-class _BNState extends State<BN> {
+class BN extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -127,16 +114,18 @@ class _BNState extends State<BN> {
             width: 132,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: Color(0xFF843622),
+              color: const Color(0xFF843622),
             ),
             child: const Center(
-                child: Text(
-              'Next',
-              style: TextStyle(
+              child: Text(
+                'Next',
+                style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white),
-            )),
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
         )
       ],

@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange,
         ),
 
-        home: LoginScreen(),
+        home: const MyHomePage(),
         // home: SavedBookScreen(),
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
@@ -97,8 +97,7 @@ class MyApp extends StatelessWidget {
           ProfileScreen.routename: (BuildContext ctx) => ProfileScreen(),
           BottomNavigationScreen.routename: (BuildContext ctx) =>
               BottomNavigationScreen(),
-              PdfViewScreen.routename: (BuildContext ctx) =>
-              const PdfViewScreen(),
+          PdfViewScreen.routename: (BuildContext ctx) => PdfViewScreen(),
         },
       ),
     );

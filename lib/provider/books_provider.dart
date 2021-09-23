@@ -261,8 +261,10 @@ class BooksProvider with ChangeNotifier {
   }
 
   /// Function to change the save status of the book.
-  void changeStatus(Book book) {
-    book.saveStatus = !book.saveStatus;
+  void changeStatus(String bookID) {
+    final List<Book> book =
+        bookList.where((Book element) => element.id == bookID).toList();
+    book.first.saveStatus = !book.first.saveStatus;
     notifyListeners();
   }
 

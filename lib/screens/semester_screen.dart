@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:liberdeck/screens/sub_screen.dart';
 import 'package:provider/provider.dart';
-
-import './about_screen.dart';
 
 import '../provider/semester_provider.dart';
 
@@ -74,7 +73,6 @@ class _SemesterScreenState extends State<SemesterScreen> {
   }
 }
 
-
 class BN extends StatefulWidget {
   @override
   _BNState createState() => _BNState();
@@ -85,12 +83,10 @@ class _BNState extends State<BN> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
+      children: <Widget>[
         TextButton(
           onPressed: () {
-            setState(() {
-              Navigator.pop(context);
-            });
+            Navigator.pop(context);
           },
           child: Container(
             height: 55,
@@ -100,40 +96,40 @@ class _BNState extends State<BN> {
               borderRadius: BorderRadius.circular(15),
             ),
             child: const Center(
-                child: Text(
-              'Back',
-              style: TextStyle(
+              child: Text(
+                'Back',
+                style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white),
-            )),
-          ),
-        ),
-        TextButton(
-          onPressed: () {
-            setState(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return AboutScreen();
-              }));
-            });
-          },
-          child: Container(
-            height: 55,
-            width: 132,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: const Color(0xFF843622),
+                  color: Colors.white,
+                ),
+              ),
             ),
-            child: const Center(
-                child: Text(
-              'Next',
-              style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white),
-            )),
           ),
         ),
+        // TextButton(
+        //   onPressed: () {
+        //     Navigator.pushNamed(context, SubScreen.routename);
+        //   },
+        //   child: Container(
+        //     height: 55,
+        //     width: 132,
+        //     decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(15),
+        //       color: const Color(0xFF843622),
+        //     ),
+        //     child: const Center(
+        //       child: Text(
+        //         'Next',
+        //         style: TextStyle(
+        //           fontSize: 32,
+        //           fontWeight: FontWeight.w600,
+        //           color: Colors.white,
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

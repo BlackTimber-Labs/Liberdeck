@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/empty_bottom_bar.dart';
 import '../widgets/image_header.dart';
 import '../widgets/sub_chp_screen/sub_chp_main_view.dart';
 
@@ -28,12 +27,9 @@ class _SubChpScreenState extends State<SubChpScreen> {
             width: width,
             //color: Colors.amber,
             child: const ImageHeader(
-
-
               topCenter: 'assets/images/sub_chp_TopCenter.png',
               topLeft: 'assets/images/sub_chp_TopLeft.png',
               topRight: 'assets/images/sub_chp_TopRight.png',
-
             ),
           ),
           Container(
@@ -47,7 +43,6 @@ class _SubChpScreenState extends State<SubChpScreen> {
           SizedBox(
             height: height * 0.01,
           ),
-          EmptyBottomBar(height: height),
         ],
       ),
     );

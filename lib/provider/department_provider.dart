@@ -59,9 +59,11 @@ class DepartmentProvider with ChangeNotifier {
   /// Function to showcase the final list of Department course wise.
   List<Department> findDepartment(String courseID) {
     final List<Department> finalDepartmentList = departmentList
-        .where((Department element) => element.courseID.toLowerCase().contains(
-              courseID.toLowerCase(),
-            ))
+        .where(
+          (Department element) => element.courseID.toLowerCase().contains(
+                courseID.toLowerCase(),
+              ),
+        )
         .toList();
     return finalDepartmentList;
   }

@@ -15,37 +15,11 @@ class _SavedBooksScreenState extends State<SavedBooksScreen> {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    final user = FirebaseAuth.instance.currentUser;
-    final userID = user!.uid;
+    final User? user = FirebaseAuth.instance.currentUser;
+    final String userID = user!.uid;
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: height,
-        // child: Consumer<SavedBooksProvider>(builder: (
-        //   BuildContext context,
-        //   SavedBooksProvider books,
-        //   Widget? child,
-        // ) {
-        //   return ListView.builder(
-        //     itemBuilder: (
-        //       BuildContext ctx,
-        //       int i,
-        //     ) {
-        // return BookTile(
-        //   userID: userID,
-        //   title: books.bookList[i].title,
-        //   author: books.bookList[i].title,
-        //   imgUrl: books.bookList[i].imgUrl,
-        //   saveStatus: books.bookList[i].saveStatus,
-        //   id: books.bookList[i].id,
-        //   downloadUrl: books.bookList[i].downloadUrl,
-        //   viewUrl: books.bookList[i].viewUrl,
-        //   height: height,
-        //   width: width,
-        // );
-        //     },
-        //     itemCount: books.bookList.length,
-        //   );
-        // }
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
               .collection('savedBooks')
@@ -83,6 +57,28 @@ class _SavedBooksScreenState extends State<SavedBooksScreen> {
                   );
                 }).toList(),
               );
+              // final bookList = booksSnapshot.data!.docs;
+              // return ListView.builder(
+              //   itemBuilder: (
+              //     BuildContext ctx,
+              //     int i,
+              //   ) {
+              //     return BookTile(
+              //       downloadUrl: bookList[i]['downloadUrl'].toString(),
+              //       viewUrl: bookList[i]['viewUrl'].toString(),
+              //       id: bookList[i]['id'].toString(),
+              //       title: bookList[i]['title'].toString(),
+              //       author: bookList[i]['author'].toString(),
+              //       imgUrl: bookList[i]['imgUrl'].toString(),
+              //       saveStatus: true,
+              //       height: height,
+              //       width: width,
+              //       userID: userID,
+              //       bookID: bookList[i].id,
+              //     );
+              //   },
+              //   itemCount: bookList.length,
+              // );
             }
           },
         ),
