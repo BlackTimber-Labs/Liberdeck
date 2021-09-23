@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import './department_screen.dart';
+import './login_screen.dart';
 import './profile_screen.dart';
 import './saved_book_screen.dart';
 
+import '../provider/google_sign_in.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
   static const String routename = '/bottom_navigation_screen';
@@ -18,11 +20,35 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
 
   @override
   void initState() {
-    tabs = [
+    tabs = <Map<String, Widget>>[
       {'page': DepartmentScreen()},
       {'page': SavedBooksScreen()},
       {'page': ProfileScreen()},
-      
+      {
+        'page': AlertDialog(
+          title: const Text('Logout?'),
+          content: const Text('Are you sure, you wanna log out?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  _currentIndex = 0;
+                });
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  GoogleSignInProvider().logout();
+                Navigator.popAndPushNamed(context, LoginScreen.routename);
+                });
+              },
+              child: const Text('Yes'),
+            )
+          ],
+        )
+      },
     ];
     super.initState();
   }
