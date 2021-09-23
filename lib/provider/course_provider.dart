@@ -7,7 +7,7 @@ class CourseProvider with ChangeNotifier {
   final List<Cousre> _courseList = <Cousre>[
     Cousre(
       title: 'B.Tech',
-      id: 'btech'
+      id: 'btech',
     ),
   ];
 
