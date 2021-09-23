@@ -17,6 +17,7 @@ import './screens/books_view_sceen.dart';
 import './screens/bottom_navigation_screen.dart';
 import './screens/department_screen.dart';
 import './screens/login_screen.dart';
+import './screens/pdf_view_screen.dart';
 import './screens/profile_screen.dart';
 import './screens/saved_book_screen.dart';
 import './screens/semester_screen.dart';
@@ -36,17 +37,22 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: <SingleChildWidget>[
         ChangeNotifierProvider<GoogleSignInProvider>(
-            create: (_) => GoogleSignInProvider()),
+          create: (_) => GoogleSignInProvider(),
+        ),
         ChangeNotifierProvider<CourseProvider>(create: (_) => CourseProvider()),
         ChangeNotifierProvider<DepartmentProvider>(
-            create: (_) => DepartmentProvider()),
+          create: (_) => DepartmentProvider(),
+        ),
         ChangeNotifierProvider<SemesterProvider>(
-            create: (_) => SemesterProvider()),
+          create: (_) => SemesterProvider(),
+        ),
         ChangeNotifierProvider<SubjectProvider>(
-            create: (_) => SubjectProvider()),
+          create: (_) => SubjectProvider(),
+        ),
         ChangeNotifierProvider<BooksProvider>(create: (_) => BooksProvider()),
         ChangeNotifierProvider<SavedBooksProvider>(
-            create: (_) => SavedBooksProvider()),
+          create: (_) => SavedBooksProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -91,6 +97,8 @@ class MyApp extends StatelessWidget {
           ProfileScreen.routename: (BuildContext ctx) => ProfileScreen(),
           BottomNavigationScreen.routename: (BuildContext ctx) =>
               BottomNavigationScreen(),
+              PdfViewScreen.routename: (BuildContext ctx) =>
+              const PdfViewScreen(),
         },
       ),
     );

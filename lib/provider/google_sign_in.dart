@@ -41,8 +41,10 @@ class GoogleSignInProvider extends ChangeNotifier {
                   accessToken: googleAuth.accessToken,
                 ),
               )
-              .then((UserCredential value) => Navigator.of(context)
-                  .pushNamed(BottomNavigationScreen.routename),);
+              .then(
+                (UserCredential value) => Navigator.of(context)
+                    .pushNamed(BottomNavigationScreen.routename),
+              );
         } catch (e) {
           print(e.toString());
         }
@@ -52,7 +54,8 @@ class GoogleSignInProvider extends ChangeNotifier {
   }
 
   Future<void> logout() async {
-    await googleSignIn.disconnect();
-    FirebaseAuth.instance.signOut();
+    // await googleSignIn.disconnect();
+    await googleSignIn.signOut();
+    await FirebaseAuth.instance.signOut();
   }
 }

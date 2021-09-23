@@ -38,11 +38,12 @@ class SavedBooksProvider with ChangeNotifier {
     String viewUrl,
     String downloadUrl,
   ) async {
+
     await FirebaseFirestore.instance
         .collection('savedBooks')
         .doc(userID)
         .collection('books')
-        .add({
+        .add({  
       'id': id,
       'title': title,
       'author': author,
