@@ -27,7 +27,8 @@ class _ProfileInfoState extends State<ProfileInfo> {
           //   children: const <Widget>[
           //      Text(
           //       'BRANCH :',
-          //       style: TextStyle(fontSize: 19.5, fontWeight: FontWeight.w500),
+          //       style: TextStyle(
+          //       fontSize: 19.5, fontWeight: FontWeight.w500),
           //     ),
           //    SizedBox(width: 80),
           //     Text(
@@ -45,7 +46,8 @@ class _ProfileInfoState extends State<ProfileInfo> {
           //   children: const <Widget>[
           //     Text(
           //       'YEAR :',
-          //       style: TextStyle(fontSize: 19.5, fontWeight: FontWeight.w500),
+          //       style: TextStyle(
+          //       fontSize: 19.5, fontWeight: FontWeight.w500),
           //     ),
           //     SizedBox(width: 110),
           //     Text(
@@ -63,7 +65,8 @@ class _ProfileInfoState extends State<ProfileInfo> {
           //   children:const  <Widget>[
           //     Text(
           //       'SEMESTER :',
-          //       style: TextStyle(fontSize: 19.5, fontWeight: FontWeight.w500),
+          //       style: TextStyle(
+          //       fontSize: 19.5, fontWeight: FontWeight.w500),
           //     ),
           //     SizedBox(width: 60),
           //     Text(
@@ -90,7 +93,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                 'NAME :',
                 style: TextStyle(fontSize: 19.5, fontWeight: FontWeight.w500),
               ),
-              SizedBox(width: 100),
+              const SizedBox(width: 100),
               Expanded(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -107,21 +110,21 @@ class _ProfileInfoState extends State<ProfileInfo> {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Text(
+              const Text(
                 'EMAIL :',
                 style: TextStyle(fontSize: 19.5, fontWeight: FontWeight.w500),
               ),
-              SizedBox(width: 95),
+              const SizedBox(width: 95),
               Expanded(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Text(
                     user.email!,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 19.5,
                         fontWeight: FontWeight.w500,
                         color: Color(0xFFC95A2B)),
@@ -130,12 +133,12 @@ class _ProfileInfoState extends State<ProfileInfo> {
               ),
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Center(
             child: TextButton(
-              child: Text(
+              child: const Text(
                 'About developers',
-                style: TextStyle(fontSize: 19.5, color: Color(0xFF000000)),
+                style: const TextStyle(fontSize: 19.5, color: Color(0xFF000000)),
               ),
               onPressed: () {
                 setState(() {

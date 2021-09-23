@@ -53,7 +53,7 @@ class ProfileHeader extends StatelessWidget {
       children: <Widget>[
         Positioned(
           child: Container(
-            child: Image(
+            child: const Image(
               image: AssetImage('assets/images/profileTopLeft.png'),
             ),
           ),
@@ -62,7 +62,7 @@ class ProfileHeader extends StatelessWidget {
         ),
         Positioned(
           child: Container(
-            child: Image(
+            child: const Image(
               image: AssetImage('assets/images/profileTopRight.png'),
             ),
           ),
@@ -72,7 +72,7 @@ class ProfileHeader extends StatelessWidget {
         Positioned(
           child: Container(
             alignment: Alignment.bottomCenter,
-            child: Image(
+            child: const Image(
               image: AssetImage('assets/images/profileCenter.png'),
             ),
           ),

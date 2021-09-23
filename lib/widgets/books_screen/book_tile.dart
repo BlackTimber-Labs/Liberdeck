@@ -49,108 +49,117 @@ class _BookTileState extends State<BookTile> {
       ),
       height: height * 0.37,
       width: width,
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxWidth: width * 0.5,
-                  maxHeight: height * 0.35,
-                ),
-                child: Image.network(
-                  widget.imgUrl,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: width * 0.02,
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: width * 0.5,
+                    maxHeight: height * 0.35,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: height * 0.1,
-                        width: width * 0.5,
-                        child: Text(
-                          widget.title,
-                          style: Theme.of(context).textTheme.headline5,
-                          softWrap: true,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 3,
+                  child: Image.network(
+                    widget.imgUrl,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: width * 0.02,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: height * 0.1,
+                          width: width * 0.5,
+                          child: Text(
+                            widget.title,
+                            style: Theme.of(context).textTheme.headline5,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 3,
+                          ),
                         ),
-                      ),
-                      Text(
-                        widget.author,
-                        style: Theme.of(context).textTheme.bodyText1,
-                        softWrap: true,
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          if (widget.saveStatus) {
-                            provider.removeBook(
-                              widget.id,
-                              widget.userID,
-                              widget.bookID,
+                        Text(
+                          widget.author,
+                          style: Theme.of(context).textTheme.bodyText1,
+                          softWrap: true,
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            if (widget.saveStatus) {
+                              provider.removeBook(
+                                widget.id,
+                                widget.userID,
+                                widget.bookID,
+                              );
+                            } else {
+                              provider.addBook(
+                                widget.userID,
+                                widget.id,
+                                widget.title,
+                                widget.author,
+                                widget.imgUrl,
+                                widget.viewUrl,
+                                widget.downloadUrl,
+                              );
+                            }
+                            setState(() {
+                              widget.saveStatus = !widget.saveStatus;
+                            });
+                          },
+                          icon: !widget.saveStatus
+                              ? const Icon(Icons.bookmark_outline)
+                              : const Icon(Icons.bookmark),
+                          label: const Text('     Save    '),
+                          style: ButtonStyle(
+                            foregroundColor:MaterialStateProperty.all(
+                                const Color(0xFFFFFFFF) ),
+                              backgroundColor: MaterialStateProperty.all(
+                                  const Color(0xFF904A38)),
+                          ),
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(
+                              PdfViewScreen.routename,
+                              arguments: PdfViewScreenArguments(
+                                name: widget.title,
+                                url: widget.viewUrl,
+                              ),
                             );
-                          } else {
-                            provider.addBook(
-                              widget.userID,
-                              widget.id,
-                              widget.title,
-                              widget.author,
-                              widget.imgUrl,
-                              widget.viewUrl,
-                              widget.downloadUrl,
-                            );
-                          }
-                          setState(() {
-                            widget.saveStatus = !widget.saveStatus;
-                          });
-                        },
-                        icon: !widget.saveStatus
-                            ? const Icon(Icons.bookmark_outline)
-                            : const Icon(Icons.bookmark),
-                        label: const Text('     Save     '),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                const Color(0xFF904A38))),
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(
-                            PdfViewScreen.routename,
-                            arguments: PdfViewScreenArguments(
-                              name: widget.title,
-                              url: widget.viewUrl,
-                            ),
-                          );
-                        },
-                        icon: const Icon(Icons.visibility),
-                        label: const Text('     View     '),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                const Color(0xFF904A38))),
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          launch(widget.downloadUrl);
-                        },
-                        icon: const Icon(Icons.download_for_offline),
-                        label: const Text('Download'),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                const Color(0xFF904A38))),
-                      ),
-                    ],
+                          },
+                          icon: const Icon(Icons.visibility),
+                          label: const Text('     View    '),
+                          style: ButtonStyle(
+                              foregroundColor:MaterialStateProperty.all(
+                                  const Color(0xFFFFFFFF) ),
+                              backgroundColor: MaterialStateProperty.all(
+                                  const Color(0xFF904A38))),
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            launch(widget.downloadUrl);
+                          },
+                          icon: const Icon(Icons.download_for_offline),
+                          label: const Text('Download'),
+                          style: ButtonStyle(
+                              foregroundColor:MaterialStateProperty.all(
+                                  const Color(0xFFFFFFFF) ),
+                              backgroundColor: MaterialStateProperty.all(
+                                  const Color(0xFF904A38))),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              )
-            ],
-          ),
-        ],
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

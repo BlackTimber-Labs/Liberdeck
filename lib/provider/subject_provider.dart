@@ -72,7 +72,7 @@ class SubjectProvider with ChangeNotifier {
       semID: 2,
       courseID: 'btech',
       departmentID: 'fy',
-      title: 'cs1001',
+      title: 'CS1001',
       id:'cs1001'
     ),
     Subject(

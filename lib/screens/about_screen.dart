@@ -28,22 +28,22 @@ class _AboutScreenState extends State<AboutScreen> {
         const SizedBox(
           height: 19,
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 28),
           child: Text(
             'APP DEVELOPERS',
             style: TextStyle(fontSize: 24.5, fontWeight: FontWeight.w600),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Harshita(),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Tushar(),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Yash(),
@@ -60,7 +60,7 @@ class Background extends StatelessWidget {
         Expanded(
           child: Container(
             height: 200,
-            decoration: BoxDecoration(
+            decoration:const BoxDecoration(
                 image: DecorationImage(
                     image:
                         AssetImage('assets/images/about_screen_top_left.png'),
@@ -70,7 +70,7 @@ class Background extends StatelessWidget {
         Expanded(
           child: Container(
             height: 200,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image:
                         AssetImage('assets/images/about_screen_top_right.png'),
@@ -92,33 +92,33 @@ class _HarshitaState extends State<Harshita> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           radius: 100.0,
           backgroundImage:
               AssetImage('assets/images/about_screen_Harshita.png'),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
-        Center(
+        const Center(
             child: Text(
           'Harshita Sadadekar',
           style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
         )),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              icon: Icon(FontAwesomeIcons.github),
+              icon: const Icon(FontAwesomeIcons.github),
               onPressed: () {
                 launch('https://github.com/HarshitaSadadekar');
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.linkedin),
+              icon: const Icon(FontAwesomeIcons.linkedin),
               onPressed: () {
                 launch(
                     'https://www.linkedin.com/in/harshita-sadadekar-94196b1b8/');
@@ -141,32 +141,32 @@ class _TusharState extends State<Tushar> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           radius: 100.0,
           backgroundImage: AssetImage('assets/images/about_screen_Tushar.jpg'),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
-        Center(
+        const Center(
             child: Text(
           'Tushar Khurana',
           style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
         )),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              icon: Icon(FontAwesomeIcons.github),
+              icon: const Icon(FontAwesomeIcons.github),
               onPressed: () {
                 launch('https://github.com/Tusharkhurana70');
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.linkedin),
+              icon: const Icon(FontAwesomeIcons.linkedin),
               onPressed: () {
                 launch('https://www.linkedin.com/in/tushar-khurana-6a282b130/');
               },
@@ -188,32 +188,32 @@ class _YashState extends State<Yash> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           radius: 100.0,
           backgroundImage: AssetImage('assets/images/about_screen_Yash.jpg'),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
-        Center(
+        const Center(
             child: Text(
           'Yash Garg',
           style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w600),
         )),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              icon: Icon(FontAwesomeIcons.github),
+              icon: const Icon(FontAwesomeIcons.github),
               onPressed: () {
                 launch('https://github.com/Megabyte-143');
               },
             ),
             IconButton(
-              icon: Icon(FontAwesomeIcons.linkedin),
+              icon: const Icon(FontAwesomeIcons.linkedin),
               onPressed: () {
                 launch('https://www.linkedin.com/in/yash-garg-megabyte');
               },
