@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../provider/saved_book_provider.dart';
+import '../../screens/pdf_view_screen.dart';
 
 class BookTile extends StatefulWidget {
   @override
@@ -47,8 +47,7 @@ class _BookTileState extends State<BookTile> {
         vertical: height * 0.02,
         horizontal: width * 0.03,
       ),
-      height: height * 0.4,
-      color: Colors.amber,
+      height: height * 0.37,
       width: width,
       child: Column(
         children: <Widget>[
@@ -121,7 +120,13 @@ class _BookTileState extends State<BookTile> {
                       ),
                       ElevatedButton.icon(
                         onPressed: () {
-                          SfPdfViewer.network(widget.viewUrl);
+                          Navigator.of(context).pushNamed(
+                            PdfViewScreen.routename,
+                            arguments: PdfViewScreenArguments(
+                              name: widget.title,
+                              url: widget.viewUrl,
+                            ),
+                          );
                         },
                         icon: const Icon(Icons.visibility),
                         label: const Text('     View     '),

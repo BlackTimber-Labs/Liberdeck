@@ -27,7 +27,7 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
           final User? user = FirebaseAuth.instance.currentUser;
     final String userID= user!.uid;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Column(
         children: <Widget>[
           Container(
@@ -44,7 +44,6 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
           ),
           Container(
             height: height * 0.6,
-            color: Colors.blue,
             child: Consumer<BooksProvider>(builder: (
               BuildContext context,
               BooksProvider booksList,
