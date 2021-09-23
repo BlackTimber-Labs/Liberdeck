@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:liberdeck/screens/sub_screen.dart';
 import 'package:provider/provider.dart';
+
+import '../model/semester.dart' as sem_model;
 
 import '../provider/semester_provider.dart';
 
-import '../widgets/semester_screen/semester.dart';
+import '../widgets/semester_screen/semester.dart' as sem_widget;
 
 class SemesterScreen extends StatefulWidget {
   static const String routename = '/semester_screen';
@@ -19,15 +20,17 @@ class _SemesterScreenState extends State<SemesterScreen> {
     final Object? departmentId = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       body: Column(
-        children: [
+        children: <Widget>[
           Container(
             height: 120,
             width: double.infinity,
             decoration: const BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage('assets/images/semester_screen_top_right.png'),
-              alignment: Alignment.topRight,
-            )),
+              image: DecorationImage(
+                image:
+                    AssetImage('assets/images/semester_screen_top_right.png'),
+                alignment: Alignment.topRight,
+              ),
+            ),
           ),
           const Center(
             child: Text(
@@ -38,16 +41,16 @@ class _SemesterScreenState extends State<SemesterScreen> {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             height: height * 0.7,
             child: Consumer<SemesterProvider>(
               builder: (
-                context,
-                sem,
-                child,
+                BuildContext context,
+                SemesterProvider sem,
+                Widget? child,
               ) {
-                var semesterList = sem.findSemester(
-                  "btech",
+                final List<sem_model.Semester> semesterList = sem.findSemester(
+                  'btech',
                   departmentId.toString(),
                 );
                 return ListView.builder(
@@ -55,7 +58,7 @@ class _SemesterScreenState extends State<SemesterScreen> {
                     BuildContext ctx,
                     int i,
                   ) {
-                    return Semester(
+                    return sem_widget.Semester(
                       sem: semesterList[i].title,
                       departmentID: semesterList[i].departmentID,
                       semID: semesterList[i].id,

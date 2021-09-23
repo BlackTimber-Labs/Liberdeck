@@ -7,9 +7,7 @@ import '../../provider/saved_book_provider.dart';
 import '../../screens/pdf_view_screen.dart';
 
 class BookTile extends StatefulWidget {
-  @override
-  _BookTileState createState() => _BookTileState();
-  BookTile({
+  const BookTile({
     required this.downloadUrl,
     required this.viewUrl,
     required this.id,
@@ -22,17 +20,20 @@ class BookTile extends StatefulWidget {
     required this.userID,
     this.bookID = '',
   });
-  String userID;
-  String bookID;
-  String id;
-  String title;
-  String author;
-  String imgUrl;
-  String viewUrl;
-  String downloadUrl;
-  bool saveStatus;
-  double height;
-  double width;
+  @override
+  _BookTileState createState() => _BookTileState();
+
+  final String userID;
+  final String bookID;
+  final String id;
+  final String title;
+  final String author;
+  final String imgUrl;
+  final String viewUrl;
+  final String downloadUrl;
+  final bool saveStatus;
+  final double height;
+  final double width;
 }
 
 class _BookTileState extends State<BookTile> {

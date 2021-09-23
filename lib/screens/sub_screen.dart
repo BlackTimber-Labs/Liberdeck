@@ -23,7 +23,7 @@ class _SubScreenState extends State<SubScreen> {
     final double width = MediaQuery.of(context).size.width;
     final SubScreenArguments args =
         ModalRoute.of(context)!.settings.arguments as SubScreenArguments;
-final User user = FirebaseAuth.instance.currentUser!;
+    final User user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -58,7 +58,6 @@ final User user = FirebaseAuth.instance.currentUser!;
             SizedBox(
               height: height * 0.04,
             ),
-            
           ],
         ),
       ),
@@ -67,12 +66,12 @@ final User user = FirebaseAuth.instance.currentUser!;
 }
 
 class SubScreenArguments {
-  String departmentID;
-  String courseID;
-  int semID;
   SubScreenArguments(
     this.courseID,
     this.departmentID,
     this.semID,
   );
+  String departmentID;
+  String courseID;
+  int semID;
 }

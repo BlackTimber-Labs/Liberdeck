@@ -83,7 +83,7 @@ class BN extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
+      children: <Widget>[
         // TextButton(
         //   onPressed: () {
         //     setState(() {});

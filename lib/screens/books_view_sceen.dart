@@ -31,7 +31,7 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
       backgroundColor: Colors.white,
       body: Column(
         children: <Widget>[
-          Container(
+          SizedBox(
             height: height * 0.3,
             width: width,
             child: TextHeader(
@@ -43,7 +43,7 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
               subTitle: 'Choose Wisely!',
             ),
           ),
-          Container(
+          SizedBox(
             height: height * 0.6,
             child: Consumer<BooksProvider>(
               builder: (
@@ -62,7 +62,6 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
                     BuildContext ctx,
                     int i,
                   ) {
-                    ;
                     return BookTile(
                       userID: userID,
                       title: books[i].title,
@@ -109,16 +108,14 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
 }
 
 class BooksArguments {
-  String courseID;
-  String departmentID;
-  String subID;
-
-  int semID;
-
   BooksArguments({
     required this.courseID,
     required this.departmentID,
     required this.semID,
     required this.subID,
   });
+  String courseID;
+  String departmentID;
+  String subID;
+  int semID;
 }
