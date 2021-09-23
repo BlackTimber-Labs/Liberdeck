@@ -28,7 +28,7 @@ class _AboutScreenState extends State<AboutScreen> {
                 height: height,
                 topRight: 'assets/images/about_screen_top_right.png',
                 topLeft: 'assets/images/about_screen_top_left.png',
-                title: 'BEHIND THE SCENES',
+                title: 'MEET THE TEAM',
                 subTitle: 'APP DEVELOPERS',
               ),
             ),

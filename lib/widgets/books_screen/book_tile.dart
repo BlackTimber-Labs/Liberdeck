@@ -117,7 +117,9 @@ class _BookTileState extends State<BookTile> {
                           icon: !widget.saveStatus
                               ? const Icon(Icons.bookmark_outline)
                               : const Icon(Icons.bookmark),
-                          label: const Text('     Save    '),
+                          label: const SingleChildScrollView(
+                              child: Text('     Save    ',
+                                style: TextStyle(fontSize: 20),)),
                           style: ButtonStyle(
                             foregroundColor: MaterialStateProperty.all(
                               const Color(0xFFFFFFFF),
@@ -138,7 +140,9 @@ class _BookTileState extends State<BookTile> {
                             );
                           },
                           icon: const Icon(Icons.visibility),
-                          label: const Text('     View    '),
+                          label: const SingleChildScrollView(
+                              child: Text('     View    ',
+                            style: TextStyle(fontSize: 20) ,)),
                           style: ButtonStyle(
                             foregroundColor: MaterialStateProperty.all(
                               const Color(0xFFFFFFFF),
@@ -153,7 +157,10 @@ class _BookTileState extends State<BookTile> {
                             launch(widget.downloadUrl);
                           },
                           icon: const Icon(Icons.download_for_offline),
-                          label: const Text('Download'),
+                          label: const SingleChildScrollView(
+                            child: Text('Download',
+                              style: TextStyle(fontSize: 19),),
+                          ),
                           style: ButtonStyle(
                             foregroundColor: MaterialStateProperty.all(
                               const Color(0xFFFFFFFF),

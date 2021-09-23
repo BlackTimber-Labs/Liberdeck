@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: height * 0.5,
+              height: height * 0.54,
               width: width,
               child: HeaderSection(),
             ),
@@ -58,6 +58,10 @@ class HeaderSection extends StatelessWidget {
               letterSpacing: 1.5,
             ),
           ),
+        ),
+        const Center(
+          child: Text('Powered By SoftDodge',
+            style: TextStyle(fontSize: 20),),
         ),
         Positioned(
           child: Container(
@@ -129,6 +133,7 @@ class _InputFieldsState extends State<InputFields> {
               ),
             ),
           ),
+
           // SizedBox(height: 60),
           // ElevatedButton(
           //   onPressed:(){},
