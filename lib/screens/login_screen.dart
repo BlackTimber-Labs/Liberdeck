@@ -16,7 +16,7 @@ static const String routename = '/login_screen';
     final width= MediaQuery.of(context).size.width;
 
     return Scaffold(
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: const Color(0xFFFFFFFF),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -25,7 +25,7 @@ static const String routename = '/login_screen';
                 width: width,
                 child: HeaderSection(),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               InputFields(),
             ],
           ),
@@ -41,7 +41,7 @@ class HeaderSection extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Image.asset('assets/images/loginTopLeft.png'),
-        Padding(
+        const Padding(
           padding: EdgeInsets.fromLTRB(60, 81, 0,0),
           child: Text('LIBERDECK',
             style: TextStyle(
@@ -49,7 +49,7 @@ class HeaderSection extends StatelessWidget {
               fontSize: 51.0, fontWeight: FontWeight.w700,
             ),),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.fromLTRB(80, 150, 0,0),
           child: Text('By BlackTimber Labs',
             style: TextStyle(
@@ -84,8 +84,6 @@ class _InputFieldsState extends State<InputFields> {
 
   @override
   Widget build(BuildContext context) {
-    final width= MediaQuery.of(context).size.width;
-    final height= MediaQuery.of(context).size.height;
 
     return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -93,14 +91,15 @@ class _InputFieldsState extends State<InputFields> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Center(child: Text('Login',
+          const Center(child: Text('Login',
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 40),
           )),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           ElevatedButton(
             onPressed:() {
-              final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+              final provider =
+              Provider.of<GoogleSignInProvider>(context, listen: false);
               provider.googleLogIn(context);
             },
             style: ButtonStyle(
@@ -109,17 +108,18 @@ class _InputFieldsState extends State<InputFields> {
               shadowColor:MaterialStateProperty.all(Colors.black) ,
               elevation:MaterialStateProperty.all(8) ,
               fixedSize: MaterialStateProperty.all(Size(50,60)),
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
-              textStyle: MaterialStateProperty.all(TextStyle(
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20))),
+              textStyle: MaterialStateProperty.all(const TextStyle(
                   fontSize: 20.0)),
             ),
             child: Padding(
-              padding: EdgeInsets.only(left: 40),
+              padding: const EdgeInsets.only(left: 40),
               child: Row(
                 children: [
                   Image.asset('assets/images/google.png', height: 50, width: 50,),
-                  SizedBox(width: 15),
-                  Text('Sign In With Google')
+                  const SizedBox(width: 15),
+                  const Text('Sign In With Google')
                 ],
               ),
             ),
@@ -131,7 +131,8 @@ class _InputFieldsState extends State<InputFields> {
           //     backgroundColor: MaterialStateProperty.all(Color(0xFFC4C4C4)),
           //     foregroundColor: MaterialStateProperty.all(Colors.black),
           //     fixedSize: MaterialStateProperty.all(Size(50,60)),
-          //     shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+          //     shape: MaterialStateProperty.all(RoundedRectangleBorder(
+          //     borderRadius: BorderRadius.circular(20))),
           //     textStyle: MaterialStateProperty.all(TextStyle(
           //         fontSize: 20.0)),
           //   ),

@@ -28,9 +28,8 @@ class _DepartmentState extends State<Department> {
         
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 27),
+        margin:const EdgeInsets.symmetric(horizontal: 27),
         height: 55,
-        width: 380,
         decoration: BoxDecoration(
             color: widget.colour, borderRadius: BorderRadius.circular(7)),
         child: Center(
