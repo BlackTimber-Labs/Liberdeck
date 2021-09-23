@@ -24,9 +24,8 @@ class SubChpMainView extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Container(
+        SizedBox(
           height: height * 0.07,
-          //color: Colors.blueAccent,
           child: Container(
             alignment: Alignment.topLeft,
             child: Text(
@@ -47,8 +46,7 @@ class SubChpMainView extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: width * 0.08,
           ),
-          child: Container(
-            //color: Colors.cyan,
+          child: SizedBox(
             height: height * 0.44,
             child: ListView.builder(
               controller: _scrollController,

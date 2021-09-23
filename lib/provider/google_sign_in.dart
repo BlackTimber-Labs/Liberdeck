@@ -4,30 +4,13 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../screens/bottom_navigation_screen.dart';
 
+/// Provider contains all the functions of the Google SignIn Method
 class GoogleSignInProvider extends ChangeNotifier {
+  /// Initialization of the GoogleSignIn
   final GoogleSignIn googleSignIn = GoogleSignIn();
-  // GoogleSignInAccount? _user;
-  //GoogleSignInAccount get user => _user!;
 
-  Future googleLogIn(BuildContext context) async {
-    // try {
-    //   final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-
-    //   if (googleUser == null) return;
-    //   _user = googleUser;
-    //   final GoogleSignInAuthentication googleAuth =
-    //       await googleUser.authentication;
-
-    //   final OAuthCredential credential = GoogleAuthProvider.credential(
-    //     accessToken: googleAuth.accessToken,
-    //     idToken: googleAuth.idToken,
-    //   );
-    //   await FirebaseAuth.instance.signInWithCredential(credential).then(
-    //         (UserCredential value) => Navigator.of(context)
-    //             .pushNamed(BottomNavigationScreen.routename),
-    //       );
-    // }
-    //final googleSignIn = GoogleSignIn();
+  /// Function for LOGIN
+  Future<void> googleLogIn(BuildContext context) async {
     final GoogleSignInAccount? googleAccount = await googleSignIn.signIn();
     if (googleAccount != null) {
       final GoogleSignInAuthentication googleAuth =
@@ -46,13 +29,19 @@ class GoogleSignInProvider extends ChangeNotifier {
                     .pushNamed(BottomNavigationScreen.routename),
               );
         } catch (e) {
-          print(e.toString());
+          AlertDialog(
+            content: Text(
+              e.toString(),
+            ),
+            title: const Text('An Error Occured'),
+          );
         }
         notifyListeners();
       }
     }
   }
 
+  /// Function for LOGOUT
   Future<void> logout() async {
     // await googleSignIn.disconnect();
     await googleSignIn.signOut();

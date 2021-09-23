@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './about_screen.dart';
+import '../model/semester.dart' as sem_model;
 
 import '../provider/semester_provider.dart';
 
-import '../widgets/semester_screen/semester.dart';
+import '../widgets/semester_screen/semester.dart' as sem_widget;
 
 class SemesterScreen extends StatefulWidget {
   static const String routename = '/semester_screen';
@@ -20,15 +20,17 @@ class _SemesterScreenState extends State<SemesterScreen> {
     final Object? departmentId = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       body: Column(
-        children: [
+        children: <Widget>[
           Container(
             height: 120,
             width: double.infinity,
             decoration: const BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage('assets/images/semester_screen_top_right.png'),
-              alignment: Alignment.topRight,
-            )),
+              image: DecorationImage(
+                image:
+                    AssetImage('assets/images/semester_screen_top_right.png'),
+                alignment: Alignment.topRight,
+              ),
+            ),
           ),
           const Center(
             child: Text(
@@ -39,16 +41,16 @@ class _SemesterScreenState extends State<SemesterScreen> {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             height: height * 0.7,
             child: Consumer<SemesterProvider>(
               builder: (
-                context,
-                sem,
-                child,
+                BuildContext context,
+                SemesterProvider sem,
+                Widget? child,
               ) {
-                var semesterList = sem.findSemester(
-                  "btech",
+                final List<sem_model.Semester> semesterList = sem.findSemester(
+                  'btech',
                   departmentId.toString(),
                 );
                 return ListView.builder(
@@ -56,7 +58,7 @@ class _SemesterScreenState extends State<SemesterScreen> {
                     BuildContext ctx,
                     int i,
                   ) {
-                    return Semester(
+                    return sem_widget.Semester(
                       sem: semesterList[i].title,
                       departmentID: semesterList[i].departmentID,
                       semID: semesterList[i].id,
@@ -74,7 +76,6 @@ class _SemesterScreenState extends State<SemesterScreen> {
   }
 }
 
-
 class BN extends StatefulWidget {
   @override
   _BNState createState() => _BNState();
@@ -85,12 +86,10 @@ class _BNState extends State<BN> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
+      children: <Widget>[
         TextButton(
           onPressed: () {
-            setState(() {
-              Navigator.pop(context);
-            });
+            Navigator.pop(context);
           },
           child: Container(
             height: 55,
@@ -100,40 +99,40 @@ class _BNState extends State<BN> {
               borderRadius: BorderRadius.circular(15),
             ),
             child: const Center(
-                child: Text(
-              'Back',
-              style: TextStyle(
+              child: Text(
+                'Back',
+                style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white),
-            )),
-          ),
-        ),
-        TextButton(
-          onPressed: () {
-            setState(() {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return AboutScreen();
-              }));
-            });
-          },
-          child: Container(
-            height: 55,
-            width: 132,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: const Color(0xFF843622),
+                  color: Colors.white,
+                ),
+              ),
             ),
-            child: const Center(
-                child: Text(
-              'Next',
-              style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white),
-            )),
           ),
         ),
+        // TextButton(
+        //   onPressed: () {
+        //     Navigator.pushNamed(context, SubScreen.routename);
+        //   },
+        //   child: Container(
+        //     height: 55,
+        //     width: 132,
+        //     decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(15),
+        //       color: const Color(0xFF843622),
+        //     ),
+        //     child: const Center(
+        //       child: Text(
+        //         'Next',
+        //         style: TextStyle(
+        //           fontSize: 32,
+        //           fontWeight: FontWeight.w600,
+        //           color: Colors.white,
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

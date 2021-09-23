@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import '../../screens/semester_screen.dart';
 
 class Department extends StatefulWidget {
-  const Department(
-   { required this.name,
+  const Department({
+    required this.name,
     required this.colour,
-    required this.departmentID,}
-  );
+    required this.departmentID,
+  });
   final Color colour;
   final String name;
   final String departmentID;
@@ -25,13 +25,14 @@ class _DepartmentState extends State<Department> {
           SemesterScreen.routename,
           arguments: widget.departmentID,
         );
-        
       },
       child: Container(
-        margin:const EdgeInsets.symmetric(horizontal: 27),
+        margin: const EdgeInsets.symmetric(horizontal: 27),
         height: 55,
         decoration: BoxDecoration(
-            color: widget.colour, borderRadius: BorderRadius.circular(7)),
+          color: widget.colour,
+          borderRadius: BorderRadius.circular(7),
+        ),
         child: Center(
           child: Text(
             widget.name,

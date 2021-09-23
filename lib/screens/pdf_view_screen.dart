@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/file.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:pdf_render/pdf_render_widgets.dart';
-//import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
 
 class PdfViewScreen extends StatefulWidget {
-  const PdfViewScreen();
+  
   static const String routename = '/pdf_view_screen';
 
   @override
@@ -13,9 +13,6 @@ class PdfViewScreen extends StatefulWidget {
 }
 
 class _PdfViewScreenState extends State<PdfViewScreen> {
-  //final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
-  //PdfViewerController _pdfViewerController = PdfViewerController();
-//Matrix4 pageNo. = [_pdfViewerController.currentPageNumber-1];
 
   @override
   Widget build(BuildContext context) {
@@ -24,28 +21,6 @@ class _PdfViewScreenState extends State<PdfViewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(args.name, style: Theme.of(context).textTheme.bodyText1),
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: Icon(
-        //       Icons.keyboard_arrow_up,
-        //       color: Colors.white,
-        //     ),
-        //     onPressed: () {
-        //       _pdfViewerController.goToPage(
-        //           pageNumber: _pdfViewerController.currentPageNumber - 1);
-        //     },
-        //   ),
-        //   IconButton(
-        //     icon: Icon(
-        //       Icons.keyboard_arrow_down,
-        //       color: Colors.white,
-        //     ),
-        //     onPressed: () {
-        //       _pdfViewerController.goToPage(
-        //           pageNumber: _pdfViewerController.currentPageNumber + 1);
-        //     },
-        //   )
-        // ],
       ),
       body: FutureBuilder(
         future: DefaultCacheManager().getSingleFile(

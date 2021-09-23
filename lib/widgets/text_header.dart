@@ -7,10 +7,10 @@ class TextHeader extends StatelessWidget {
     Key? key,
     required this.width,
     required this.height,
-    required this.topright,
-    required this.topleft,
+    required this.topRight,
+    required this.topLeft,
     required this.title,
-    required this.subtitle,
+    required this.subTitle,
   }) : super(key: key);
 
   /// Width of the Screen in which this widget is used.
@@ -20,16 +20,16 @@ class TextHeader extends StatelessWidget {
   final double height;
 
   /// Image on Top Right Corner
-  final String topright;
+  final String topRight;
 
   /// Image on Top Left Corner
-  final String topleft;
+  final String topLeft;
 
   /// Heading of the Screen
   final String title;
 
   /// Sub Heading of the Screen
-  final String subtitle;
+  final String subTitle;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -39,7 +39,7 @@ class TextHeader extends StatelessWidget {
           right: 0,
           child: Image(
             image: AssetImage(
-              topright,
+              topRight,
             ),
           ),
         ),
@@ -48,7 +48,7 @@ class TextHeader extends StatelessWidget {
           left: 0,
           child: Image(
             image: AssetImage(
-              topleft,
+              topLeft,
             ),
           ),
         ),
@@ -69,7 +69,7 @@ class TextHeader extends StatelessWidget {
                   height: height * 0.015,
                 ),
                 Text(
-                  subtitle,
+                  subTitle,
                   softWrap: true,
                   maxLines: 2,
                   style: Theme.of(context).textTheme.headline5,

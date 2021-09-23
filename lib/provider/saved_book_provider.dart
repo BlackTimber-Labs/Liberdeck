@@ -3,32 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../model/saved_book.dart';
 
+/// Provider for the Saved Books
 class SavedBooksProvider with ChangeNotifier {
   final List<SavedBook> _bookList = <SavedBook>[];
 
+  /// Getter of the saved book list.
   List<SavedBook> get bookList => _bookList;
 
-  // void addBook(
-  // String id,
-  // String title,
-  // String author,
-  // String imgUrl,
-  // String viewUrl,
-  // String downloadUrl,
-  // ) {
-  //   bookList.add(
-  //     SavedBook(
-  //       id: id,
-  //       title: title,
-  //       author: author,
-  //       imgUrl: imgUrl,
-  //       viewUrl: viewUrl,
-  //       downloadUrl: downloadUrl,
-  //       saveStatus: true,
-  //     ),
-  //   );
-  //   notifyListeners();
-  // }
+  /// Function to add the book in the getter list.
   Future<void> addBook(
     String userID,
     String id,
@@ -38,12 +20,11 @@ class SavedBooksProvider with ChangeNotifier {
     String viewUrl,
     String downloadUrl,
   ) async {
-
     await FirebaseFirestore.instance
         .collection('savedBooks')
         .doc(userID)
         .collection('books')
-        .add({  
+        .add(<String, dynamic>{
       'id': id,
       'title': title,
       'author': author,
@@ -53,14 +34,7 @@ class SavedBooksProvider with ChangeNotifier {
     });
   }
 
-  // void removeBook(
-  //   String id,
-  // ) {
-  //   bookList.removeWhere(
-  //     (SavedBook element) => element.id.contains(id) && element.saveStatus,
-  //   );
-  //   notifyListeners();
-  // }
+  /// Function to remove the book from the getter list.
   Future<void> removeBook(
     String id,
     String userID,
@@ -72,7 +46,9 @@ class SavedBooksProvider with ChangeNotifier {
         .collection('books')
         .doc(bookID)
         .delete()
-        .then((value) => print('delted $bookID $userID '))
-        .catchError((error) => print(error));
+        .then(
+          (void value) => print('Book Deleted'),
+        )
+        .catchError((dynamic error) => print(error));
   }
 }
