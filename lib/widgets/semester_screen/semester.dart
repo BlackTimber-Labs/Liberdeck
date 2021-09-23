@@ -41,7 +41,7 @@ class _SemesterState extends State<Semester> {
             width: width * 0.6,
             height: 71,
             decoration: BoxDecoration(
-                color: Color(0xFFC45628),
+                color: const Color(0xFFC45628),
                 borderRadius: BorderRadius.circular(7)),
             child: Center(
               child: Text(

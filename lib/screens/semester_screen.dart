@@ -96,7 +96,7 @@ class _BNState extends State<BN> {
             height: 55,
             width: 132,
             decoration: BoxDecoration(
-              color: Color(0xFF843622),
+              color: const Color(0xFF843622),
               borderRadius: BorderRadius.circular(15),
             ),
             child: const Center(
