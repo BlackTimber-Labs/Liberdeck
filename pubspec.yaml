@@ -41,4 +41,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/fonts/
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
