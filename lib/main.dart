@@ -58,24 +58,25 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Liberdeck',
         theme: ThemeData(
+          fontFamily: 'Raleway',
           textTheme: const TextTheme(
             headline6: TextStyle(
-              fontFamily: 'Montserrat',
+              fontFamily: 'Raleway',
               fontWeight: FontWeight.w700,
               fontSize: 40,
             ),
             headline5: TextStyle(
-              fontFamily: 'Montserrat',
+              fontFamily: 'Raleway',
               fontWeight: FontWeight.w600,
               fontSize: 22.5,
             ),
             button: TextStyle(
-              fontFamily: 'SF UI Display',
-              fontWeight: FontWeight.w500,
+              fontFamily: 'Raleway',
+              fontWeight: FontWeight.w600,
               fontSize: 22.5,
             ),
             bodyText1: TextStyle(
-              fontFamily: 'Montserrat',
+              fontFamily: 'Raleway',
               fontWeight: FontWeight.w500,
               fontSize: 19.5,
             ),

@@ -92,7 +92,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
             children: <Widget>[
               const Text(
                 'NAME :',
-                style: TextStyle(fontSize: 19.5, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w500),
               ),
               const SizedBox(width: 100),
               Expanded(
@@ -103,7 +103,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 19.5,
+                      fontSize: 21.5,
                       fontWeight: FontWeight.w500,
                       color: Color(0xFFC95A2B),
                     ),
@@ -118,7 +118,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
             children: <Widget>[
               const Text(
                 'EMAIL :',
-                style: TextStyle(fontSize: 19.5, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w500),
               ),
               const SizedBox(width: 95),
               Expanded(
@@ -127,7 +127,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   child: Text(
                     user.email!,
                     style: const TextStyle(
-                      fontSize: 19.5,
+                      fontSize: 21.5,
                       fontWeight: FontWeight.w500,
                       color: Color(0xFFC95A2B),
                     ),
