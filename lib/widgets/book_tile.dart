@@ -3,8 +3,8 @@ import 'package:liberdeck/provider/books_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../provider/saved_book_provider.dart';
-import '../../screens/pdf_view_screen.dart';
+import '../provider/saved_book_provider.dart';
+import '../screens/pdf_view_screen.dart';
 
 class BookTile extends StatefulWidget {
   const BookTile({
@@ -18,13 +18,11 @@ class BookTile extends StatefulWidget {
     required this.height,
     required this.width,
     required this.userID,
-    this.bookID = '',
   });
   @override
   _BookTileState createState() => _BookTileState();
 
   final String userID;
-  final String bookID;
   final String id;
   final String title;
   final String author;
@@ -96,7 +94,7 @@ class _BookTileState extends State<BookTile> {
                               provider.removeBook(
                                 widget.id,
                                 widget.userID,
-                                widget.bookID,
+                                
                               );
                             } else {
                               provider.addBook(

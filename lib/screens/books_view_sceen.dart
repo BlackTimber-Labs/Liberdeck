@@ -8,7 +8,7 @@ import '../model/book.dart';
 
 import '../provider/books_provider.dart';
 
-import '../widgets/books_screen/book_tile.dart';
+import '../widgets/book_tile.dart';
 import '../widgets/text_header.dart';
 
 class BooksViewScreen extends StatefulWidget {

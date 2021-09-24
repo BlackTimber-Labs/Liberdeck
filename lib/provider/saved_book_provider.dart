@@ -24,7 +24,8 @@ class SavedBooksProvider with ChangeNotifier {
         .collection('savedBooks')
         .doc(userID)
         .collection('books')
-        .add(<String, dynamic>{
+        .doc(id)
+        .set(<String, dynamic>{
       'id': id,
       'title': title,
       'author': author,
@@ -38,13 +39,12 @@ class SavedBooksProvider with ChangeNotifier {
   Future<void> removeBook(
     String id,
     String userID,
-    String bookID,
   ) async {
     await FirebaseFirestore.instance
         .collection('savedBooks')
         .doc(userID)
         .collection('books')
-        .doc(bookID)
+        .doc(id)
         .delete()
         .then(
           (void value) => print('Book Deleted'),

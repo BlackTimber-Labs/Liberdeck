@@ -26,13 +26,19 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.9.2
+    
   lint: ^1.6.0
+flutter_icons:
+  image_path: 'assets/images/google.png'
+  android: true
+  ios: true
+
 
 flutter:
   uses-material-design: true
 
   assets:
-
     - assets/
     - assets/images/
   fonts:

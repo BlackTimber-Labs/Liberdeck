@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/books_screen/book_tile.dart';
+import '../widgets/book_tile.dart';
 
 class SavedBooksScreen extends StatefulWidget {
   static const String routename = '/saved_books_screen';
@@ -43,7 +43,6 @@ class _SavedBooksScreenState extends State<SavedBooksScreen> {
                   final Map<String, dynamic> data =
                       document.data()! as Map<String, dynamic>;
                   return BookTile(
-                    bookID: document.id,
                     userID: userID,
                     title: data['title'].toString(),
                     author: data['author'].toString(),
