@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +22,7 @@ import './screens/saved_book_screen.dart';
 import './screens/semester_screen.dart';
 import './screens/sub_chp_screen.dart';
 import './screens/sub_screen.dart';
+import './screens/user_state_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -84,8 +84,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange,
         ),
 
-        home: const MyHomePage(),
-        // home: SavedBookScreen(),
+        home: const UserStateScreen(),
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
           SubChpScreen.routename: (BuildContext ctx) => const SubChpScreen(),
@@ -100,45 +99,7 @@ class MyApp extends StatelessWidget {
               BottomNavigationScreen(),
           PdfViewScreen.routename: (BuildContext ctx) => PdfViewScreen(),
         },
-      ),
-    );
-  }
-}
-
-///
-class MyHomePage extends StatefulWidget {
-  ///
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (
-          BuildContext context,
-          AsyncSnapshot<Object?> snapshot,
-        ) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError) {
-            return const Center(
-              child: Text('Something Went Wrong!'),
-            );
-          } else if (snapshot.hasData) {
-            return BottomNavigationScreen();
-          } else {
-            return LoginScreen();
-          }
-        },
-      ),
+      ),  
     );
   }
 }
