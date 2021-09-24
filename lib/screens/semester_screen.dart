@@ -102,7 +102,7 @@ class _BNState extends State<BN> {
               child: Text(
                 'Back',
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: 30,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),

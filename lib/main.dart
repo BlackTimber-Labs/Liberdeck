@@ -72,8 +72,8 @@ class MyApp extends StatelessWidget {
             ),
             button: TextStyle(
               fontFamily: 'Raleway',
-              fontWeight: FontWeight.w600,
-              fontSize: 22.5,
+              fontWeight: FontWeight.w500,
+              fontSize: 20.5,
             ),
             bodyText1: TextStyle(
               fontFamily: 'Raleway',

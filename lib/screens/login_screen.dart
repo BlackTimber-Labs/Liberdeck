@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: height * 0.54,
+              height: height * 0.6,
               width: width,
               child: HeaderSection(),
             ),
@@ -34,34 +34,40 @@ class LoginScreen extends StatelessWidget {
 class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+
     return Stack(
       children: <Widget>[
         Image.asset('assets/images/loginTopLeft.png'),
-        const Padding(
-          padding: EdgeInsets.fromLTRB(60, 81, 0, 0),
-          child: Text(
-            'LIBERDECK',
-            style: TextStyle(
-              letterSpacing: 1.5,
-              fontSize: 51.0,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.fromLTRB(80, 150, 0, 0),
-          child: Text(
-            'By BlackTimber Labs',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 22.5,
-              letterSpacing: 1.5,
-            ),
+        Padding(
+          padding: const EdgeInsets.only(top: 80),
+          child: Column(
+            children: [
+              const Center(
+                child: Text(
+                  'LIBERDECK',
+                  style: TextStyle(
+                    letterSpacing: 1.5,
+                    fontSize: 51.0,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              const Text(
+                'By BlackTimber Labs',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 22.5,
+                  letterSpacing: 1.5,
+                ),
+              ),
+            ],
           ),
         ),
         const Center(
           child: Text('Powered By SoftDodge',
-            style: TextStyle(fontSize: 20),),
+            style: TextStyle(fontSize: 22),),
         ),
         Positioned(
           child: Container(
@@ -88,16 +94,16 @@ class _InputFieldsState extends State<InputFields> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const Center(
-            child: Text(
-              'Login',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
-              ),
-            ),
-          ),
-          const SizedBox(height: 30),
+          // const Center(
+          //   child: Text(
+          //     'Login',
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 40,
+          //     ),
+          //   ),
+          // ),
+          // const SizedBox(height: 130),
           ElevatedButton(
             onPressed: () {
               final GoogleSignInProvider provider =
@@ -119,19 +125,19 @@ class _InputFieldsState extends State<InputFields> {
                   MaterialStateProperty.all(const TextStyle(fontSize: 20.0)),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 40),
-              child: Row(
-                children: <Widget>[
-                  Image.asset(
-                    'assets/images/google.png',
-                    height: 50,
-                    width: 50,
-                  ),
-                  const SizedBox(width: 15),
-                  const Text('Sign In With Google')
-                ],
-              ),
+            padding: const EdgeInsets.only(left: 40),
+            child: Row(
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/google.png',
+                  height: 50,
+                  width: 50,
+                ),
+                const SizedBox(width: 15),
+                const Text('Sign In With Google')
+              ],
             ),
+              ),
           ),
 
           // SizedBox(height: 60),

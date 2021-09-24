@@ -120,7 +120,7 @@ class BN extends StatelessWidget {
               child: Text(
                 'Next',
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: 30,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),
