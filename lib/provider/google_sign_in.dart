@@ -26,7 +26,7 @@ class GoogleSignInProvider extends ChangeNotifier {
               )
               .then(
                 (UserCredential value) => Navigator.of(context)
-                    .pushNamed(BottomNavigationScreen.routename),
+                    .pushReplacementNamed(BottomNavigationScreen.routename),
               );
         } catch (e) {
           AlertDialog(
