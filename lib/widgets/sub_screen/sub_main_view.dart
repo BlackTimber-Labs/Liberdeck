@@ -37,48 +37,51 @@ class SubMainView extends StatelessWidget {
       departmentID,
       semID,
     );
-    return StaggeredGridView.countBuilder(
-      crossAxisCount: 4,
-      itemCount: subList.length,
-      itemBuilder: (BuildContext context, int i) => Material(
-        color: Colors.transparent,
-        shadowColor: Colors.transparent,
-        elevation: 1,
-        child: InkWell(
-          onTap: () {
-            Navigator.of(context).pushNamed(
-              BooksViewScreen.routename,
-              arguments: BooksArguments(
-                courseID: courseID,
-                departmentID: departmentID,
-                semID: semID,
-                subID: subList[i].id,
+    return subList.isEmpty
+        ? const Center(child: Text('Coming Soon '))
+        : StaggeredGridView.countBuilder(
+            crossAxisCount: 4,
+            itemCount: subList.length,
+            itemBuilder: (BuildContext context, int i) => Material(
+              color: Colors.transparent,
+              shadowColor: Colors.transparent,
+              elevation: 1,
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    BooksViewScreen.routename,
+                    arguments: BooksArguments(
+                      courseID: courseID,
+                      departmentID: departmentID,
+                      semID: semID,
+                      subID: subList[i].id,
+                    ),
+                  );
+                },
+                child: Container(
+                  height: height * 0.1,
+                  width: width * 0.2,
+                  decoration: BoxDecoration(
+                    color:
+                        Theme.of(context).buttonTheme.colorScheme!.background,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Text(
+                      subList[i].title,
+                      softWrap: true,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.button,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
               ),
-            );
-          },
-          child: Container(
-            height: height * 0.1,
-            width: width * 0.2,
-            decoration: BoxDecoration(
-              color: Theme.of(context).buttonTheme.colorScheme!.background,
-              borderRadius: BorderRadius.circular(10),
             ),
-            child: Center(
-              child: Text(
-                subList[i].title,
-                softWrap: true,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.button,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ),
-        ),
-      ),
-      staggeredTileBuilder: (int index) =>
-          StaggeredTile.count(2, index.isEven ? 1 : 1),
-      mainAxisSpacing: height * 0.02,
-      crossAxisSpacing: width * 0.04,
-    );
+            staggeredTileBuilder: (int index) =>
+                StaggeredTile.count(2, index.isEven ? 1 : 1),
+            mainAxisSpacing: height * 0.02,
+            crossAxisSpacing: width * 0.04,
+          );
   }
 }

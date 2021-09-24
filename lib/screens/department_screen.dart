@@ -30,7 +30,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
           ),
           const SizedBox(height: 10),
           SizedBox(
-            height: height * 0.6,
+            height: height * 0.7,
             child: Consumer<DepartmentProvider>(
               builder: (
                 BuildContext context,
