@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import './department_screen.dart';
@@ -52,7 +53,14 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         )
       },
     ];
+    DefaultCacheManager().emptyCache();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    DefaultCacheManager().emptyCache();
+    super.dispose();
   }
 
   @override

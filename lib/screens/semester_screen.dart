@@ -53,19 +53,21 @@ class _SemesterScreenState extends State<SemesterScreen> {
                   'btech',
                   departmentId.toString(),
                 );
-                return ListView.builder(
-                  itemBuilder: (
-                    BuildContext ctx,
-                    int i,
-                  ) {
-                    return sem_widget.Semester(
-                      sem: semesterList[i].title,
-                      departmentID: semesterList[i].departmentID,
-                      semID: semesterList[i].id,
-                    );
-                  },
-                  itemCount: semesterList.length,
-                );
+               return  semesterList.isEmpty
+                    ? const Center(child: Text('Coming Soon '))
+                    : ListView.builder(
+                        itemBuilder: (
+                          BuildContext ctx,
+                          int i,
+                        ) {
+                          return sem_widget.Semester(
+                            sem: semesterList[i].title,
+                            departmentID: semesterList[i].departmentID,
+                            semID: semesterList[i].id,
+                          );
+                        },
+                        itemCount: semesterList.length,
+                      );
               },
             ),
           ),

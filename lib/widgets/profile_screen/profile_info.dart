@@ -96,17 +96,14 @@ class _ProfileInfoState extends State<ProfileInfo> {
               ),
               const SizedBox(width: 38),
               Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Text(
-                    user.displayName!,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 21.5,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFFC95A2B),
-                    ),
+                child: Text(
+                  user.displayName!.toUpperCase(),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 21.5,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFFC95A2B),
                   ),
                 ),
               ),
@@ -122,15 +119,13 @@ class _ProfileInfoState extends State<ProfileInfo> {
               ),
               const SizedBox(width: 35),
               Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Text(
-                    user.email!,
-                    style: const TextStyle(
-                      fontSize: 21.5,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFFC95A2B),
-                    ),
+                child: Text(
+                  user.email!,
+                  maxLines: 3,
+                  style: const TextStyle(
+                    fontSize: 21.5,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFFC95A2B),
                   ),
                 ),
               ),

@@ -26,7 +26,7 @@ class GoogleSignInProvider extends ChangeNotifier {
               )
               .then(
                 (UserCredential value) => Navigator.of(context)
-                    .pushNamed(BottomNavigationScreen.routename),
+                    .pushReplacementNamed(BottomNavigationScreen.routename),
               );
         } catch (e) {
           AlertDialog(
@@ -47,4 +47,31 @@ class GoogleSignInProvider extends ChangeNotifier {
     await googleSignIn.signOut();
     await FirebaseAuth.instance.signOut();
   }
+
+  // Future<String> name() async {
+  //   final googleSignInAuthentication =
+  //       await googleSignIn.currentUser!.authentication;
+  //   final idToken = googleSignInAuthentication.idToken;
+  //   parseJwt(String token) {
+  //     // validate token
+
+  //     final List<String> parts = token.split('.');
+
+  //     // retrieve token payload
+  //     final String payload = parts[1];
+  //     final String normalized = base64Url.normalize(payload);
+  //     final String resp = utf8.decode(base64Url.decode(normalized));
+  //     // convert to Map
+  //     final payloadMap = json.decode(resp);
+
+  //     return payloadMap;
+  //   }
+
+  //   var idMap = parseJwt(idToken.toString());
+
+  //   final String firstName = idMap["given_name"].toString();
+  //   final String lastName = idMap["family_name"].toString();
+
+  //   return firstName;
+  // }
 }

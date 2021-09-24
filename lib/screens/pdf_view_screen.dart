@@ -3,9 +3,7 @@ import 'package:flutter_cache_manager/file.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:pdf_render/pdf_render_widgets.dart';
 
-
 class PdfViewScreen extends StatefulWidget {
-  
   static const String routename = '/pdf_view_screen';
 
   @override
@@ -17,6 +15,7 @@ class _PdfViewScreenState extends State<PdfViewScreen> {
   @override
   Widget build(BuildContext context) {
     final PdfViewScreenArguments args =
+        // ignore: cast_nullable_to_non_nullable
         ModalRoute.of(context)!.settings.arguments as PdfViewScreenArguments;
     return Scaffold(
       appBar: AppBar(
