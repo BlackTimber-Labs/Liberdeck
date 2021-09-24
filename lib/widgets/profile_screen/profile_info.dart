@@ -94,7 +94,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                 'NAME :',
                 style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(width: 100),
+              const SizedBox(width: 38),
               Expanded(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -120,7 +120,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                 'EMAIL :',
                 style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(width: 95),
+              const SizedBox(width: 35),
               Expanded(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
