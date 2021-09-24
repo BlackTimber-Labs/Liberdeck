@@ -33,10 +33,13 @@ class _DepartmentState extends State<Department> {
           color: widget.colour,
           borderRadius: BorderRadius.circular(7),
         ),
-        child: Center(
-          child: Text(
-            widget.name,
-            style: Theme.of(context).textTheme.button,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Center(
+            child: Text(
+              widget.name,
+              style: Theme.of(context).textTheme.button,
+            ),
           ),
         ),
       ),
