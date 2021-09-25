@@ -10,22 +10,18 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: height * 0.6,
-              width: width,
-              child: HeaderSection(),
-            ),
-            const SizedBox(height: 30),
-            InputFields(),
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+            height: height * 0.6,
+            child: HeaderSection(),
+          ),
+          InputFields(),
+        ],
       ),
     );
   }
@@ -34,46 +30,48 @@ class LoginScreen extends StatelessWidget {
 class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
-
-    return Stack(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Image.asset('assets/images/loginTopLeft.png'),
-        Padding(
-          padding: const EdgeInsets.only(top: 80),
-          child: Column(
-            children: [
-              const Center(
-                child: Text(
-                  'LIBERDECK',
-                  style: TextStyle(
-                    letterSpacing: 1.5,
-                    fontSize: 51.0,
-                    fontWeight: FontWeight.w700,
+        Stack(
+          children: <Widget>[
+            Image.asset('assets/images/loginTopLeft.png'),
+            Padding(
+              padding: const EdgeInsets.only(top: 80),
+              child: Column(
+                children: const <Widget>[
+                  Center(
+                    child: Text(
+                      'LIBERDECK',
+                      style: TextStyle(
+                        letterSpacing: 1.5,
+                        fontSize: 51.0,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
-                ),
+                  Text(
+                    'By BlackTimber Labs',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 22.5,
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                ],
               ),
-              const Text(
-                'By BlackTimber Labs',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 22.5,
-                  letterSpacing: 1.5,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
         const Center(
-          child: Text('Powered By SoftDodge',
-            style: TextStyle(fontSize: 22),),
-        ),
-        Positioned(
-          child: Container(
-            alignment: Alignment.bottomCenter,
-            child: Image.asset('assets/images/loginCenter2.png'),
+          child: Text(
+            'Powered By SoftDodge',
+            style: TextStyle(fontSize: 22),
           ),
+        ),
+        Container(
+          alignment: Alignment.bottomCenter,
+          child: Image.asset('assets/images/loginCenter2.png'),
         )
       ],
     );
@@ -88,8 +86,9 @@ class InputFields extends StatefulWidget {
 class _InputFieldsState extends State<InputFields> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
+      margin: const EdgeInsets.symmetric(vertical: 24.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -124,20 +123,18 @@ class _InputFieldsState extends State<InputFields> {
               textStyle:
                   MaterialStateProperty.all(const TextStyle(fontSize: 20.0)),
             ),
-            child: Padding(
-            padding: const EdgeInsets.only(left: 40),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset(
                   'assets/images/google.png',
                   height: 50,
                   width: 50,
                 ),
-                const SizedBox(width: 15),
-                const Text('Sign In With Google')
+                //const SizedBox(width: 15),
+                const Text('Sign In')
               ],
             ),
-              ),
           ),
 
           // SizedBox(height: 60),
