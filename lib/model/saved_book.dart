@@ -8,7 +8,6 @@ class SavedBook {
     required this.imgUrl,
     required this.viewUrl,
     required this.downloadUrl,
-    this.saveStatus = false,
   });
 
   /// Book id for CRUD operations
@@ -22,9 +21,6 @@ class SavedBook {
 
   /// Book Cover Image
   String imgUrl;
-
-  /// Book save status of each user
-  bool saveStatus;
 
   /// Book Url for downloading
   String downloadUrl;

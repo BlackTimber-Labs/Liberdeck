@@ -94,7 +94,7 @@ class _BookTileState extends State<BookTile> {
                             provider.removeBook(
                               widget.id,
                               widget.userID,
-                              
+                              context,
                             );
                           } else {
                             provider.addBook(
@@ -105,6 +105,7 @@ class _BookTileState extends State<BookTile> {
                               widget.imgUrl,
                               widget.viewUrl,
                               widget.downloadUrl,
+                              context,
                             );
                           }
                           booksProvider.changeStatus(widget.id);
