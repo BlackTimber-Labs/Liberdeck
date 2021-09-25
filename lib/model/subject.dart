@@ -7,6 +7,7 @@ class Subject {
     required this.departmentID,
     required this.courseID,
     required this.id,
+    required this.name, 
   });
 
   /// Subject title (Ex=> MA2101)
@@ -23,4 +24,7 @@ class Subject {
 
   /// ID of the Subject (Ex=> ma2101)
   String id;
+
+  /// Name of the Subject
+  String name;
 }

@@ -55,6 +55,7 @@ class SubMainView extends StatelessWidget {
                       departmentID: departmentID,
                       semID: semID,
                       subID: subList[i].id,
+                      subName:subList[i].name,
                     ),
                   );
                 },
