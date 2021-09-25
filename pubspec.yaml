@@ -24,16 +24,15 @@ dependencies:
   url_launcher: null
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.2
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.9.2
-    
+
   lint: ^1.6.0
 flutter_icons:
-  image_path: 'assets/images/google.png'
+  image_path: "assets/images/google.png"
   android: true
   ios: true
-
 
 flutter:
   uses-material-design: true
