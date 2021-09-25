@@ -40,7 +40,7 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
               topRight: 'assets/images/bookTopRight.png',
               topLeft: 'assets/images/bookTopLeft.png',
               title: args.subID.toUpperCase(),
-              subTitle: 'Choose Wisely!',
+              subTitle: args.subName.toString(),
             ),
           ),
           SizedBox(
@@ -113,9 +113,11 @@ class BooksArguments {
     required this.departmentID,
     required this.semID,
     required this.subID,
+    required this.subName,
   });
   String courseID;
   String departmentID;
   String subID;
+  String subName;
   int semID;
 }

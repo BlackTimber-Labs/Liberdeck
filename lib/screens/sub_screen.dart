@@ -38,7 +38,7 @@ class _SubScreenState extends State<SubScreen> {
                 topRight: 'assets/images/sub_TopRight.png',
                 topLeft: 'assets/images/sub_TopLeft.png',
                 subTitle: 'What Subject do you \n want to see?',
-                title: 'Hey ${user.displayName!.toUpperCase()}!',
+                title: 'Hey ${user.displayName!.split(" ")[0].toUpperCase()}!',
               ),
             ),
             Container(

@@ -12,6 +12,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'MA1101',
       id: 'ma1101',
+      name: 'Engineering Mathematics - 1',
     ),
     Subject(
       semID: 1,
@@ -19,6 +20,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'CV1001',
       id: 'cv1001',
+      name: 'Basics Civil Engineering',
     ),
     Subject(
       semID: 1,
@@ -26,6 +28,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'PY1001',
       id: 'py1001',
+      name: 'Engineering Physics',
     ),
     Subject(
       semID: 1,
@@ -33,6 +36,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'CY1002',
       id: 'cy1002',
+      name: 'Engineering Chemistry',
     ),
     Subject(
       semID: 1,
@@ -40,6 +44,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'EC1001',
       id: 'ec1001',
+      name: 'Basic Electronics',
     ),
     Subject(
       semID: 1,
@@ -47,6 +52,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'ME1002',
       id: 'me1002',
+      name: 'Basic Mechanical Engineering',
     ),
     Subject(
       semID: 2,
@@ -54,6 +60,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'MA1101',
       id: 'ma1101',
+      name: 'Engineering Mathematics - 1',
     ),
     Subject(
       semID: 2,
@@ -61,6 +68,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'CY1001',
       id: 'cy1001',
+      name: 'Environmental Studies',
     ),
     Subject(
       semID: 2,
@@ -68,6 +76,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'EE1001',
       id: 'ee1001',
+      name: 'Basic Electrical Technology',
     ),
     Subject(
       semID: 2,
@@ -75,6 +84,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'CS1001',
       id: 'cs1001',
+      name: 'Problem Solving Using Computers',
     ),
     Subject(
       semID: 2,
@@ -82,6 +92,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'ME1001',
       id: 'me1001',
+      name: 'Basic Mechanical Engineering',
     ),
     Subject(
       semID: 2,
@@ -89,6 +100,7 @@ class SubjectProvider with ChangeNotifier {
       departmentID: 'fy',
       title: 'LN1001',
       id: 'ln10001',
+      name: 'Communication Skills in English',
     ),
   ];
 
