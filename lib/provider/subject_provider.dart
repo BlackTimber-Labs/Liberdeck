@@ -99,7 +99,7 @@ class SubjectProvider with ChangeNotifier {
       courseID: 'btech',
       departmentID: 'fy',
       title: 'LN1001',
-      id: 'ln10001',
+      id: 'ln1001',
       name: 'Communication Skills in English',
     ),
   ];
