@@ -1,7 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import './semester_screen.dart';
 
 import '../provider/department_provider.dart';
 
@@ -18,19 +17,35 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
+    final User user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       body: Column(
         children: <Widget>[
           Circle(),
+          Center(
+            child: Text(
+              'Hey ${user.displayName!.split(" ")[0].toUpperCase()}!',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 29,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          const SizedBox(height: 5),
           const Center(
             child: Text(
               'Select your department',
-              style: TextStyle(fontSize: 29, fontWeight: FontWeight.w600),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
           SizedBox(
-            height: height * 0.7,
+            height: height * 0.65,
             child: Consumer<DepartmentProvider>(
               builder: (
                 BuildContext context,
@@ -55,7 +70,6 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
               },
             ),
           ),
-          // BN(),
         ],
       ),
     );
@@ -74,61 +88,6 @@ class Circle extends StatelessWidget {
           alignment: Alignment.topCenter,
         ),
       ),
-    );
-  }
-}
-
-class BN extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        // TextButton(
-        //   onPressed: () {
-        //     setState(() {});
-        //   },
-        //   child: Container(
-        //     height: 55,
-        //     width: 132,
-        //     decoration: BoxDecoration(
-        //       color: Color(0xFF843622),
-        //       borderRadius: BorderRadius.circular(15),
-        //     ),
-        //     child: Center(
-        //         child: Text(
-        //       'Back',
-        //       style: TextStyle(
-        //           fontSize: 32,
-        //           fontWeight: FontWeight.w600,
-        //           color: Colors.white),
-        //     )),
-        //   ),
-        // ),
-        TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, SemesterScreen.routename);
-          },
-          child: Container(
-            height: 55,
-            width: 132,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: const Color(0xFF843622),
-            ),
-            child: const Center(
-              child: Text(
-                'Next',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        )
-      ],
     );
   }
 }

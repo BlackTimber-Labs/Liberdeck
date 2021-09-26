@@ -64,15 +64,20 @@ class TextHeader extends StatelessWidget {
                   title,
                   style: Theme.of(context).textTheme.headline6,
                   textAlign: TextAlign.start,
+                  maxLines: 2,
+                  softWrap: true,
                 ),
                 SizedBox(
                   height: height * 0.015,
                 ),
-                Text(
-                  subTitle,
-                  softWrap: true,
-                  maxLines: 2,
-                  style: Theme.of(context).textTheme.headline5,
+                SizedBox(
+                  width:width*0.7,
+                  child: Text(
+                    subTitle,
+                    softWrap: true,
+                    maxLines: 2,
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
                 )
               ],
             ),

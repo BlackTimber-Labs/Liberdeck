@@ -5,7 +5,9 @@ import '../model/semester.dart' as sem_model;
 
 import '../provider/semester_provider.dart';
 
+import '../widgets/back_button.dart';
 import '../widgets/semester_screen/semester.dart' as sem_widget;
+
 
 class SemesterScreen extends StatefulWidget {
   static const String routename = '/semester_screen';
@@ -71,71 +73,10 @@ class _SemesterScreenState extends State<SemesterScreen> {
               },
             ),
           ),
-          BN(),
+           BackButtonWidget(),
         ],
       ),
     );
   }
 }
 
-class BN extends StatefulWidget {
-  @override
-  _BNState createState() => _BNState();
-}
-
-class _BNState extends State<BN> {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Container(
-            height: 55,
-            width: 132,
-            decoration: BoxDecoration(
-              color: const Color(0xFF843622),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: const Center(
-              child: Text(
-                'Back',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ),
-        // TextButton(
-        //   onPressed: () {
-        //     Navigator.pushNamed(context, SubScreen.routename);
-        //   },
-        //   child: Container(
-        //     height: 55,
-        //     width: 132,
-        //     decoration: BoxDecoration(
-        //       borderRadius: BorderRadius.circular(15),
-        //       color: const Color(0xFF843622),
-        //     ),
-        //     child: const Center(
-        //       child: Text(
-        //         'Next',
-        //         style: TextStyle(
-        //           fontSize: 32,
-        //           fontWeight: FontWeight.w600,
-        //           color: Colors.white,
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-      ],
-    );
-  }
-}

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -42,6 +43,7 @@ class _BookTileState extends State<BookTile> {
     final SavedBooksProvider provider =
         Provider.of<SavedBooksProvider>(context);
     final BooksProvider booksProvider = Provider.of<BooksProvider>(context);
+
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: height * 0.02,
@@ -53,14 +55,25 @@ class _BookTileState extends State<BookTile> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxWidth: width * 0.5,
-                  maxHeight: height * 0.33,
-                ),
-                child: Image.network(
-                  widget.imgUrl,
+              Container(
+                height: height * 0.33,
+                width: width * 0.5,
+                child: CachedNetworkImage(
+                  imageUrl: widget.imgUrl,
                   fit: BoxFit.fill,
+                  placeholder: (
+                    BuildContext context,
+                    String url,
+                  ) =>
+                      const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (
+                    BuildContext context,
+                    String url,
+                    dynamic error,
+                  ) =>
+                      const Icon(Icons.error),
                 ),
               ),
               Expanded(
@@ -85,7 +98,7 @@ class _BookTileState extends State<BookTile> {
                       Text(
                         widget.author,
                         style: Theme.of(context).textTheme.bodyText1,
-                        maxLines:2,
+                        maxLines: 2,
                         softWrap: true,
                       ),
                       ElevatedButton.icon(
@@ -94,7 +107,12 @@ class _BookTileState extends State<BookTile> {
                             provider.removeBook(
                               widget.id,
                               widget.userID,
-                              context,
+                            );
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Book Removed'),
+                                duration: Duration(seconds: 1),
+                              ),
                             );
                           } else {
                             provider.addBook(
@@ -105,7 +123,12 @@ class _BookTileState extends State<BookTile> {
                               widget.imgUrl,
                               widget.viewUrl,
                               widget.downloadUrl,
-                              context,
+                            );
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Book Saved'),
+                                duration: Duration(seconds: 1),
+                              ),
                             );
                           }
                           booksProvider.changeStatus(widget.id);
@@ -114,8 +137,10 @@ class _BookTileState extends State<BookTile> {
                             ? const Icon(Icons.bookmark_outline)
                             : const Icon(Icons.bookmark),
                         label: const SingleChildScrollView(
-                            child: Text('     Save    ',
-                              style: TextStyle(fontSize: 20),)),
+                            child: Text(
+                          '     Save    ',
+                          style: TextStyle(fontSize: 20),
+                        )),
                         style: ButtonStyle(
                           foregroundColor: MaterialStateProperty.all(
                             const Color(0xFFFFFFFF),
@@ -137,8 +162,10 @@ class _BookTileState extends State<BookTile> {
                         },
                         icon: const Icon(Icons.visibility),
                         label: const SingleChildScrollView(
-                            child: Text('     View    ',
-                          style: TextStyle(fontSize: 20) ,)),
+                            child: Text(
+                          '     View    ',
+                          style: TextStyle(fontSize: 20),
+                        )),
                         style: ButtonStyle(
                           foregroundColor: MaterialStateProperty.all(
                             const Color(0xFFFFFFFF),
@@ -154,8 +181,10 @@ class _BookTileState extends State<BookTile> {
                         },
                         icon: const Icon(Icons.download_for_offline),
                         label: const SingleChildScrollView(
-                          child: Text('Download',
-                            style: TextStyle(fontSize: 19),),
+                          child: Text(
+                            'Download',
+                            style: TextStyle(fontSize: 19),
+                          ),
                         ),
                         style: ButtonStyle(
                           foregroundColor: MaterialStateProperty.all(

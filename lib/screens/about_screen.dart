@@ -33,8 +33,15 @@ class _AboutScreenState extends State<AboutScreen> {
               ),
             ),
             const DevTile(
+              name: 'Chhavi Maheshwari',
+              img: 'assets/images/about_screen_Chhavi.jpeg',
+              gitUrl: 'https://github.com/chhavi30m',
+              linkedInUrl:
+                  'https://www.linkedin.com/in/chhavi-maheshwari-2841201b9',
+            ),
+            const DevTile(
               name: 'Harshita Sadadekar',
-              img: 'assets/images/about_screen_Harshita.png',
+              img: 'assets/images/about_screen_Harshita.jpeg',
               gitUrl: 'https://github.com/HarshitaSadadekar',
               linkedInUrl:
                   'https://www.linkedin.com/in/harshita-sadadekar-94196b1b8/',

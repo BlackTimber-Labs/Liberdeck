@@ -63,12 +63,6 @@ class HeaderSection extends StatelessWidget {
             ),
           ],
         ),
-        const Center(
-          child: Text(
-            'Powered By SoftDodge',
-            style: TextStyle(fontSize: 22),
-          ),
-        ),
         Container(
           alignment: Alignment.bottomCenter,
           child: Image.asset('assets/images/loginCenter2.png'),
@@ -132,7 +126,7 @@ class _InputFieldsState extends State<InputFields> {
                   width: 50,
                 ),
                 //const SizedBox(width: 15),
-                const Text('Sign In')
+                const Text('Sign In With Google')
               ],
             ),
           ),
