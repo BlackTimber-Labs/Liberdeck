@@ -19,7 +19,6 @@ class SavedBooksProvider with ChangeNotifier {
     String imgUrl,
     String viewUrl,
     String downloadUrl,
-    BuildContext context,
   ) async {
     await FirebaseFirestore.instance
         .collection('savedBooks')
@@ -33,21 +32,13 @@ class SavedBooksProvider with ChangeNotifier {
       'imgUrl': imgUrl,
       'viewUrl': viewUrl,
       'downloadUrl': downloadUrl,
-    }).then((void value) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Book Saved'),
-          duration: Duration(seconds: 1),
-        ),
-      );
-    });
+    }).then((void value) {});
   }
 
   /// Function to remove the book from the getter list.
   Future<void> removeBook(
     String id,
     String userID,
-    BuildContext context,
   ) async {
     await FirebaseFirestore.instance
         .collection('savedBooks')
@@ -55,20 +46,7 @@ class SavedBooksProvider with ChangeNotifier {
         .collection('books')
         .doc(id)
         .delete()
-        .then((void value) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Book Removed'),
-          duration: Duration(seconds: 1),
-        ),
-      );
-    }).catchError((dynamic error) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('An Error Occured, Please try again later'),
-          duration: Duration(seconds: 1),
-        ),
-      );
-    });
+        .then((void value) {})
+        .catchError((dynamic error) {});
   }
 }

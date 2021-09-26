@@ -107,7 +107,12 @@ class _BookTileState extends State<BookTile> {
                             provider.removeBook(
                               widget.id,
                               widget.userID,
-                              context,
+                            );
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Book Removed'),
+                                duration: Duration(seconds: 1),
+                              ),
                             );
                           } else {
                             provider.addBook(
@@ -118,7 +123,12 @@ class _BookTileState extends State<BookTile> {
                               widget.imgUrl,
                               widget.viewUrl,
                               widget.downloadUrl,
-                              context,
+                            );
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Book Saved'),
+                                duration: Duration(seconds: 1),
+                              ),
                             );
                           }
                           booksProvider.changeStatus(widget.id);
