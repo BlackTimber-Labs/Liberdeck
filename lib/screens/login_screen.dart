@@ -83,6 +83,7 @@ class _InputFieldsState extends State<InputFields> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       margin: const EdgeInsets.symmetric(vertical: 24.0),
+
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -125,7 +126,7 @@ class _InputFieldsState extends State<InputFields> {
                   height: 50,
                   width: 50,
                 ),
-                //const SizedBox(width: 15),
+                const SizedBox(width: 15),
                 const Text('Sign In With Google')
               ],
             ),
