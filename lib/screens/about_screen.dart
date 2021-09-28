@@ -29,9 +29,11 @@ class _AboutScreenState extends State<AboutScreen> {
                 topRight: 'assets/images/about_screen_top_right.png',
                 topLeft: 'assets/images/about_screen_top_left.png',
                 title: 'MEET THE TEAM',
-                subTitle: 'APP DEVELOPERS',
+                subTitle: 'BLACKTIMBER LABS',
               ),
             ),
+            const SizedBox(height: 30),
+            Text('UI/UX Designer', style: Theme.of(context).textTheme.button,),
             const DevTile(
               name: 'Chhavi Maheshwari',
               img: 'assets/images/about_screen_Chhavi.jpeg',
@@ -39,6 +41,8 @@ class _AboutScreenState extends State<AboutScreen> {
               linkedInUrl:
                   'https://www.linkedin.com/in/chhavi-maheshwari-2841201b9',
             ),
+            const SizedBox(height: 30),
+            Text('App developers',style: Theme.of(context).textTheme.button,),
             const DevTile(
               name: 'Harshita Sadadekar',
               img: 'assets/images/about_screen_Harshita.jpeg',
@@ -58,6 +62,22 @@ class _AboutScreenState extends State<AboutScreen> {
               img: 'assets/images/about_screen_Yash.jpg',
               gitUrl: 'https://github.com/Megabyte-143',
               linkedInUrl: 'https://www.linkedin.com/in/yash-garg-megabyte',
+            ),
+            const SizedBox(height: 30),
+            Text('Core Members', style: Theme.of(context).textTheme.button,),
+            const DevTile(
+              name: 'Yash Arora',
+              img: 'assets/images/about_screen_YashArora.jpg',
+              gitUrl: 'https://github.com/yashar1908',
+              linkedInUrl:
+              'https://www.linkedin.com/in/yash-arora-2763a81b9/',
+            ),
+            const DevTile(
+              name: 'Mahi Badaya',
+              img: 'assets/images/about_screen_Mahi.jpg',
+              gitUrl: 'https://github.com/Mahi-Badaya',
+              linkedInUrl:
+              'https://www.linkedin.com/in/mahibadaya/',
             ),
           ],
         ),
