@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/user_provider.dart';
 
 import '../../screens/sub_screen.dart';
 
-class Semester extends StatefulWidget {
-  const Semester({
+class SemesterTile extends StatelessWidget {
+  const SemesterTile({
     required this.sem,
     required this.departmentID,
-    required this.semID,
+    required this.semID, required this.ctx,
   });
   final String sem;
   final int semID;
   final String departmentID;
+  final BuildContext ctx;
 
-  @override
-  _SemesterState createState() => _SemesterState();
-}
-
-class _SemesterState extends State<Semester> {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -29,9 +28,13 @@ class _SemesterState extends State<Semester> {
               SubScreen.routename,
               arguments: SubScreenArguments(
                 'btech',
-                widget.departmentID,
-                widget.semID,
+                departmentID,
+                semID,
               ),
+            );
+            Provider.of<UserProvider>(ctx, listen: false).addSemester(
+              semID,
+              sem,
             );
           },
           child: Container(
@@ -43,7 +46,7 @@ class _SemesterState extends State<Semester> {
             ),
             child: Center(
               child: Text(
-                widget.sem,
+                sem,
                 style: Theme.of(context).textTheme.button,
               ),
             ),
