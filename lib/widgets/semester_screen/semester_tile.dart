@@ -3,13 +3,14 @@ import 'package:provider/provider.dart';
 
 import '../../provider/user_provider.dart';
 
-import '../../screens/sub_screen.dart';
+import '../../screens/bottom_navigation_screen.dart';
 
 class SemesterTile extends StatelessWidget {
   const SemesterTile({
     required this.sem,
     required this.departmentID,
-    required this.semID, required this.ctx,
+    required this.semID,
+    required this.ctx,
   });
   final String sem;
   final int semID;
@@ -25,12 +26,12 @@ class SemesterTile extends StatelessWidget {
         TextButton(
           onPressed: () {
             Navigator.of(context).pushNamed(
-              SubScreen.routename,
-              arguments: SubScreenArguments(
-                'btech',
-                departmentID,
-                semID,
-              ),
+              BottomNavigationScreen.routename,
+              // arguments: SubScreenArguments(
+              //   'btech',
+              //   departmentID,
+              //   semID,
+              // ),
             );
             Provider.of<UserProvider>(ctx, listen: false).addSemester(
               semID,

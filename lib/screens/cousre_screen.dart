@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:liberdeck/widgets/course_screen/course_main_view.dart';
 
+import '../widgets/course_screen/course_main_view.dart';
 import '../widgets/image_header.dart';
 
 /// Root Widget of the Subject's Chapters Screen
