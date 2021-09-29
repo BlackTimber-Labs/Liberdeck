@@ -29,10 +29,10 @@ class GoogleSignInProvider extends ChangeNotifier {
               .then((UserCredential value) {
             if (value.additionalUserInfo!.isNewUser) {
               Navigator.of(context)
-                  .pushReplacementNamed(BottomNavigationScreen.routename);
+                  .pushReplacementNamed(CourseScreen.routename);
             } else {
               Navigator.of(context)
-                  .pushReplacementNamed(CourseScreen.routename);
+                  .pushReplacementNamed(BottomNavigationScreen.routename);
             }
           });
         } catch (e) {
