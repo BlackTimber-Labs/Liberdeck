@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../screens/bottom_navigation_screen.dart';
+import '../screens/cousre_screen.dart';
 
 /// Provider contains all the functions of the Google SignIn Method
 class GoogleSignInProvider extends ChangeNotifier {
@@ -12,6 +13,7 @@ class GoogleSignInProvider extends ChangeNotifier {
   /// Function for LOGIN
   Future<void> googleLogIn(BuildContext context) async {
     final GoogleSignInAccount? googleAccount = await googleSignIn.signIn();
+
     if (googleAccount != null) {
       final GoogleSignInAuthentication googleAuth =
           await googleAccount.authentication;
@@ -19,15 +21,20 @@ class GoogleSignInProvider extends ChangeNotifier {
         try {
           await FirebaseAuth.instance
               .signInWithCredential(
-                GoogleAuthProvider.credential(
-                  idToken: googleAuth.idToken,
-                  accessToken: googleAuth.accessToken,
-                ),
-              )
-              .then(
-                (UserCredential value) => Navigator.of(context)
-                    .pushReplacementNamed(BottomNavigationScreen.routename),
-              );
+            GoogleAuthProvider.credential(
+              idToken: googleAuth.idToken,
+              accessToken: googleAuth.accessToken,
+            ),
+          )
+              .then((UserCredential value) {
+            if (value.additionalUserInfo!.isNewUser) {
+              Navigator.of(context)
+                  .pushReplacementNamed(CourseScreen.routename);
+            } else {
+              Navigator.of(context)
+                  .pushReplacementNamed(BottomNavigationScreen.routename);
+            }
+          });
         } catch (e) {
           AlertDialog(
             content: Text(

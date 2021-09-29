@@ -1,43 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/user_provider.dart';
 
 import '../../screens/semester_screen.dart';
 
-class Department extends StatefulWidget {
-  const Department({
+class DepartmentTile extends StatelessWidget {
+  const DepartmentTile({
     required this.name,
     required this.colour,
     required this.departmentID,
+    required this.ctx,
   });
   final Color colour;
   final String name;
   final String departmentID;
+  final BuildContext ctx;
 
-  @override
-  _DepartmentState createState() => _DepartmentState();
-}
-
-class _DepartmentState extends State<Department> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
         Navigator.of(context).pushNamed(
           SemesterScreen.routename,
-          arguments: widget.departmentID,
+          arguments: departmentID,
+        );
+        Provider.of<UserProvider>(ctx, listen: false).addDepartment(
+          name,
+          departmentID,
         );
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 27),
         height: 55,
         decoration: BoxDecoration(
-          color: widget.colour,
+          color: colour,
           borderRadius: BorderRadius.circular(7),
         ),
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: Center(
             child: Text(
-              widget.name,
+              name,
               style: Theme.of(context).textTheme.button,
             ),
           ),

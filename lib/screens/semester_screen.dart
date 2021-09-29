@@ -6,7 +6,7 @@ import '../model/semester.dart' as sem_model;
 import '../provider/semester_provider.dart';
 
 import '../widgets/back_button.dart';
-import '../widgets/semester_screen/semester.dart' as sem_widget;
+import '../widgets/semester_screen/semester_tile.dart' as sem_widget;
 
 
 class SemesterScreen extends StatefulWidget {
@@ -62,10 +62,11 @@ class _SemesterScreenState extends State<SemesterScreen> {
                           BuildContext ctx,
                           int i,
                         ) {
-                          return sem_widget.Semester(
+                          return sem_widget.SemesterTile(
                             sem: semesterList[i].title,
                             departmentID: semesterList[i].departmentID,
                             semID: semesterList[i].id,
+                            ctx: context,
                           );
                         },
                         itemCount: semesterList.length,

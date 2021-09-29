@@ -15,9 +15,11 @@ class UserStateScreen extends StatefulWidget {
 class _UserStateScreenState extends State<UserStateScreen> {
   @override
   Widget build(BuildContext context) {
+    final userInstance = FirebaseAuth.instance;
+
     return Scaffold(
       body: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
+        stream: userInstance.authStateChanges(),
         builder: (
           BuildContext context,
           AsyncSnapshot<Object?> snapshot,

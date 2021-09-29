@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/course_screen/course_main_view.dart';
 import '../widgets/image_header.dart';
-import '../widgets/sub_chp_screen/sub_chp_main_view.dart';
 
 /// Root Widget of the Subject's Chapters Screen
-class SubChpScreen extends StatefulWidget {
+class CourseScreen extends StatefulWidget {
   ///
-  const SubChpScreen({Key? key}) : super(key: key);
+  const CourseScreen({Key? key}) : super(key: key);
 
   /// Route Name of the Screen
-  static const String routename = '/sub_chp';
+  static const String routename = '/course_screen';
   @override
-  _SubChpScreenState createState() => _SubChpScreenState();
+  _CourseScreenState createState() => _CourseScreenState();
 }
 
-class _SubChpScreenState extends State<SubChpScreen> {
+class _CourseScreenState extends State<CourseScreen> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -38,7 +38,7 @@ class _SubChpScreenState extends State<SubChpScreen> {
               horizontal: width * 0.08,
             ),
             //color: Colors.amber,
-            child: SubChpMainView(height: height, width: width),
+            child: CourseMainView(height: height, width: width),
           ),
           SizedBox(
             height: height * 0.01,
