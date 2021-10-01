@@ -1,7 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../screens/about_screen.dart';
+import '../../model/user.dart';
+
+import '../../provider/user_provider.dart';
+
+import 'account_tile.dart';
+import 'informatoin_tile.dart';
 
 class ProfileInfo extends StatefulWidget {
   @override
@@ -11,137 +16,50 @@ class ProfileInfo extends StatefulWidget {
 class _ProfileInfoState extends State<ProfileInfo> {
   @override
   Widget build(BuildContext context) {
-    final User user = FirebaseAuth.instance.currentUser!;
+    final UserModel user = Provider.of<UserProvider>(context).user;
 
-    return Padding(
-      padding: const EdgeInsets.only(left: 40, top: 30, right: 40),
+    return Container(
+      margin: EdgeInsets.symmetric(
+        vertical: MediaQuery.of(context).size.height * 0.03,
+        horizontal: MediaQuery.of(context).size.width * 0.03,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          // const Text(
-          //   'INFORMATION',
-          //   style: TextStyle(fontSize: 22.5, fontWeight: FontWeight.w600),
-          // ),
-          // SizedBox(height: 20),
-          // Row(
-          //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: const <Widget>[
-          //      Text(
-          //       'BRANCH :',
-          //       style: TextStyle(
-          //       fontSize: 19.5, fontWeight: FontWeight.w500),
-          //     ),
-          //    SizedBox(width: 80),
-          //     Text(
-          //       ' CSE',
-          //       style: TextStyle(
-          //           fontSize: 19.5,
-          //           fontWeight: FontWeight.w500,
-          //           color: Color(0xFFC95A2B)),
-          //     ),
-          //   ],
-          // ),
-          // const SizedBox(height: 20),
-          // Row(
-          //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: const <Widget>[
-          //     Text(
-          //       'YEAR :',
-          //       style: TextStyle(
-          //       fontSize: 19.5, fontWeight: FontWeight.w500),
-          //     ),
-          //     SizedBox(width: 110),
-          //     Text(
-          //       ' 2nd',
-          //       style: TextStyle(
-          //           fontSize: 19.5,
-          //           fontWeight: FontWeight.w500,
-          //           color: Color(0xFFC95A2B)),
-          //     ),
-          //   ],
-          // ),
-          // SizedBox(height: 20),
-          // Row(
-          //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children:const  <Widget>[
-          //     Text(
-          //       'SEMESTER :',
-          //       style: TextStyle(
-          //       fontSize: 19.5, fontWeight: FontWeight.w500),
-          //     ),
-          //     SizedBox(width: 60),
-          //     Text(
-          //       ' 3rd',
-          //       style: TextStyle(
-          //           fontSize: 19.5,
-          //           fontWeight: FontWeight.w500,
-          //           color: Color(0xFFC95A2B)),
-          //     ),
-          //   ],
-          // ),
-          // SizedBox(height: 30.0),
-          // Divider(thickness: 1.0, color: Color(0xFF843622)),
-          // SizedBox(height: 30.0),
+          const Text(
+            'INFORMATION',
+            style: TextStyle(fontSize: 22.5, fontWeight: FontWeight.w600),
+          ),
+          const Divider(thickness: 1.0, color: Color(0xFF843622)),
+          const SizedBox(height: 20),
+          InformationTile(
+            leading: 'BRANCH :',
+            onTap: () {},
+            title: user.course,
+          ),
+          InformationTile(
+            leading: 'DEPARTMENT :',
+            onTap: () {},
+            title: user.department,
+          ),
+          InformationTile(
+            leading: 'SEMESTER :',
+            onTap: () {},
+            title: user.sem,
+          ),
+          const Divider(thickness: 1.0, color: Color(0xFF843622)),
           const Text(
             'ACCOUNT',
             style: TextStyle(fontSize: 22.5, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 20),
-          Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              const Text(
-                'NAME :',
-                style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(width: 38),
-              Expanded(
-                child: Text(
-                  user.displayName!.toUpperCase(),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 21.5,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFFC95A2B),
-                  ),
-                ),
-              ),
-            ],
+          AccountTile(
+            title: user.name.toUpperCase(),
+            leading: 'Name :',
           ),
-          const SizedBox(height: 20),
-          Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              const Text(
-                'EMAIL :',
-                style: TextStyle(fontSize: 21.5, fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(width: 35),
-              Expanded(
-                child: Text(
-                  user.email!,
-                  maxLines: 3,
-                  style: const TextStyle(
-                    fontSize: 21.5,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFFC95A2B),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 30),
-          Center(
-            child: TextButton(
-              child: const Text(
-                'About developers',
-                style: TextStyle(fontSize: 19.5, color: Color(0xFF000000)),
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, AboutScreen.routename);
-              },
-            ),
+          AccountTile(
+            title: user.email,
+            leading: 'Email :',
           ),
         ],
       ),
