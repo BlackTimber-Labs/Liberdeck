@@ -20,11 +20,11 @@ class SubChpMainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _scrollController = ScrollController();
+    final ScrollController _scrollController = ScrollController();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Container(
+        SizedBox(
           height: height * 0.07,
           //color: Colors.blueAccent,
           child: Container(
@@ -47,7 +47,7 @@ class SubChpMainView extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: width * 0.08,
           ),
-          child: Container(
+          child: SizedBox(
             //color: Colors.cyan,
             height: height * 0.44,
             child: ListView.builder(
@@ -92,6 +92,7 @@ class SubChpMainView extends StatelessWidget {
             icon: const FaIcon(FontAwesomeIcons.chevronDown),
             onPressed: () async {
               // Delay to make sure the frames are rendered properly
+              // ignore: always_specify_types
               await Future.delayed(const Duration(milliseconds: 100));
               SchedulerBinding.instance?.addPostFrameCallback((_) {
                 _scrollController.animateTo(

@@ -14,9 +14,9 @@ class EmptyBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.04,
+      height: height * 0.03,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColorLight,
+        color: Theme.of(context).cardColor,
       ),
     );
   }

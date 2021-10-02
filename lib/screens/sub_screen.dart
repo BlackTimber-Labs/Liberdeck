@@ -24,10 +24,9 @@ class _SubScreenState extends State<SubScreen> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Container(
+          SizedBox(
             height: height * 0.3,
             width: width,
-            //color: Colors.amber,
             child: TextHeader(
               width: width,
               height: height,
@@ -38,7 +37,7 @@ class _SubScreenState extends State<SubScreen> {
             ),
           ),
           Container(
-            height: height * 0.62,
+            height: height * 0.60,
             width: width,
             padding: EdgeInsets.symmetric(
               horizontal: width * 0.04,
@@ -46,7 +45,7 @@ class _SubScreenState extends State<SubScreen> {
             child: SubMainView(height: height, width: width),
           ),
           SizedBox(
-            height: height * 0.04,
+            height: height * 0.05,
           ),
           EmptyBottomBar(height: height),
         ],

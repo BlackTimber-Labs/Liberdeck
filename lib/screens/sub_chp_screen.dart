@@ -23,7 +23,7 @@ class _SubChpScreenState extends State<SubChpScreen> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Container(
+          SizedBox(
             height: height * 0.3,
             width: width,
             //color: Colors.amber,
