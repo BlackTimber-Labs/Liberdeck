@@ -8,6 +8,7 @@ class UserProvider with ChangeNotifier {
   final UserModel _user = UserModel(
     uid: 'uid',
     name: 'name',
+    email: 'email',
     course: 'course',
     department: 'department',
     sem: 'sem',
@@ -31,6 +32,7 @@ class UserProvider with ChangeNotifier {
         .set({
       'uid': userInstance.uid,
       'name': userInstance.displayName,
+      'email':userInstance.email,
       'course': course,
       'courseID': courseID,
     });
@@ -65,6 +67,7 @@ class UserProvider with ChangeNotifier {
   UserModel userData(
     String name,
     String uid,
+    String email,
     String course,
     String courseID,
     String department,
@@ -74,6 +77,7 @@ class UserProvider with ChangeNotifier {
   ) {
     user.name = name;
     user.uid = uid;
+    user.email = email;
     user.course = course;
     user.courseID = courseID;
     user.department = department;
