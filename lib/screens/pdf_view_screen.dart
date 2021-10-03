@@ -21,7 +21,7 @@ class _PdfViewScreenState extends State<PdfViewScreen> {
       appBar: AppBar(
         title: Text(args.name, style: Theme.of(context).textTheme.bodyText1),
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<File>(
         future: DefaultCacheManager().getSingleFile(
           args.url,
         ),

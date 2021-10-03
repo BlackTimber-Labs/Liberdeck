@@ -20,7 +20,7 @@ class _SavedBooksScreenState extends State<SavedBooksScreen> {
     return Scaffold(
       body: SizedBox(
         height: height,
-        child: StreamBuilder(
+        child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
           stream: FirebaseFirestore.instance
               .collection('savedBooks')
               .doc(userID)
@@ -28,7 +28,7 @@ class _SavedBooksScreenState extends State<SavedBooksScreen> {
               .snapshots(),
           builder: (
             BuildContext context,
-            AsyncSnapshot<QuerySnapshot> booksSnapshot,
+            AsyncSnapshot<QuerySnapshot<Object?>> booksSnapshot,
           ) {
             if (booksSnapshot.connectionState == ConnectionState.waiting) {
               return const Center(

@@ -56,7 +56,7 @@ class _BookTileState extends State<BookTile> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 height: height * 0.33,
                 width: width * 0.5,
                 child: CachedNetworkImage(

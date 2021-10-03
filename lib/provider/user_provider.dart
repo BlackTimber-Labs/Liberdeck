@@ -20,7 +20,7 @@ class UserProvider with ChangeNotifier {
     return _user;
   }
 
-  final userInstance = FirebaseAuth.instance.currentUser!;
+  final User userInstance = FirebaseAuth.instance.currentUser!;
 
   Future<void> addCourse(
     String course,
@@ -29,7 +29,7 @@ class UserProvider with ChangeNotifier {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(userInstance.uid)
-        .set({
+        .set(<String, dynamic>{
       'uid': userInstance.uid,
       'name': userInstance.displayName,
       'email':userInstance.email,
@@ -45,7 +45,7 @@ class UserProvider with ChangeNotifier {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(userInstance.uid)
-        .update({
+        .update(<String, Object?>{
       'department': department,
       'departmentID': departmentID,
     });
@@ -58,7 +58,7 @@ class UserProvider with ChangeNotifier {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(userInstance.uid)
-        .update({
+        .update(<String, Object?>{
       'semID': semID,
       'semester': semester,
     });

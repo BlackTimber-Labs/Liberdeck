@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Container(
+          SizedBox(
             height: height * 0.6,
             child: HeaderSection(),
           ),
