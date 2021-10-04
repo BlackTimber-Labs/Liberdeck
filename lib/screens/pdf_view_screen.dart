@@ -3,7 +3,9 @@ import 'package:flutter_cache_manager/file.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:pdf_render/pdf_render_widgets.dart';
 
+/// Root Widget of the Pdf View Screen
 class PdfViewScreen extends StatefulWidget {
+  /// Route name of the PDF View Screen
   static const String routename = '/pdf_view_screen';
 
   @override
@@ -11,7 +13,6 @@ class PdfViewScreen extends StatefulWidget {
 }
 
 class _PdfViewScreenState extends State<PdfViewScreen> {
-
   @override
   Widget build(BuildContext context) {
     final PdfViewScreenArguments args =
@@ -21,7 +22,7 @@ class _PdfViewScreenState extends State<PdfViewScreen> {
       appBar: AppBar(
         title: Text(args.name, style: Theme.of(context).textTheme.bodyText1),
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<File>(
         future: DefaultCacheManager().getSingleFile(
           args.url,
         ),
@@ -45,11 +46,17 @@ class _PdfViewScreenState extends State<PdfViewScreen> {
   }
 }
 
+/// Argument Class of the Pdf View Screen
 class PdfViewScreenArguments {
+  /// Constructor
   PdfViewScreenArguments({
     required this.name,
     required this.url,
   });
+
+  /// Url of the PDF
   String url;
+
+  /// Name of the PDF
   String name;
 }

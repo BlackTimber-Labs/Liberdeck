@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../model/user.dart';
 
+///User provider class containing all the required functions.
 class UserProvider with ChangeNotifier {
   final UserModel _user = UserModel(
     uid: 'uid',
@@ -16,12 +17,16 @@ class UserProvider with ChangeNotifier {
     departmentID: 'departmentID',
     semID: 0,
   );
+
+  /// Getter of the user
   UserModel get user {
     return _user;
   }
 
-  final userInstance = FirebaseAuth.instance.currentUser!;
+  /// User data of Login User
+  final User userInstance = FirebaseAuth.instance.currentUser!;
 
+  /// Function to add the course and courseID in the User Profile
   Future<void> addCourse(
     String course,
     String courseID,
@@ -29,15 +34,16 @@ class UserProvider with ChangeNotifier {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(userInstance.uid)
-        .set({
+        .set(<String, dynamic>{
       'uid': userInstance.uid,
       'name': userInstance.displayName,
-      'email':userInstance.email,
+      'email': userInstance.email,
       'course': course,
       'courseID': courseID,
     });
   }
 
+  /// Function to add the department and departmentID in the User Profile
   Future<void> addDepartment(
     String department,
     String departmentID,
@@ -45,12 +51,13 @@ class UserProvider with ChangeNotifier {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(userInstance.uid)
-        .update({
+        .update(<String, Object?>{
       'department': department,
       'departmentID': departmentID,
     });
   }
 
+  /// Function to add the semester and semesterID in the User Profile
   Future<void> addSemester(
     int semID,
     String semester,
@@ -58,12 +65,13 @@ class UserProvider with ChangeNotifier {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(userInstance.uid)
-        .update({
+        .update(<String, Object?>{
       'semID': semID,
       'semester': semester,
     });
   }
 
+  /// Function to Assign the User Data in the local user Instance.
   UserModel userData(
     String name,
     String uid,

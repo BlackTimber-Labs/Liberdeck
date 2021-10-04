@@ -8,6 +8,7 @@ import '../../provider/user_provider.dart';
 import 'account_tile.dart';
 import 'informatoin_tile.dart';
 
+/// Root Widget of the Profile Screen's Widget
 class ProfileInfo extends StatefulWidget {
   @override
   _ProfileInfoState createState() => _ProfileInfoState();

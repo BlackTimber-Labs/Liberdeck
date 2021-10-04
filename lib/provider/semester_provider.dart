@@ -31,9 +31,7 @@ class SemesterProvider with ChangeNotifier {
     final List<Semester> finalSemesterList = semesterList
         .where(
           (Semester element) =>
-              element.courseID
-                  .toLowerCase()
-                  .contains(courseID.toLowerCase()) &&
+              element.courseID.toLowerCase().contains(courseID.toLowerCase()) &&
               element.departmentID
                   .toLowerCase()
                   .contains(departmentID.toLowerCase()),

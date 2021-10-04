@@ -26,8 +26,13 @@ class SubMainView extends StatelessWidget {
   /// Width of the Screen in which this widget is used.
   final double width;
 
+  /// Course Id
   final String courseID;
+
+  /// Department Id
   final String departmentID;
+
+  /// Semester Id
   final int semID;
   @override
   Widget build(BuildContext context) {
@@ -55,7 +60,7 @@ class SubMainView extends StatelessWidget {
                       departmentID: departmentID,
                       semID: semID,
                       subID: subList[i].id,
-                      subName:subList[i].name,
+                      subName: subList[i].name,
                     ),
                   );
                 },

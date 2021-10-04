@@ -61,7 +61,7 @@ class _SubScreenState extends State<SubScreen> {
                       .collection('users')
                       .doc(userInstance.uid)
                       .get()
-                      .then((userData) {
+                      .then((DocumentSnapshot<Map<String, dynamic>> userData) {
                     provider.userData(
                       userData.get('name').toString(),
                       userData.get('uid').toString(),
@@ -76,7 +76,7 @@ class _SubScreenState extends State<SubScreen> {
                   }),
                   builder: (
                     BuildContext context,
-                    snapshot,
+                    AsyncSnapshot snapshot,
                   ) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(

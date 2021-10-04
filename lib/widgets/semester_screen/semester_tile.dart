@@ -5,16 +5,26 @@ import '../../provider/user_provider.dart';
 
 import '../../screens/bottom_navigation_screen.dart';
 
+/// Widget of the Semester Screen to Display the Name of the Semester.
 class SemesterTile extends StatelessWidget {
+  /// Constructor
   const SemesterTile({
     required this.sem,
     required this.departmentID,
     required this.semID,
     required this.ctx,
   });
+
+  /// Name of the Semester
   final String sem;
+
+  /// Semester ID
   final int semID;
+
+  /// Department ID
   final String departmentID;
+
+  /// Context of the Semester Screeen for User Provider
   final BuildContext ctx;
 
   @override

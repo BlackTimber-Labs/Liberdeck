@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import './bottom_navigation_screen.dart';
 import './login_screen.dart';
 
+/// Root Widget which will Redirect the User to different Screens
+/// according to its Login Status
 class UserStateScreen extends StatefulWidget {
-  ///
-  const UserStateScreen({Key? key}) : super(key: key);
-
   @override
   _UserStateScreenState createState() => _UserStateScreenState();
 }
@@ -15,10 +14,10 @@ class UserStateScreen extends StatefulWidget {
 class _UserStateScreenState extends State<UserStateScreen> {
   @override
   Widget build(BuildContext context) {
-    final userInstance = FirebaseAuth.instance;
+    final FirebaseAuth userInstance = FirebaseAuth.instance;
 
     return Scaffold(
-      body: StreamBuilder(
+      body: StreamBuilder<User?>(
         stream: userInstance.authStateChanges(),
         builder: (
           BuildContext context,

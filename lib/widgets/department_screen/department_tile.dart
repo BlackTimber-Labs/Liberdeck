@@ -5,16 +5,26 @@ import '../../provider/user_provider.dart';
 
 import '../../screens/semester_screen.dart';
 
+/// Widget of the Department Screen to Display the Name of the Department.
 class DepartmentTile extends StatelessWidget {
+  /// Constructor
   const DepartmentTile({
     required this.name,
-    required this.colour,
+    required this.color,
     required this.departmentID,
     required this.ctx,
   });
-  final Color colour;
+
+  /// BackgroundColor of the Widget.
+  final Color color;
+
+  /// Name of the Department.
   final String name;
+
+  /// DepartmentID for the adding it on the User Profile.
   final String departmentID;
+
+  /// Context of the Department Screen for the User Provider.
   final BuildContext ctx;
 
   @override
@@ -34,7 +44,7 @@ class DepartmentTile extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 27),
         height: 55,
         decoration: BoxDecoration(
-          color: colour,
+          color: color,
           borderRadius: BorderRadius.circular(7),
         ),
         child: Padding(

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../widgets/book_tile.dart';
 
+/// Root Widget of the Saved Book Screen
 class SavedBooksScreen extends StatefulWidget {
+  /// Routename of the Saved Book Screen
   static const String routename = '/saved_books_screen';
   @override
   _SavedBooksScreenState createState() => _SavedBooksScreenState();
@@ -20,7 +22,7 @@ class _SavedBooksScreenState extends State<SavedBooksScreen> {
     return Scaffold(
       body: SizedBox(
         height: height,
-        child: StreamBuilder(
+        child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
           stream: FirebaseFirestore.instance
               .collection('savedBooks')
               .doc(userID)
@@ -28,7 +30,7 @@ class _SavedBooksScreenState extends State<SavedBooksScreen> {
               .snapshots(),
           builder: (
             BuildContext context,
-            AsyncSnapshot<QuerySnapshot> booksSnapshot,
+            AsyncSnapshot<QuerySnapshot<Object?>> booksSnapshot,
           ) {
             if (booksSnapshot.connectionState == ConnectionState.waiting) {
               return const Center(
