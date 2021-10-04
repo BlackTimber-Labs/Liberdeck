@@ -11,12 +11,16 @@ class DevTile extends StatelessWidget {
     required this.gitUrl,
     required this.linkedInUrl,
   });
+
   /// Image of the Developer
   final String img;
+
   /// Name of the Developer
   final String name;
+
   /// URL to the GitHub Profile
   final String gitUrl;
+
   /// URL to the LinkedIn Profile
   final String linkedInUrl;
   @override

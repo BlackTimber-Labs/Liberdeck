@@ -25,7 +25,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   @override
   void initState() {
     tabs = <Map<String, Widget>>[
-      <String, Widget>{'page':  const SubScreen()},
+      <String, Widget>{'page': const SubScreen()},
       <String, Widget>{'page': SavedBooksScreen()},
       <String, Widget>{'page': ProfileScreen()},
       <String, Widget>{

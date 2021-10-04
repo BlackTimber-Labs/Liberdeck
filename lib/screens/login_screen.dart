@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 
 import '../provider/google_sign_in.dart';
 
+/// Root Widget of the Login Screen
 class LoginScreen extends StatelessWidget {
+  /// Routename of the Login Screen
   static const String routename = '/login_screen';
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
+/// Header Section Widget of the Login screen
 class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -70,6 +73,7 @@ class HeaderSection extends StatelessWidget {
   }
 }
 
+/// Input Button Widget
 class InputFields extends StatefulWidget {
   @override
   _InputFieldsState createState() => _InputFieldsState();
@@ -81,21 +85,10 @@ class _InputFieldsState extends State<InputFields> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       margin: const EdgeInsets.symmetric(vertical: 24.0),
-
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          // const Center(
-          //   child: Text(
-          //     'Login',
-          //     style: TextStyle(
-          //       fontWeight: FontWeight.bold,
-          //       fontSize: 40,
-          //     ),
-          //   ),
-          // ),
-          // const SizedBox(height: 130),
           ElevatedButton(
             onPressed: () {
               final GoogleSignInProvider provider =
@@ -129,38 +122,6 @@ class _InputFieldsState extends State<InputFields> {
               ],
             ),
           ),
-
-          // SizedBox(height: 60),
-          // ElevatedButton(
-          //   onPressed:(){},
-          //   style: ButtonStyle(
-          //     backgroundColor: MaterialStateProperty.all(Color(0xFFC4C4C4)),
-          //     foregroundColor: MaterialStateProperty.all(Colors.black),
-          //     fixedSize: MaterialStateProperty.all(Size(50,60)),
-          //     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(20))),
-          //     textStyle: MaterialStateProperty.all(TextStyle(
-          //         fontSize: 20.0)),
-          //   ),
-          //   child: Padding(
-          //     padding: EdgeInsets.only(left: 40),
-          //     child: Row(
-          //       children: [
-          //         Image.asset('assets/images/outlook.png', height: 50, width: 50,),
-          //         SizedBox(width: 15),
-          //         Text('Sign In With Outlook')
-          //       ],
-          //     ),
-          //   ),
-          // ),
-          // SizedBox(height: 195),
-          // Center(
-          //   child: Text('A SoftDodge Product',
-          //     style: TextStyle(
-          //         fontSize: 22.0
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

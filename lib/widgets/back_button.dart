@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// Back Button Widget for the different Screens.
+/// It will pop the Current Screen when Pressed.
 class BackButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

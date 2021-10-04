@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Header Widget Containing Text at the Center Bottom.
 class TextHeader extends StatelessWidget {
-  ///
+  /// Constructor
   const TextHeader({
     Key? key,
     required this.width,
@@ -53,8 +53,8 @@ class TextHeader extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: height*0.12,
-          left:width*0.05,
+          top: height * 0.12,
+          left: width * 0.05,
           child: Container(
             padding: EdgeInsets.all(width * 0.03),
             child: Column(
@@ -71,7 +71,7 @@ class TextHeader extends StatelessWidget {
                   height: height * 0.015,
                 ),
                 SizedBox(
-                  width:width*0.7,
+                  width: width * 0.7,
                   child: Text(
                     subTitle,
                     softWrap: true,

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../widgets/book_tile.dart';
 
+/// Root Widget of the Saved Book Screen
 class SavedBooksScreen extends StatefulWidget {
+  /// Routename of the Saved Book Screen
   static const String routename = '/saved_books_screen';
   @override
   _SavedBooksScreenState createState() => _SavedBooksScreenState();

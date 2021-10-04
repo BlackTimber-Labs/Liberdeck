@@ -8,7 +8,9 @@ import '../provider/department_provider.dart';
 
 import '../widgets/department_screen/department_tile.dart';
 
+/// Root Widget of the Department Screen
 class DepartmentScreen extends StatefulWidget {
+  /// Route name of the Department Screen
   static const String routename = '/department_screen';
 
   @override
@@ -65,11 +67,11 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                   ) {
                     return DepartmentTile(
                       name: departmentList[i].title,
-                      colour: i % 2 == 0
+                      color: i % 2 == 0
                           ? const Color(0xFFEE6830)
                           : const Color(0xFFC45628),
                       departmentID: departmentList[i].id,
-                       ctx: context,
+                      ctx: context,
                     );
                   },
                   itemCount: departmentList.length,
@@ -83,6 +85,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
   }
 }
 
+/// Top Circle Widget
 class Circle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

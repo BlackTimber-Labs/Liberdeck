@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
+/// Widget to Display Account Information of the User
 class AccountTile extends StatelessWidget {
+  /// Constructor
   const AccountTile({
     Key? key,
     required this.title,
     required this.leading,
   }) : super(key: key);
 
+  /// User Info
   final String title;
+
+  /// Info Category
   final String leading;
 
   @override

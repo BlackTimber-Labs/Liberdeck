@@ -8,8 +8,9 @@ import '../provider/semester_provider.dart';
 import '../widgets/back_button.dart';
 import '../widgets/semester_screen/semester_tile.dart' as sem_widget;
 
-
+/// Root Widget of the Semester Screen
 class SemesterScreen extends StatefulWidget {
+  /// Routename of the Semester Screen
   static const String routename = '/semester_screen';
   @override
   _SemesterScreenState createState() => _SemesterScreenState();
@@ -55,7 +56,7 @@ class _SemesterScreenState extends State<SemesterScreen> {
                   'btech',
                   departmentId.toString(),
                 );
-               return  semesterList.isEmpty
+                return semesterList.isEmpty
                     ? const Center(child: Text('Coming Soon '))
                     : ListView.builder(
                         itemBuilder: (
@@ -74,10 +75,9 @@ class _SemesterScreenState extends State<SemesterScreen> {
               },
             ),
           ),
-           BackButtonWidget(),
+          BackButtonWidget(),
         ],
       ),
     );
   }
 }
-

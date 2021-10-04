@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+/// User Info regarding the Course Widget
 class InformationTile extends StatelessWidget {
+  /// Constructor
   const InformationTile({
     Key? key,
     required this.title,
@@ -9,8 +11,13 @@ class InformationTile extends StatelessWidget {
     required this.onTap,
   }) : super(key: key);
 
+  /// User Info
   final String title;
+
+  /// Info Category
   final String leading;
+
+  /// Function to direct the User to the Screen to change their info.
   final Function onTap;
 
   @override

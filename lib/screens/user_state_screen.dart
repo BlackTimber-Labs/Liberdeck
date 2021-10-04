@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import './bottom_navigation_screen.dart';
 import './login_screen.dart';
 
+/// Root Widget which will Redirect the User to different Screens
+/// according to its Login Status
 class UserStateScreen extends StatefulWidget {
-  ///
-  const UserStateScreen({Key? key}) : super(key: key);
-
   @override
   _UserStateScreenState createState() => _UserStateScreenState();
 }
