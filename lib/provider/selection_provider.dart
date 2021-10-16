@@ -17,4 +17,7 @@ class OptionsProvider with ChangeNotifier{
         title: 'DSE'
     ),
   ];
+
+  List<Options> get optionList => _optionList;
+
 }
