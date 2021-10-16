@@ -41,7 +41,7 @@ class _SubScreenState extends State<SubScreen> {
               ),
             ),
             Container(
-              height: height * 0.62,
+              height: height * 0.60,
               width: width,
               padding: EdgeInsets.symmetric(
                 horizontal: width * 0.04,
