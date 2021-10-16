@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:liberdeck/provider/selection_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:liberdeck/widgets/selection_screen/selection.dart';
 import 'package:liberdeck/model/selection.dart';
+import 'package:liberdeck/widgets/selection_screen/selection.dart';
+
 
 class SelectionPage extends StatefulWidget {
 
@@ -30,9 +32,14 @@ class _SelectionPageState extends State<SelectionPage> {
                       BuildContext ctx,
                       int i,
                       ) {
-                    return Options();
+                    return OptionsTile(
+                      name: optionList[i].title.toString(),
+                      colour: i % 2 == 0
+                          ? const Color(0xFFEE6830)
+                          : const Color(0xFFC45628),
+                    );
                   },
-                  // itemCount: departments.departmentList.length,
+                  // itemCount: optionList.length,
                 );
               },
             ),

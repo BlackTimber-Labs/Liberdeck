@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:liberdeck/screens/selection_screen.dart';
 
-class Options extends StatefulWidget {
-  const Options({required this.name, required this.colour});
+class OptionsTile extends StatefulWidget {
+  const OptionsTile({required this.name, required this.colour});
   
   final Color colour;
   final String name;
 
   @override
-  _OptionsState createState() => _OptionsState();
+  _OptionsTileState createState() => _OptionsTileState();
 }
 
-class _OptionsState extends State<Options> {
+class _OptionsTileState extends State<OptionsTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
