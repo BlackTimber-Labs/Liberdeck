@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import './department_screen.dart';
 import './login_screen.dart';
 import './profile_screen.dart';
 import './saved_book_screen.dart';
+import './sub_screen.dart';
 
 import '../provider/google_sign_in.dart';
 
@@ -13,6 +13,7 @@ import '../provider/google_sign_in.dart';
 class BottomNavigationScreen extends StatefulWidget {
   /// Route name of the Bottom Navigation Screen
   static const String routename = '/bottom_navigation_screen';
+
   @override
   _BottomNavigationScreenState createState() => _BottomNavigationScreenState();
 }
@@ -24,7 +25,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   @override
   void initState() {
     tabs = <Map<String, Widget>>[
-      <String, Widget>{'page': DepartmentScreen()},
+      <String, Widget>{'page': const SubScreen()},
       <String, Widget>{'page': SavedBooksScreen()},
       <String, Widget>{'page': ProfileScreen()},
       <String, Widget>{

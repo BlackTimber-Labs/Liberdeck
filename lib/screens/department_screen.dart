@@ -2,11 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../model/department.dart';
+
 import '../provider/department_provider.dart';
 
-import '../widgets/department_screen/department.dart';
+import '../widgets/department_screen/department_tile.dart';
 
+/// Root Widget of the Department Screen
 class DepartmentScreen extends StatefulWidget {
+  /// Route name of the Department Screen
   static const String routename = '/department_screen';
 
   @override
@@ -18,6 +22,8 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final User user = FirebaseAuth.instance.currentUser!;
+    final String courseID =
+        ModalRoute.of(context)!.settings.arguments.toString();
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -52,20 +58,23 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                 DepartmentProvider departments,
                 Widget? child,
               ) {
+                final List<Department> departmentList =
+                    departments.findDepartment(courseID);
                 return ListView.builder(
                   itemBuilder: (
                     BuildContext ctx,
                     int i,
                   ) {
-                    return Department(
-                      name: departments.departmentList[i].title,
-                      colour: i % 2 == 0
+                    return DepartmentTile(
+                      name: departmentList[i].title,
+                      color: i % 2 == 0
                           ? const Color(0xFFEE6830)
                           : const Color(0xFFC45628),
-                      departmentID: departments.departmentList[i].id,
+                      departmentID: departmentList[i].id,
+                      ctx: context,
                     );
                   },
-                  itemCount: departments.departmentList.length,
+                  itemCount: departmentList.length,
                 );
               },
             ),
@@ -76,6 +85,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
   }
 }
 
+/// Top Circle Widget
 class Circle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

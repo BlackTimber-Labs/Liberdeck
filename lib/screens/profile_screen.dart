@@ -1,10 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/image_header.dart';
 import '../widgets/profile_screen/profile_info.dart';
+import 'about_screen.dart';
 
+/// Root Widget of the Profile View Screen
 class ProfileScreen extends StatefulWidget {
+  /// Route Name of the Profile View Screen
   static const String routename = '/profile_screen';
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -41,6 +43,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 ProfileInfo(),
+                Center(
+                  child: TextButton(
+                    child: const Text(
+                      'About developers',
+                      style:
+                          TextStyle(fontSize: 19.5, color: Color(0xFF000000)),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, AboutScreen.routename);
+                    },
+                  ),
+                ),
               ],
             ),
           ],

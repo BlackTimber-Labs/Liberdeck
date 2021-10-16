@@ -7,7 +7,7 @@ class Subject {
     required this.departmentID,
     required this.courseID,
     required this.id,
-    required this.name, 
+    required this.name,
   });
 
   /// Subject title (Ex=> MA2101)

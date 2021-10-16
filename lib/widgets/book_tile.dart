@@ -5,9 +5,12 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../provider/books_provider.dart';
 import '../provider/saved_book_provider.dart';
+
 import '../screens/pdf_view_screen.dart';
 
+/// Book Tile Widget for the Books View and Saved Book Screen
 class BookTile extends StatefulWidget {
+  /// Constructor
   const BookTile({
     required this.downloadUrl,
     required this.viewUrl,
@@ -23,15 +26,34 @@ class BookTile extends StatefulWidget {
   @override
   _BookTileState createState() => _BookTileState();
 
+  /// UserID to operate several function for the User's Profile.
   final String userID;
+
+  /// Book ID
   final String id;
+
+  /// Title of the Book
   final String title;
+
+  /// Author of the Book
   final String author;
+
+  /// Image Url of the Book
   final String imgUrl;
+
+  /// Book View Url of the Book
   final String viewUrl;
+
+  /// Book Download Url of the Book
   final String downloadUrl;
+
+  /// Save Status of the Book according to User Profile
   final bool saveStatus;
+
+  /// Height of the Screen in which the Widget is used
   final double height;
+
+  /// Width of the Screen in which the Widget is used
   final double width;
 }
 
@@ -55,7 +77,7 @@ class _BookTileState extends State<BookTile> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 height: height * 0.33,
                 width: width * 0.5,
                 child: CachedNetworkImage(
