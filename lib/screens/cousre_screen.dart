@@ -4,17 +4,17 @@ import '../widgets/course_screen/course_main_view.dart';
 import '../widgets/image_header.dart';
 
 /// Root Widget of the Subject's Chapters Screen
-class CourseScreen extends StatefulWidget {
+class CourseScreen extends StatelessWidget {
   ///
   const CourseScreen({Key? key}) : super(key: key);
 
   /// Route Name of the Screen
   static const String routename = '/course_screen';
-  @override
-  _CourseScreenState createState() => _CourseScreenState();
-}
+//   @override
+//   _CourseScreenState createState() => _CourseScreenState();
+// }
 
-class _CourseScreenState extends State<CourseScreen> {
+// class _CourseScreenState extends State<CourseScreen> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -38,7 +38,10 @@ class _CourseScreenState extends State<CourseScreen> {
               horizontal: width * 0.08,
             ),
             //color: Colors.amber,
-            child: CourseMainView(height: height, width: width),
+            child: CourseMainView(
+              height: height,
+              width: width,
+            ),
           ),
           SizedBox(
             height: height * 0.01,

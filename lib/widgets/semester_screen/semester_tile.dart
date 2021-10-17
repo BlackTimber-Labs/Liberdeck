@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liberdeck/screens/sub_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/user_provider.dart';
@@ -13,6 +14,7 @@ class SemesterTile extends StatelessWidget {
     required this.departmentID,
     required this.semID,
     required this.ctx,
+    required this.courseID,
   });
 
   /// Name of the Semester
@@ -24,12 +26,15 @@ class SemesterTile extends StatelessWidget {
   /// Department ID
   final String departmentID;
 
+  final String courseID;
+
   /// Context of the Semester Screeen for User Provider
   final BuildContext ctx;
 
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
+    final user = Provider.of<UserProvider>(ctx);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
@@ -37,16 +42,20 @@ class SemesterTile extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pushNamed(
               BottomNavigationScreen.routename,
-              // arguments: SubScreenArguments(
-              //   'btech',
-              //   departmentID,
-              //   semID,
-              // ),
+              arguments: SubScreenArguments(
+                courseID: courseID,
+                departmentID: departmentID,
+                semID: semID,
+              ),
             );
-            Provider.of<UserProvider>(ctx, listen: false).addSemester(
+            user.addSemester(
               semID,
               sem,
             );
+            // user.userData(
+            //   sem: sem,
+            //   semID: semID,
+            // );
           },
           child: Container(
             width: width * 0.6,

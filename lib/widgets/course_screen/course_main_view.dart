@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../model/course.dart';
 
@@ -27,8 +29,7 @@ class CourseMainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserProvider provider =
-        Provider.of<UserProvider>(context, listen: false);
+    final UserProvider provider = Provider.of<UserProvider>(context);
     final ScrollController _scrollController = ScrollController();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +39,7 @@ class CourseMainView extends StatelessWidget {
           child: Container(
             alignment: Alignment.topLeft,
             child: Text(
-              'Select Your Course',
+              'Select Your \n Course',
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
@@ -57,56 +58,135 @@ class CourseMainView extends StatelessWidget {
           ),
           child: SizedBox(
             height: height * 0.44,
-            child: Consumer<CourseProvider>(builder: (
-              BuildContext context,
-              CourseProvider courses,
-              Widget? child,
-            ) {
-              return ListView.builder(
-                controller: _scrollController,
-                itemBuilder: (
-                  BuildContext ctx,
-                  int i,
-                ) {
-                  final Cousre course = courses.courseList[i];
-                  return Material(
-                    elevation: 2,
-                    color: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushReplacementNamed(
-                            context, DepartmentScreen.routename,
-                            arguments: course.id);
-                        provider.addCourse(
-                          course.title,
-                          course.id,
-                        );
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(
-                          vertical: height * 0.007,
-                        ),
-                        height: height * 0.1,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Text(
-                            course.title,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.button,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ),
+            // child: Consumer<CourseProvider>(builder: (
+            //   BuildContext context,
+            //   CourseProvider courses,
+            //   Widget? child,
+            // ) {
+            // return ListView.builder(
+            //   controller: _scrollController,
+            //   itemBuilder: (
+            //     BuildContext ctx,
+            //     int i,
+            //   ) {
+            //     final Cousre course = courses.courseList[i];
+            //     return Material(
+            //       elevation: 2,
+            //       color: Colors.transparent,
+            //       shadowColor: Colors.transparent,
+            //       child: InkWell(
+            //         onTap: () {
+            //           Navigator.pushReplacementNamed(
+            //               context, DepartmentScreen.routename,
+            //               arguments: course.id,);
+            //           provider.addCourse(
+            //             course.title,
+            //             course.id,
+            //           );
+            //         },
+            //         child: Container(
+            //           margin: EdgeInsets.symmetric(
+            //             vertical: height * 0.007,
+            //           ),
+            //           height: height * 0.1,
+            //           decoration: BoxDecoration(
+            //             color: Colors.white,
+            //             borderRadius: BorderRadius.circular(10),
+            //           ),
+            //           child: Center(
+            //             child: Text(
+            //               course.title,
+            //               textAlign: TextAlign.center,
+            //               style: Theme.of(context).textTheme.button,
+            //               overflow: TextOverflow.ellipsis,
+            //             ),
+            //           ),
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   itemCount: courses.courseList.length,
+            // );
+            // }),
+            child: FutureBuilder<QuerySnapshot<Map<String, dynamic>>>(
+              future: FirebaseFirestore.instance.collection('courses').get(),
+              builder: (
+                BuildContext ctx,
+                snapshot,
+              ) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (!snapshot.hasData) {
+                  return const Center(
+                    child: Text(
+                      'An Error Occured',
                     ),
                   );
-                },
-                itemCount: courses.courseList.length,
-              );
-            }),
+                } else {
+                  final List<QueryDocumentSnapshot<Map<String, dynamic>>> list =
+                      snapshot.data!.docs;
+                  return ListView.builder(
+                    controller: _scrollController,
+                    itemBuilder: (
+                      BuildContext ctx,
+                      int i,
+                    ) {
+                      // final Cousre course = courses.courseList[i];
+                      final courseTitle = list[i]['title'].toString();
+                      final courseID = list[i]['id'].toString();
+                      return Material(
+                        elevation: 2,
+                        color: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              DepartmentScreen.routename,
+                              arguments: courseID,
+                            );
+                            provider.addCourse(
+                              courseTitle,
+                              courseID,
+                            );
+
+                            // addCourseData(
+                            //   courseTitle,
+                            //   courseID,
+                            // );
+                            // provider.userData(
+                            //   course: courseTitle,
+                            //   courseID: courseID,
+                            // );
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                              vertical: height * 0.007,
+                            ),
+                            height: height * 0.1,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: Text(
+                                courseTitle,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.button,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: list.length,
+                  );
+                }
+              },
+            ),
           ),
         ),
         Container(

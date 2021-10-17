@@ -58,11 +58,13 @@ class BookTile extends StatefulWidget {
 }
 
 class _BookTileState extends State<BookTile> {
+  bool saveStatus = false;
+
   @override
   Widget build(BuildContext context) {
     final double height = widget.height;
     final double width = widget.width;
-    final SavedBooksProvider provider =
+    final SavedBooksProvider savedBooksProvider =
         Provider.of<SavedBooksProvider>(context);
     final BooksProvider booksProvider = Provider.of<BooksProvider>(context);
 
@@ -125,8 +127,8 @@ class _BookTileState extends State<BookTile> {
                       ),
                       ElevatedButton.icon(
                         onPressed: () {
-                          if (widget.saveStatus) {
-                            provider.removeBook(
+                          if (saveStatus) {
+                            savedBooksProvider.removeBook(
                               widget.id,
                               widget.userID,
                             );
@@ -137,7 +139,7 @@ class _BookTileState extends State<BookTile> {
                               ),
                             );
                           } else {
-                            provider.addBook(
+                            savedBooksProvider.addBook(
                               widget.userID,
                               widget.id,
                               widget.title,
@@ -154,14 +156,19 @@ class _BookTileState extends State<BookTile> {
                             );
                           }
                           booksProvider.changeStatus(widget.id);
+                          setState(() {
+                            saveStatus = !saveStatus;
+                          });
                         },
-                        icon: !widget.saveStatus
+                        icon: !saveStatus
                             ? const Icon(Icons.bookmark_outline)
                             : const Icon(Icons.bookmark),
                         label: const SingleChildScrollView(
-                            child: Text(
-                          '     Save    ',
-                          style: TextStyle(fontSize: 20),
+                            child: Center(
+                          child: Text(
+                            'Save',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         )),
                         style: ButtonStyle(
                           foregroundColor: MaterialStateProperty.all(
@@ -184,9 +191,11 @@ class _BookTileState extends State<BookTile> {
                         },
                         icon: const Icon(Icons.visibility),
                         label: const SingleChildScrollView(
-                            child: Text(
-                          '     View    ',
-                          style: TextStyle(fontSize: 20),
+                            child: Center(
+                          child: Text(
+                            'View',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         )),
                         style: ButtonStyle(
                           foregroundColor: MaterialStateProperty.all(
@@ -203,9 +212,11 @@ class _BookTileState extends State<BookTile> {
                         },
                         icon: const Icon(Icons.download_for_offline),
                         label: const SingleChildScrollView(
-                          child: Text(
-                            'Download',
-                            style: TextStyle(fontSize: 19),
+                          child: Center(
+                            child: Text(
+                              'Download',
+                              style: TextStyle(fontSize: 19),
+                            ),
                           ),
                         ),
                         style: ButtonStyle(

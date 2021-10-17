@@ -13,6 +13,7 @@ class DepartmentTile extends StatelessWidget {
     required this.color,
     required this.departmentID,
     required this.ctx,
+    required this.courseID,
   });
 
   /// BackgroundColor of the Widget.
@@ -24,21 +25,31 @@ class DepartmentTile extends StatelessWidget {
   /// DepartmentID for the adding it on the User Profile.
   final String departmentID;
 
+  final String courseID;
+
   /// Context of the Department Screen for the User Provider.
   final BuildContext ctx;
 
   @override
   Widget build(BuildContext context) {
+    final UserProvider user = Provider.of<UserProvider>(ctx);
     return TextButton(
       onPressed: () {
         Navigator.of(context).pushNamed(
           SemesterScreen.routename,
-          arguments: departmentID,
+          arguments: SemesterScreenArgs(
+            departmentID: departmentID,
+            courseID: courseID,
+          ),
         );
-        Provider.of<UserProvider>(ctx, listen: false).addDepartment(
+        user.addDepartment(
           name,
           departmentID,
         );
+        // user.userData(
+        //   department: name,
+        //   departmentID: departmentID,
+        // );
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 27),
