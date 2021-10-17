@@ -4,9 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:liberdeck/model/selection.dart';
 import 'package:liberdeck/widgets/selection_screen/selection.dart';
 
-
 class SelectionPage extends StatefulWidget {
-
   @override
   _SelectionPageState createState() => _SelectionPageState();
 }
@@ -23,15 +21,17 @@ class _SelectionPageState extends State<SelectionPage> {
             height: height * 0.65,
             child: Consumer<OptionsProvider>(
               builder: (
-                  BuildContext context,
-                  OptionsProvider options,
-                  Widget? child,
-                  ) {
+                BuildContext context,
+                OptionsProvider options,
+                Widget? child,
+              ) {
+                final List<Options> optionList = options.optionList;
                 return ListView.builder(
                   itemBuilder: (
-                      BuildContext ctx,
-                      int i,
-                      ) {
+                    BuildContext ctx,
+                    int i,
+                  ) {
+                    
                     return OptionsTile(
                       name: optionList[i].title.toString(),
                       colour: i % 2 == 0
@@ -39,7 +39,7 @@ class _SelectionPageState extends State<SelectionPage> {
                           : const Color(0xFFC45628),
                     );
                   },
-                  // itemCount: optionList.length,
+                  itemCount:optionList.length,
                 );
               },
             ),

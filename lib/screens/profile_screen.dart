@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/image_header.dart';
 import '../widgets/profile_screen/profile_info.dart';
-import 'about_screen.dart';
+import 'about_dev_screen.dart';
 
 /// Root Widget of the Profile View Screen
 class ProfileScreen extends StatefulWidget {
@@ -51,7 +51,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           TextStyle(fontSize: 19.5, color: Color(0xFF000000)),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, AboutScreen.routename);
+                      Navigator.pushNamed(context, AboutDevScreen.routename);
                     },
                   ),
                 ),

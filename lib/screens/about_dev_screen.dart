@@ -4,14 +4,14 @@ import '../widgets/about_screen/dev_tile.dart';
 import '../widgets/text_header.dart';
 
 /// Root widget of the About Screen
-class AboutScreen extends StatefulWidget {
+class AboutDevScreen extends StatefulWidget {
   /// Route name of the About Screen
   static const String routename = '/about_screen';
   @override
-  _AboutScreenState createState() => _AboutScreenState();
+  _AboutDevScreenState createState() => _AboutDevScreenState();
 }
 
-class _AboutScreenState extends State<AboutScreen> {
+class _AboutDevScreenState extends State<AboutDevScreen> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;

@@ -12,9 +12,10 @@ import './provider/semester_provider.dart';
 import './provider/subject_provider.dart';
 import './provider/user_provider.dart';
 
-import './screens/about_screen.dart';
+import './screens/about_dev_screen.dart';
 import './screens/books_view_sceen.dart';
 import './screens/bottom_navigation_screen.dart';
+import './screens/course_selection_screen.dart';
 import './screens/cousre_screen.dart';
 import './screens/department_screen.dart';
 import './screens/login_screen.dart';
@@ -85,8 +86,7 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.orange,
         ),
-
-        home: const UserStateScreen(),
+        home: UserStateScreen(),
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
           CourseScreen.routename: (BuildContext ctx) => const CourseScreen(),
@@ -94,14 +94,16 @@ class MyApp extends StatelessWidget {
           SavedBooksScreen.routename: (BuildContext ctx) => SavedBooksScreen(),
           SemesterScreen.routename: (BuildContext ctx) => SemesterScreen(),
           DepartmentScreen.routename: (BuildContext ctx) => DepartmentScreen(),
-          AboutScreen.routename: (BuildContext ctx) => AboutScreen(),
+          AboutDevScreen.routename: (BuildContext ctx) => AboutDevScreen(),
           LoginScreen.routename: (BuildContext ctx) => LoginScreen(),
           ProfileScreen.routename: (BuildContext ctx) => ProfileScreen(),
           BottomNavigationScreen.routename: (BuildContext ctx) =>
               BottomNavigationScreen(),
           PdfViewScreen.routename: (BuildContext ctx) => PdfViewScreen(),
+          CourseSelectionScreen.routename: (BuildContext ctx) =>
+              const CourseSelectionScreen()
         },
-      ),  
+      ),
     );
   }
 }
