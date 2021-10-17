@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:liberdeck/api/local_data.dart';
+
 import 'package:liberdeck/provider/user_provider.dart';
 import 'package:liberdeck/widgets/back_button.dart';
 import 'package:provider/provider.dart';
