@@ -118,13 +118,7 @@ class CourseMainView extends StatelessWidget {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (!snapshot.hasData) {
-                  return const Center(
-                    child: Text(
-                      'An Error Occured',
-                    ),
-                  );
-                } else {
+                }  else if(snapshot.hasData){
                   final List<QueryDocumentSnapshot<Map<String, dynamic>>> list =
                       snapshot.data!.docs;
                   return ListView.builder(
@@ -183,6 +177,12 @@ class CourseMainView extends StatelessWidget {
                       );
                     },
                     itemCount: list.length,
+                  );
+                }else  {
+                  return const Center(
+                    child: Text(
+                      'An Error Occured',
+                    ),
                   );
                 }
               },

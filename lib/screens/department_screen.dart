@@ -41,8 +41,8 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    // final String courseID =
-    //     ModalRoute.of(context)!.settings.arguments.toString();
+    final String courseID =
+        ModalRoute.of(context)!.settings.arguments.toString();
     //final user = Provider.of<UserProvider>(context);
     return Scaffold(
       body: Column(
@@ -80,8 +80,8 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else {
-                  final courseID = snapshot.data!.getString('courseID');
+                } else if (snapshot.hasData) {
+                  
                   return SizedBox(
                     height: height * 0.65,
                     // child: Consumer<DepartmentProvider>(
@@ -151,6 +151,10 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                         }
                       },
                     ),
+                  );
+                } else {
+                  return const Center(
+                    child: Text('An Error Occured'),
                   );
                 }
               }),

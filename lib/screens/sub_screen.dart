@@ -120,30 +120,51 @@ class _SubScreenState extends State<SubScreen> {
               //         );
               //       }
               //     }),
-              child: StreamBuilder<SharedPreferences>(
-                  stream: SharedPreferences.getInstance().asStream(),
-                  builder: (
-                    context,
-                    snapshot,
-                  ) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else {
-                      final courseID = snapshot.data!.getString('courseID');
-                      final departmentID =
-                          snapshot.data!.getString('departmentID');
-                      final semID = snapshot.data!.getInt('semID');
-                      return SubMainView(
-                        height: height,
-                        width: width,
-                        courseID: courseID.toString(),
-                        departmentID: departmentID.toString(),
-                        semID: semID ?? 0,
-                      );
-                    }
-                  }),
+              child: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                future: FirebaseFirestore.instance
+                    .collection('users')
+                    .doc(FirebaseAuth.instance.currentUser!.uid)
+                    .get(),
+                builder: (
+                  context,
+                  snapshot,
+                ) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (snapshot.hasData) {
+                    // final courseID = snapshot.data!.getString('courseID');
+                    // final departmentID =
+                    //     snapshot.data!.getString('departmentID');
+                    // final semID = snapshot.data!.getInt('semID');
+                    final courseID = snapshot.data!.get('courseID');
+                    final departmentID = snapshot.data!.get('departmentID');
+                    final semID = int.parse(
+                      snapshot.data!.get('semID').toString(),
+                    );
+                    return SubMainView(
+                      height: height,
+                      width: width,
+                      courseID: courseID.toString(),
+                      departmentID: departmentID.toString(),
+                      semID: semID,
+                    );
+                  } else if(snapshot.hasError){
+                    return const Center(
+                      child: Text(
+                        'An Error Occured',
+                      ),
+                    );
+                  } else {
+                    return const Center(
+                      child: Text(
+                        'An Error Occured',
+                      ),
+                    );
+                  }
+                },
+              ),
             ),
             // BackButtonWidget(),
           ],
