@@ -20,18 +20,6 @@ class UserProvider with ChangeNotifier {
     semID: 0,
   );
 
-  
-
-  // void courseData(String course) async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   await prefs.setString('course', course);
-  // }
-
-  /// Getter of the user
-  // UserModel get user {
-  //   return _user;
-  // }
-
   /// User data of Login User
   final User userInstance = FirebaseAuth.instance.currentUser!;
 
@@ -58,15 +46,6 @@ class UserProvider with ChangeNotifier {
     print('${prefs.getString('courseID')}p');
     //LocalData.addCourse(course, courseID);
   }
-  // void addCourseData(
-  //   String course,
-  //   String courseID,
-  // ) async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   prefs.setString('course', course);
-  //   prefs.setString('courseID', courseID);
-  //   print('${prefs.getString('courseID')}');
-  // }
 
   /// Function to add the department and departmentID in the User Profile
   void addDepartment(
@@ -107,25 +86,4 @@ class UserProvider with ChangeNotifier {
     await prefs.setInt('semID', semID);
     print('${prefs.getInt('semID')}p');
   }
-
-  // /// Function to Assign the User Data in the local user Instance.
-  // UserModel userData({
-  //   String? course,
-  //   String? courseID,
-  //   String? department,
-  //   String? departmentID,
-  //   String? sem,
-  //   int? semID,
-  // }) {
-  //   user.name = userInstance.displayName.toString();
-  //   user.uid = userInstance.uid;
-  //   user.email = userInstance.email.toString();
-  //   user.course = course.toString();
-  //   user.courseID = courseID.toString();
-  //   user.department = department.toString();
-  //   user.departmentID = departmentID.toString();
-  //   user.sem = sem.toString();
-  //   user.semID = int.parse('$semID');
-  //   return user;
-  // }
 }

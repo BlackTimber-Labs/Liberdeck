@@ -46,10 +46,6 @@ class DepartmentTile extends StatelessWidget {
           name,
           departmentID,
         );
-        // user.userData(
-        //   department: name,
-        //   departmentID: departmentID,
-        // );
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 27),

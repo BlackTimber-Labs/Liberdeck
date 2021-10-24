@@ -1,11 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-import 'package:liberdeck/provider/user_provider.dart';
-import 'package:liberdeck/widgets/back_button.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../widgets/back_button.dart';
 import '../widgets/department_screen/department_tile.dart';
 
 /// Root Widget of the Department Screen
@@ -18,26 +15,6 @@ class DepartmentScreen extends StatefulWidget {
 }
 
 class _DepartmentScreenState extends State<DepartmentScreen> {
-  // String courseID = 'courseID';
-
-  // Future<SharedPreferences> Data() async {
-  //   return SharedPreferences.getInstance();
-
-  // }
-
-  // data() async => await Data().then((value) {
-  //     setState(() {
-  //       courseID = value.getString('courseID')??'courseID';
-  //     });
-  //     print(courseID);
-  //   });
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   //  data();
-  // }
-
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -81,35 +58,8 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                     child: CircularProgressIndicator(),
                   );
                 } else if (snapshot.hasData) {
-                  
                   return SizedBox(
                     height: height * 0.65,
-                    // child: Consumer<DepartmentProvider>(
-                    //   builder: (
-                    //     BuildContext context,
-                    //     DepartmentProvider departments,
-                    //     Widget? child,
-                    //   ) {
-                    //     final List<Department> departmentList =
-                    //         departments.findDepartment(courseID);
-                    // return ListView.builder(
-                    //   itemBuilder: (
-                    //     BuildContext ctx,
-                    //     int i,
-                    //   ) {
-                    //     return DepartmentTile(
-                    //       name: departmentList[i].title,
-                    //       color: i % 2 == 0
-                    //           ? const Color(0xFFEE6830)
-                    //           : const Color(0xFFC45628),
-                    //       departmentID: departmentList[i].id,
-                    //       ctx: context,
-                    //     );
-                    //   },
-                    //   itemCount: departmentList.length,
-                    // );
-                    //   },
-                    // ),
                     child: FutureBuilder<QuerySnapshot>(
                       future: FirebaseFirestore.instance
                           .collection('courses')

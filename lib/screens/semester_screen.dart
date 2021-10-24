@@ -1,12 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:liberdeck/provider/user_provider.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-// import '../model/semester.dart' as sem_model;
-
-// import '../provider/semester_provider.dart';
 
 import '../widgets/back_button.dart';
 import '../widgets/semester_screen/semester_tile.dart' as sem_widget;
@@ -20,29 +14,6 @@ class SemesterScreen extends StatefulWidget {
 }
 
 class _SemesterScreenState extends State<SemesterScreen> {
-  // String courseID = 'courseID';
-  // String departmentID = 'departmentID';
-
-  // Future<SharedPreferences> Data() async {
-  //   return SharedPreferences.getInstance();
-  // }
-
-  // Future<void> data() async {
-  //   await Data().then((value) {
-  //     setState(() {
-  //       courseID = value.getString('courseID') ?? 'courseID';
-  //       departmentID = value.getString('departmentID') ?? 'departmentID';
-  //     });
-  //     print(courseID);
-  //   });
-  // }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   data();
-  // }
-
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -76,34 +47,6 @@ class _SemesterScreenState extends State<SemesterScreen> {
           ),
           SizedBox(
             height: height * 0.7,
-            // child: Consumer<SemesterProvider>(
-            //   builder: (
-            //     BuildContext context,
-            //     SemesterProvider sem,
-            //     Widget? child,
-            //   ) {
-            //     final List<sem_model.Semester> semesterList = sem.findSemester(
-            //       'btech',
-            //       departmentId.toString(),
-            //     );
-            // return semesterList.isEmpty
-            //     ? const Center(child: Text('Coming Soon '))
-            //     : ListView.builder(
-            //         itemBuilder: (
-            //           BuildContext ctx,
-            //           int i,
-            //         ) {
-            //           return sem_widget.SemesterTile(
-            //             sem: semesterList[i].title,
-            //             departmentID: semesterList[i].departmentID,
-            //             semID: semesterList[i].id,
-            //             ctx: context,
-            //           );
-            //         },
-            //         itemCount: semesterList.length,
-            //       );
-            //   },
-            // ),
             child: StreamBuilder<SharedPreferences>(
                 stream: SharedPreferences.getInstance().asStream(),
                 builder: (context, snapshot) {

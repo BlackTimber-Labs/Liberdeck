@@ -1,12 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:liberdeck/provider/user_provider.dart';
-import 'package:provider/provider.dart';
-
-import '../../model/subject.dart';
-
-import '../../provider/subject_provider.dart';
 
 import '../../screens/books_view_sceen.dart';
 
@@ -44,14 +38,6 @@ class SubMainView extends StatefulWidget {
 class _SubMainViewState extends State<SubMainView> {
   @override
   Widget build(BuildContext context) {
-    // final SubjectProvider subProvider = Provider.of<SubjectProvider>(context);
-    // final List<Subject> subList = subProvider.findSubject(
-    //   courseID,
-    //   departmentID,
-    //   semID,
-    // );
-    //final user = Provider.of<UserProvider>(context);
-
     return FutureBuilder<QuerySnapshot>(
         future: FirebaseFirestore.instance
             .collection('courses')
@@ -81,7 +67,7 @@ class _SubMainViewState extends State<SubMainView> {
                       BuildContext context,
                       int i,
                     ) {
-                      final subName = list[i]['title'].toString();
+                      final subName = list[i]['name'].toString();
                       final subID = list[i]['id'].toString();
                       return Material(
                         color: Colors.transparent,
@@ -112,7 +98,7 @@ class _SubMainViewState extends State<SubMainView> {
                             ),
                             child: Center(
                               child: Text(
-                                subName,
+                                subID.toUpperCase(),
                                 softWrap: true,
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context).textTheme.button,

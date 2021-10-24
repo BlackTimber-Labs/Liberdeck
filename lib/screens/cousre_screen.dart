@@ -43,9 +43,7 @@ class CourseScreen extends StatelessWidget {
               width: width,
             ),
           ),
-          SizedBox(
-            height: height * 0.01,
-          ),
+          
         ],
       ),
     );
