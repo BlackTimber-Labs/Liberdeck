@@ -3,28 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../provider/books_provider.dart';
 import '../provider/saved_book_provider.dart';
 
 import '../screens/pdf_view_screen.dart';
 
 /// Book Tile Widget for the Books View and Saved Book Screen
-class BookTile extends StatefulWidget {
+class SavedBookTile extends StatefulWidget {
   /// Constructor
-  BookTile({
+  const SavedBookTile({
     required this.downloadUrl,
     required this.viewUrl,
     required this.id,
     required this.title,
     required this.author,
     required this.imgUrl,
-    this.saveStatus = false,
+    // required this.saveStatus,
     required this.height,
     required this.width,
     required this.userID,
   });
   @override
-  _BookTileState createState() => _BookTileState();
+  _SavedBookTileState createState() => _SavedBookTileState();
 
   /// UserID to operate several function for the User's Profile.
   final String userID;
@@ -48,7 +47,7 @@ class BookTile extends StatefulWidget {
   final String downloadUrl;
 
   /// Save Status of the Book according to User Profile
-  bool saveStatus;
+  // final bool saveStatus;
 
   /// Height of the Screen in which the Widget is used
   final double height;
@@ -57,15 +56,15 @@ class BookTile extends StatefulWidget {
   final double width;
 }
 
-class _BookTileState extends State<BookTile> {
+class _SavedBookTileState extends State<SavedBookTile> {
+  bool saveStatus = true;
+
   @override
   Widget build(BuildContext context) {
     final double height = widget.height;
     final double width = widget.width;
     final SavedBooksProvider savedBooksProvider =
         Provider.of<SavedBooksProvider>(context);
-    final BooksProvider booksProvider = Provider.of<BooksProvider>(context);
-
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: height * 0.02,
@@ -125,7 +124,7 @@ class _BookTileState extends State<BookTile> {
                       ),
                       ElevatedButton.icon(
                         onPressed: () {
-                          if (widget.saveStatus) {
+                          if (saveStatus) {
                             savedBooksProvider.removeBook(
                               widget.id,
                               widget.userID,
@@ -153,12 +152,8 @@ class _BookTileState extends State<BookTile> {
                               ),
                             );
                           }
-                          booksProvider.changeStatus(widget.id);
-                          setState(() {
-                            widget.saveStatus = !widget.saveStatus;
-                          });
                         },
-                        icon: !widget.saveStatus
+                        icon: !saveStatus
                             ? const Icon(Icons.bookmark_outline)
                             : const Icon(Icons.bookmark),
                         label: const SingleChildScrollView(
