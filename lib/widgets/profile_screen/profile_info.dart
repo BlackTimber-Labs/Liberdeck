@@ -1,13 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:liberdeck/screens/course_selection_screen.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../model/user.dart';
-
-import '../../provider/user_provider.dart';
+import '../../screens/semester_selection_screen.dart';
 
 import 'account_tile.dart';
 import 'informatoin_tile.dart';
@@ -43,10 +38,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData) {
-            final String? course = snapshot.data!.get('course').toString();
-            final String? department =
+            final String course = snapshot.data!.get('course').toString();
+            final String department =
                 snapshot.data!.get('department').toString();
-            final String? sem = snapshot.data!.get('semester').toString();
+            final String sem = snapshot.data!.get('semester').toString();
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -59,20 +54,23 @@ class _ProfileInfoState extends State<ProfileInfo> {
                 InformationTile(
                   leading: 'COURSE :',
                   onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(CourseSelectionScreen.routename);
+                    // Navigator.of(context)
+                    //     .pushNamed(CourseSelectionScreen.routename);
                   },
-                  title: course ?? 'Course',
+                  title: course,
                 ),
                 InformationTile(
                   leading: 'DEPARTMENT :',
                   onTap: () {},
-                  title: department ?? 'Department',
+                  title: department,
                 ),
                 InformationTile(
                   leading: 'SEMESTER :',
-                  onTap: () {},
-                  title: sem ?? 'Semester',
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(SemesterSelectionScreen.routename);
+                  },
+                  title: sem,
                 ),
                 const Divider(thickness: 1.0, color: Color(0xFF843622)),
                 const Text(
