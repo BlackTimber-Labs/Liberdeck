@@ -1,0 +1,12 @@
+    Semester(
+      title: 'Physics Cycle',
+      courseID: 'btech',
+      id: 1,
+      departmentID: 'fy',
+    ),
+    Semester(
+      title: 'Chemistry Cycle',
+      courseID: 'btech',
+      id: 2,
+      departmentID: 'fy',
+    ),

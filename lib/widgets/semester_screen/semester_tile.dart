@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:liberdeck/screens/sub_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/user_provider.dart';
 
 import '../../screens/bottom_navigation_screen.dart';
+import '../../screens/sub_screen.dart';
 
 /// Widget of the Semester Screen to Display the Name of the Semester.
 class SemesterTile extends StatelessWidget {
@@ -52,10 +52,6 @@ class SemesterTile extends StatelessWidget {
               semID,
               sem,
             );
-            // user.userData(
-            //   sem: sem,
-            //   semID: semID,
-            // );
           },
           child: Container(
             width: width * 0.6,

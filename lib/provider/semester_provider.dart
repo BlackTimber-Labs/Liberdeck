@@ -5,20 +5,7 @@ import '../model/semester.dart';
 /// Semester Provider contains the List of the semesters and
 /// all the functions require.
 class SemesterProvider with ChangeNotifier {
-  final List<Semester> _semesterList = <Semester>[
-    Semester(
-      title: 'Physics Cycle',
-      courseID: 'btech',
-      id: 1,
-      departmentID: 'fy',
-    ),
-    Semester(
-      title: 'Chemistry Cycle',
-      courseID: 'btech',
-      id: 2,
-      departmentID: 'fy',
-    ),
-  ];
+  final List<Semester> _semesterList = <Semester>[];
 
   /// Getter to make a copy of the List.
   List<Semester> get semesterList => _semesterList;

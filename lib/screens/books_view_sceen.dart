@@ -1,13 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import './bottom_navigation_screen.dart';
-
-import '../model/book.dart';
-
-import '../provider/books_provider.dart';
 
 import '../widgets/book_tile.dart';
 import '../widgets/text_header.dart';
@@ -49,40 +44,6 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
           ),
           SizedBox(
               height: height * 0.6,
-              // child: Consumer<BooksProvider>(
-              //   builder: (
-              //     BuildContext context,
-              //     BooksProvider booksList,
-              //     Widget? child,
-              //   ) {
-              //     final List<Book> books = booksList.findBook(
-              //       args.courseID,
-              //       args.departmentID,
-              //       args.semID,
-              //       args.subID,
-              //     );
-              // return ListView.builder(
-              //   itemBuilder: (
-              //     BuildContext ctx,
-              //     int i,
-              //   ) {
-              //     return BookTile(
-              //       userID: userID,
-              //       title: books[i].title,
-              //       author: books[i].author,
-              //       imgUrl: books[i].imgUrl,
-              //       saveStatus: books[i].saveStatus,
-              //       id: books[i].id,
-              //       downloadUrl: books[i].downloadUrl,
-              //       viewUrl: books[i].viewUrl,
-              //       height: height,
-              //       width: width,
-              //     );
-              //   },
-              //   itemCount: books.length,
-              // );
-              //   },
-              // ),
               child: FutureBuilder<QuerySnapshot<Map<String, dynamic>>>(
                 future: FirebaseFirestore.instance
                     .collection('courses')
@@ -119,9 +80,9 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
                               return BookTile(
                                 userID: userID,
                                 title: list[i]['title'].toString(),
+                                // saveStatus: false,
                                 author: list[i]['author'].toString(),
                                 imgUrl: list[i]['imgUrl'].toString(),
-                                saveStatus: false,
                                 id: list[i]['id'].toString(),
                                 downloadUrl: list[i]['downloadUrl'].toString(),
                                 viewUrl: list[i]['viewUrl'].toString(),

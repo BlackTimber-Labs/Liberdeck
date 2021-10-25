@@ -84,7 +84,7 @@ class _InputFieldsState extends State<InputFields> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      margin: const EdgeInsets.symmetric(vertical: 24.0),
+      margin: const EdgeInsets.only(bottom: 70.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
