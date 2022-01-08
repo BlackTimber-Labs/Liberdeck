@@ -64,7 +64,7 @@ class _BookTileState extends State<BookTile> {
     final double width = widget.width;
     final SavedBooksProvider savedBooksProvider =
         Provider.of<SavedBooksProvider>(context);
-    final BooksProvider booksProvider = Provider.of<BooksProvider>(context);
+    // final BooksProvider booksProvider = Provider.of<BooksProvider>(context);
 
     return Container(
       padding: EdgeInsets.symmetric(
@@ -153,7 +153,7 @@ class _BookTileState extends State<BookTile> {
                               ),
                             );
                           }
-                          booksProvider.changeStatus(widget.id);
+                          //booksProvider.changeStatus(widget.id);
                           setState(() {
                             widget.saveStatus = !widget.saveStatus;
                           });
