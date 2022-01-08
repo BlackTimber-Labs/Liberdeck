@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.orange,
         ),
-        home: CourseScreen(),
+        home: UserStateScreen(),
         routes: <String, WidgetBuilder>{
           SubScreen.routename: (BuildContext ctx) => const SubScreen(),
           CourseScreen.routename: (BuildContext ctx) => const CourseScreen(),
