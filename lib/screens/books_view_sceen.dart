@@ -57,15 +57,16 @@ class _BooksViewScreenState extends State<BooksViewScreen> {
                     .collection('books')
                     .get(),
                 builder: (
-                  ctx,
-                  snapshot,
+                  BuildContext ctx,
+                  AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot,
                 ) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
                   } else {
-                    final list = snapshot.data!.docs;
+                    final List<QueryDocumentSnapshot<Map<String, dynamic>>>
+                        list = snapshot.data!.docs;
                     return list.isEmpty
                         ? const Center(
                             child: Text(

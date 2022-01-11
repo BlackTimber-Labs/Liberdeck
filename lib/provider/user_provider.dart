@@ -40,7 +40,7 @@ class UserProvider with ChangeNotifier {
     });
     user.course = course;
     user.courseID = courseID;
-    final prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('course', course);
     await prefs.setString('courseID', courseID);
     print('${prefs.getString('courseID')}p');
@@ -61,7 +61,7 @@ class UserProvider with ChangeNotifier {
     });
     user.department = department;
     user.departmentID = departmentID;
-    final prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('department', department);
     await prefs.setString('departmentID', departmentID);
     print('${prefs.getString('departmentID')}p');
@@ -81,7 +81,7 @@ class UserProvider with ChangeNotifier {
     });
     user.sem = semester;
     user.semID = semID;
-    final prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('semester', semester);
     await prefs.setInt('semID', semID);
     print('${prefs.getInt('semID')}p');

@@ -31,7 +31,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
             .get(),
         builder: (
           BuildContext context,
-          snapshot,
+          AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> snapshot,
         ) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(

@@ -58,8 +58,9 @@ class _SubScreenState extends State<SubScreen> {
                     .doc(FirebaseAuth.instance.currentUser!.uid)
                     .get(),
                 builder: (
-                  context,
-                  snapshot,
+                  BuildContext context,
+                  AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>>
+                      snapshot,
                 ) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(
@@ -70,16 +71,18 @@ class _SubScreenState extends State<SubScreen> {
                     // final departmentID =
                     //     snapshot.data!.getString('departmentID');
                     // final semID = snapshot.data!.getInt('semID');
-                    final courseID = snapshot.data!.get('courseID');
-                    final departmentID = snapshot.data!.get('departmentID');
-                    final semID = int.parse(
+                    final String courseID =
+                        snapshot.data!.get('courseID').toString();
+                    final String departmentID =
+                        snapshot.data!.get('departmentID').toString();
+                    final int semID = int.parse(
                       snapshot.data!.get('semID').toString(),
                     );
                     return SubMainView(
                       height: height,
                       width: width,
-                      courseID: courseID.toString(),
-                      departmentID: departmentID.toString(),
+                      courseID: courseID,
+                      departmentID: departmentID,
                       semID: semID,
                     );
                   } else if (snapshot.hasError) {

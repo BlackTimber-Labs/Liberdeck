@@ -50,8 +50,8 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
           StreamBuilder<SharedPreferences>(
               stream: SharedPreferences.getInstance().asStream(),
               builder: (
-                context,
-                snapshot,
+                BuildContext context,
+                AsyncSnapshot<SharedPreferences> snapshot,
               ) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -60,7 +60,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                 } else if (snapshot.hasData) {
                   return SizedBox(
                     height: height * 0.65,
-                    child: FutureBuilder<QuerySnapshot>(
+                    child: FutureBuilder<QuerySnapshot<Object?>>(
                       future: FirebaseFirestore.instance
                           .collection('courses')
                           .doc(courseID)
@@ -68,7 +68,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                           .get(),
                       builder: (
                         BuildContext ctx,
-                        snapshot,
+                        AsyncSnapshot<QuerySnapshot<Object?>> snapshot,
                       ) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
@@ -76,16 +76,18 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                             child: CircularProgressIndicator(),
                           );
                         } else {
-                          final list = snapshot.data!.docs;
+                          final List<QueryDocumentSnapshot<Object?>> list =
+                              snapshot.data!.docs;
                           // print(user.user!.course);
                           return ListView.builder(
                             itemBuilder: (
                               BuildContext ctx,
                               int i,
                             ) {
-                              final departmentTitle =
+                              final String departmentTitle =
                                   list[i]['title'].toString();
-                              final departmentID = list[i]['id'].toString();
+                              final String departmentID =
+                                  list[i]['id'].toString();
                               return DepartmentTile(
                                 name: departmentTitle,
                                 color: i % 2 == 0

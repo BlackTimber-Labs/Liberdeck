@@ -51,7 +51,7 @@ class _OptionsTileState extends State<OptionsTile> {
               MaterialPageRoute<void>(
                 builder: (BuildContext context) => BottomNavigationScreen(),
               ),
-              (route) => false,
+              (Route<dynamic> route) => false,
             );
           },
           child: Container(
@@ -60,7 +60,7 @@ class _OptionsTileState extends State<OptionsTile> {
             margin: const EdgeInsets.only(top: 20, bottom: 20),
             //decoration: BoxDecoration(color: Colors.grey),
             child: Row(
-              children: [
+              children: <Widget>[
                 Icon(
                   Icons.check,
                   color: widget.colour,

@@ -20,8 +20,8 @@ class _SemesterSelectionScreenState extends State<SemesterSelectionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -29,7 +29,7 @@ class _SemesterSelectionScreenState extends State<SemesterSelectionScreen> {
           style: TextStyle(fontSize: 20),
         ),
       ),
-      body: Container(
+      body: SizedBox(
         height: height,
         width: width,
         child: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
@@ -38,8 +38,8 @@ class _SemesterSelectionScreenState extends State<SemesterSelectionScreen> {
               .doc(FirebaseAuth.instance.currentUser!.uid)
               .get(),
           builder: (
-            context,
-            snapshot,
+            BuildContext context,
+            AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> snapshot,
           ) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -59,7 +59,7 @@ class _SemesterSelectionScreenState extends State<SemesterSelectionScreen> {
                     .snapshots(),
                 builder: (
                   BuildContext context,
-                  snapshot,
+                  AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot,
                 ) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(

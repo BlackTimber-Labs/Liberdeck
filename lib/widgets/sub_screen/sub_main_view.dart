@@ -38,7 +38,7 @@ class SubMainView extends StatefulWidget {
 class _SubMainViewState extends State<SubMainView> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<QuerySnapshot>(
+    return FutureBuilder<QuerySnapshot<Object?>>(
         future: FirebaseFirestore.instance
             .collection('courses')
             .doc(widget.courseID)
@@ -49,15 +49,16 @@ class _SubMainViewState extends State<SubMainView> {
             .collection('subjects')
             .get(),
         builder: (
-          ctx,
-          snapshot,
+          BuildContext ctx,
+          AsyncSnapshot<QuerySnapshot<Object?>> snapshot,
         ) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           } else {
-            final list = snapshot.data!.docs;
+            final List<QueryDocumentSnapshot<Object?>> list =
+                snapshot.data!.docs;
             return list.isEmpty
                 ? const Center(child: Text('Coming Soon '))
                 : StaggeredGridView.countBuilder(
@@ -67,8 +68,8 @@ class _SubMainViewState extends State<SubMainView> {
                       BuildContext context,
                       int i,
                     ) {
-                      final subName = list[i]['name'].toString();
-                      final subID = list[i]['id'].toString();
+                      final String subName = list[i]['name'].toString();
+                      final String subID = list[i]['id'].toString();
                       return Material(
                         color: Colors.transparent,
                         shadowColor: Colors.transparent,
