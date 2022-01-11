@@ -26,6 +26,7 @@ class SemesterTile extends StatelessWidget {
   /// Department ID
   final String departmentID;
 
+  /// Course ID
   final String courseID;
 
   /// Context of the Semester Screeen for User Provider
@@ -34,7 +35,7 @@ class SemesterTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-    final user = Provider.of<UserProvider>(ctx);
+    final UserProvider user = Provider.of<UserProvider>(ctx);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[

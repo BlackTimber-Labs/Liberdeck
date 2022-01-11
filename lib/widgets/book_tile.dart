@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../provider/books_provider.dart';
+// import '../provider/books_provider.dart';
 import '../provider/saved_book_provider.dart';
 
 import '../screens/pdf_view_screen.dart';
@@ -64,7 +64,7 @@ class _BookTileState extends State<BookTile> {
     final double width = widget.width;
     final SavedBooksProvider savedBooksProvider =
         Provider.of<SavedBooksProvider>(context);
-    final BooksProvider booksProvider = Provider.of<BooksProvider>(context);
+    // final BooksProvider booksProvider = Provider.of<BooksProvider>(context);
 
     return Container(
       padding: EdgeInsets.symmetric(
@@ -153,7 +153,7 @@ class _BookTileState extends State<BookTile> {
                               ),
                             );
                           }
-                          booksProvider.changeStatus(widget.id);
+                          //booksProvider.changeStatus(widget.id);
                           setState(() {
                             widget.saveStatus = !widget.saveStatus;
                           });

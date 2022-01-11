@@ -61,7 +61,7 @@ class CourseMainView extends StatelessWidget {
               future: FirebaseFirestore.instance.collection('courses').get(),
               builder: (
                 BuildContext ctx,
-                snapshot,
+                AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot,
               ) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -77,8 +77,8 @@ class CourseMainView extends StatelessWidget {
                       int i,
                     ) {
                       // final Cousre course = courses.courseList[i];
-                      final courseTitle = list[i]['title'].toString();
-                      final courseID = list[i]['id'].toString();
+                      final String courseTitle = list[i]['title'].toString();
+                      final String courseID = list[i]['id'].toString();
                       return Material(
                         elevation: 2,
                         color: Colors.transparent,

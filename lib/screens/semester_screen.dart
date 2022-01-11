@@ -17,10 +17,10 @@ class _SemesterScreenState extends State<SemesterScreen> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final args =
+    final SemesterScreenArgs args =
         ModalRoute.of(context)!.settings.arguments as SemesterScreenArgs;
-    final departmentID = args.departmentID;
-    final courseID = args.courseID;
+    final String departmentID = args.departmentID;
+    final String courseID = args.courseID;
     //final user = Provider.of<UserProvider>(context);
     return Scaffold(
       body: Column(
@@ -49,7 +49,10 @@ class _SemesterScreenState extends State<SemesterScreen> {
             height: height * 0.7,
             child: StreamBuilder<SharedPreferences>(
                 stream: SharedPreferences.getInstance().asStream(),
-                builder: (context, snapshot) {
+                builder: (
+                  BuildContext context,
+                  AsyncSnapshot<SharedPreferences> snapshot,
+                ) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(
                       child: CircularProgressIndicator(),
@@ -58,7 +61,7 @@ class _SemesterScreenState extends State<SemesterScreen> {
                     // final courseID = snapshot.data!.getString('courseID');
                     // final departmentID =
                     //     snapshot.data!.getString('departmentID');
-                    return FutureBuilder<QuerySnapshot>(
+                    return FutureBuilder<QuerySnapshot<Object?>>(
                       future: FirebaseFirestore.instance
                           .collection('courses')
                           .doc(courseID)
@@ -67,8 +70,8 @@ class _SemesterScreenState extends State<SemesterScreen> {
                           .collection('semesters')
                           .get(),
                       builder: (
-                        ctx,
-                        snapshot,
+                        BuildContext ctx,
+                        AsyncSnapshot<QuerySnapshot<Object?>> snapshot,
                       ) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
@@ -76,7 +79,8 @@ class _SemesterScreenState extends State<SemesterScreen> {
                             child: CircularProgressIndicator(),
                           );
                         } else if (snapshot.hasData) {
-                          final list = snapshot.data!.docs;
+                          final List<QueryDocumentSnapshot<Object?>> list =
+                              snapshot.data!.docs;
                           print(departmentID);
                           return
                               // list.isEmpty
